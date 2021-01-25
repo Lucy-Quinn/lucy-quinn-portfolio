@@ -1,25 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
+import './Navbar.css';
 
 const Navbar = () => {
+    const [isActive, setActive] = useState(false);
+    const handleToggle = () => {
+        setActive(!isActive);
+    }
+
     return (
         <div>
             <nav className="navbar">
                 <div className="brand-title">
                     <p>LUCYQUINN DEVELOPER</p>
                 </div>
-                <a href="#" className="toggle-button">
+                <i class="far fa-moon"></i>
+                <a href="#" className="toggle-button" onClick={handleToggle}>
                     <span className="bar"></span>
                     <span className="bar"></span>
                     <span className="bar"></span>
                 </a>
-
                 <div className="navbar-links">
-                    <ul>
-                        <li><a className="first-three-links" href="#">About Lucy</a></li>
-                        <li><a className="first-three-links" href="#">Portfolio</a></li>
-                        <li><a className="first-three-links" href="#">Education</a></li>
-                        <li><a className="fourth-nav-link" href="#">Contact</a></li>
-                        <li><a className="fourth-nav-link" href="#">Resume</a></li>
+                    <ul className={isActive ? "active" : null}>
+                        <a href="#about">About Lucy</a>
+                        <a href="#portfolio">Portfolio</a>
+                        <a href="#education">Education</a>
+                        <a href="#contact">Contact</a>
+                        <a href="#">Resume</a>
                     </ul>
                 </div>
             </nav>
