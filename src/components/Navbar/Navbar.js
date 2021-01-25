@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -21,11 +23,11 @@ const Navbar = () => {
                 </a>
                 <div className="navbar-links">
                     <ul className={isActive ? "active" : null}>
-                        <a href="#about">About Lucy</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#education">Education</a>
-                        <a href="#contact">Contact</a>
-                        <a href="#">Resume</a>
+                        <Link to="about">About Lucy</Link>
+                        <Link to="portfolio">Portfolio</Link>
+                        <Link to="education">Education</Link>
+                        <Link to="contact">Contact</Link>
+                        <Link to="#">Resume</Link>
                     </ul>
                 </div>
             </nav>
