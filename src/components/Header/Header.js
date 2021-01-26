@@ -4,11 +4,11 @@ import Uk from './../../images/uk.png';
 const Header = () => {
     return (
         <header>
-            <div>
+            <div id="header">
                 <p>&lt;div&gt;</p>
                 <h3>I am Lucy.</h3>
                 <h1>A full stack web developer based in sunny Barcelona</h1>
-                <p>I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :)</p>
+                <p>I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</p>
             </div>
             <div>
                 <i class="fab fa-js-square"></i>

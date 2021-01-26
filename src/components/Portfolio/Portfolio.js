@@ -13,7 +13,7 @@ const Portfolio = () => {
         <img src={TravelGuru} alt="sample of the travel guru project" />
     ])
     return (
-        <div>
+        <div id="portfolio">
             <p>&lt;div&gt;</p>
             <h2>My Portfolio</h2>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit neque, nobis illum quibusdam in sit odit asperiores aliquam sed aut, placeat magni repellendus non, vero dolores. Enim nemo neque quidem.</p>
