@@ -1,6 +1,12 @@
 .App {
   text-align: center;
 }
+:root {
+  --light-purple: #655d7e;
+  --mid-purple: #493d6e;
+  --dark-grayish-orange: #5a5348;
+  --dark-grey: #818181;
+}
 a {
   text-decoration: none;
 }

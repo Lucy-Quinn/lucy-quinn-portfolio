@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="56px" height="56px" viewBox="0 0 56 56" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>3BE5EFF8-1DD9-4F73-952F-E64625B92BFD</title>
+    <defs>
+        <rect id="path-1" x="0" y="-5.32907052e-14" width="40" height="40" rx="20"></rect>
+        <filter x="-30.0%" y="-30.0%" width="160.0%" height="160.0%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.125546329 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="LQ-UI-V01" transform="translate(-260.000000, -10.000000)">
+            <g id="button-hamburger" transform="translate(268.000000, 18.000000)">
+                <g id="Rectangle">
+                    <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+                    <use fill="#4C4070" fill-rule="evenodd" xlink:href="#path-1"></use>
+                </g>
+                <line x1="15.5" y1="24.5" x2="25.5" y2="24.5" id="Line-2" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="13.5" y1="19.5" x2="27.5" y2="19.5" id="Line-2-Copy" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+                <line x1="15.5" y1="14.5" x2="25.5" y2="14.5" id="Line-2-Copy-2" stroke="#FFFFFF" stroke-linecap="round" stroke-linejoin="round"></line>
+            </g>
+        </g>
+    </g>
+</svg>

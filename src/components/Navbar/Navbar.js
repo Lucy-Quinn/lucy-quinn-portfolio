@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
+import ToggleButton from './../../images/button-hamburger.svg';
+import LightBulb from './../../images/button-light-bulb.svg';
+import Logo from './../../images/logo.svg';
+
 import './Navbar.css';
 
 const Navbar = () => {
@@ -10,18 +14,20 @@ const Navbar = () => {
     return (
         <div>
             <nav className="navbar">
-                <div className="brand-title">
-                    <p>LUCYQUINN DEVELOPER</p>
+                <div className="bulb-and-logo">
+                    <div>
+                        <img src={LightBulb} alt="icon of light bulb" />
+                    </div>
+                    <div className="brand-title">
+                        <img src={Logo} alt="logo icon" />
+                    </div>
                 </div>
-                <i className="far fa-moon"></i>
                 {isActive ?
                     (<a href="#" className="toggle-button cross-toggle" onClick={handleToggle}>
                         <i className="fas fa-times"></i>
                     </a>) :
                     (<a href="#" className="toggle-button" onClick={handleToggle}>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
-                        <span className="bar"></span>
+                        <img src={ToggleButton} alt="toggle button icon" />
                     </a>)
                 }
                 <div className="navbar-links">

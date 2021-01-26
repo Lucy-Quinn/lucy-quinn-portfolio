@@ -3,11 +3,7 @@
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
-  align-items: flex-start;
-}
-
-.brand-title {
-  margin-left: 15px;
+  align-items: center;
 }
 
 .navbar-links {
@@ -43,24 +39,23 @@
 }
 
 /*Hamburger icon*/
+
 .toggle-button {
   position: absolute;
-  top: 1.4rem;
-  right: 2rem;
+  top: 0.4rem;
+  right: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 30px;
-  height: 21px;
 }
 
-.toggle-button .bar {
-  height: 3px;
-  width: 100%;
-  background-color: hsl(270, 9%, 17%);
-  border-radius: 10px;
+.bulb-and-logo {
+  display: flex;
+  justify-content: space-between;
+  width: 234px;
+  align-items: center;
+  margin-right: 123px;
 }
-
 .cross-toggle {
   font-size: 1.7rem;
   top: 1.1rem;
