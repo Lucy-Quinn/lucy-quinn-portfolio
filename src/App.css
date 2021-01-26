@@ -5,7 +5,46 @@
   --light-mode-primary-color: #493d6e;
   --light-mode-div: #cec8ff;
   --light-mode-body-copy: #818181;
+  --dark-mode-primary-color: #181227;
+  --dark-mode-div: #9fcaff;
+  --dark-mode-body-copy: #c6c1cf;
 }
+body {
+  font-size: 10px;
+}
+h1,
+h2,
+h3 {
+  font-family: "Bitter", serif;
+}
+
+h1 {
+  font-size: 1.75rem; /*28px*/
+  line-height: 40px;
+}
+
+h2 {
+  font-size: 1.5rem; /*24px*/
+  line-height: 32px;
+}
+
+h3 {
+  font-size: 1rem; /*16px*/
+  line-height: 24px;
+}
+
+/* div syntax */
+h4 {
+  line-height: 24px;
+  font-size: 0.625rem; /*10px*/
+}
+
+p {
+  font-size: 0.75rem; /*12px*/
+  line-height: 24px;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 a {
   text-decoration: none;
 }
