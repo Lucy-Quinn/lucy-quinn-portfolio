@@ -2,10 +2,9 @@
   text-align: center;
 }
 :root {
-  --light-purple: #655d7e;
-  --mid-purple: #493d6e;
-  --dark-grayish-orange: #5a5348;
-  --dark-grey: #818181;
+  --light-mode-primary-color: #493d6e;
+  --light-mode-div: #cec8ff;
+  --light-mode-body-copy: #818181;
 }
 a {
   text-decoration: none;
