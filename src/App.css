@@ -11,6 +11,11 @@
 }
 body {
   font-size: 10px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
 }
 h1,
 h2,
