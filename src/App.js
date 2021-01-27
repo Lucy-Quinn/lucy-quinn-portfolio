@@ -8,16 +8,21 @@ import About from './components/About/About';
 import Portfolio from './components/Portfolio/Portfolio';
 import Education from './components/Education/Education';
 import Contact from './components/Contact/Contact';
+import ThemeContextProvider from './contexts/ThemeContext';
+
 
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Header />
-      <About />
-      <Portfolio />
-      <Education />
-      <Contact />
+      <ThemeContextProvider>
+        <Navbar />
+        <Header />
+        <About />
+        <Portfolio />
+        <Education />
+        <Contact />
+      </ThemeContextProvider>
+
     </div>
   );
 }
