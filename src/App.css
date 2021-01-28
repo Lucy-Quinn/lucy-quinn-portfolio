@@ -38,11 +38,16 @@ h3 {
   line-height: 24px;
 }
 
-/* div syntax */
 h4 {
+  line-height: 24px;
+  font-size: 0.875rem; /*14px*/
+}
+/* div syntax */
+h5 {
   line-height: 24px;
   font-size: 0.625rem; /*10px*/
 }
+/* div syntax */
 
 p {
   font-size: 0.75rem; /*12px*/

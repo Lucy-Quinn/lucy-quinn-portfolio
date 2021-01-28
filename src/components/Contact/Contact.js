@@ -42,8 +42,8 @@ const Contact = () => {
                 <h2>Contact Lucy</h2>
                 <h3>+44(0)7894 274 470</h3>
                 <h3>+34 634 328 672</h3>
-                <h4>Spanish permanent residency (TIE)</h4>
-                <h4>Follow me on socials and GitHub</h4>
+                <h5>Spanish permanent residency (TIE)</h5>
+                <h5>Follow me on socials and GitHub</h5>
             </div>
 
             <div>
@@ -71,7 +71,7 @@ const Contact = () => {
                     </a>
                 </ArrowBorder>
                 <a href="#header">
-                    <h4>Back to top</h4>
+                    <h5>Back to top</h5>
                 </a>
             </div>
         </div>

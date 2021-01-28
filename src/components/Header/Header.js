@@ -15,7 +15,7 @@ const Languages = styled.div`
   background: #fff;
   margin: 5px;
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
-  & > h4 {
+  & > h5 {
         font-weight: 300;
     }
 `
@@ -59,15 +59,15 @@ const Header = () => {
         <LanguageList theme={theme}>I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
       </div>
       <LanguageTabs>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>JavaScript</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>React</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>MongoDB</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>Mongoose</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>Express.js</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>Node.js</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>HTML5</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>CSS3</h4></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h4>Bootstrap</h4></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>JavaScript</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>React</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>MongoDB</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Mongoose</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Express.js</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Node.js</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>HTML5</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>CSS3</h5></Languages>
+        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Bootstrap</h5></Languages>
       </LanguageTabs>
       <a href="#about">
         <img src={ArrowDown} alt="" />
