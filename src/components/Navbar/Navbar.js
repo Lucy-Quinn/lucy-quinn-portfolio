@@ -2,7 +2,8 @@ import React, { useState, useContext } from 'react';
 import { HashLink as Link } from 'react-router-hash-link';
 import ToggleButtonOpen from './../../images/button-open.svg';
 import ToggleButtonClose from './../../images/button-close.svg';
-import Logo from './../../images/logo.svg';
+import LogoLight from './../../images/logo-light.svg';
+import LogoDark from './../../images/logo-dark.svg';
 import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import './Navbar.css';
@@ -16,7 +17,7 @@ const Navbar = () => {
     }
     return (
         <div>
-            <nav className="navbar">
+            <nav className="navbar" style={{ background: theme.gradientOne }}>
                 {isActive ?
                     (<a href="#" className="toggle-button cross-toggle" onClick={handleToggle}>
                         <img src={ToggleButtonClose} alt="toggle button close icon" />
@@ -24,9 +25,16 @@ const Navbar = () => {
                     (<div>
                         <div className="bulb-and-logo">
                             <ThemeToggle />
-                            <div className="brand-title">
-                                <img src={Logo} alt="logo icon" />
-                            </div>
+                            {isLightTheme ?
+                                <div className="brand-title">
+                                    <img src={LogoLight} alt="logo icon" />
+                                </div>
+                                :
+                                <div className="brand-title">
+                                    <img src={LogoDark} alt="logo icon" />
+                                </div>
+                            }
+
                         </div>
 
                         <a href="#" className="toggle-button" onClick={handleToggle}>
