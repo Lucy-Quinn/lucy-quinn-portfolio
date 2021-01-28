@@ -34,7 +34,7 @@ const Div = styled.p`
 const Heading = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
 `
-const Number = styled.h2`
+const ContactDetails = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
 `
 
@@ -79,11 +79,16 @@ const Contact = () => {
             <div>
                 <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
                 <Heading theme={theme}>Contact Lucy</Heading>
-                <Number theme={theme}>+44(0)7894 274 470</Number>
-                <Number theme={theme}>+34 634 328 672</Number>
+                <ContactDetails theme={theme}>+44(0)7894 274 470</ContactDetails>
+                <ContactDetails theme={theme}>+34 634 328 672</ContactDetails>
+                <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!"><ContactDetails theme={theme}>lucy.quinn.uk@gmail.com</ContactDetails></Mailto>
                 <Tie theme={theme}>Spanish permanent residency (TIE)</Tie>
                 <Socials theme={theme}>Follow me on socials and GitHub</Socials>
             </div>
+
+            {/* <Mailto email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!">
+                    <i class="fas fa-envelope"></i>
+                </Mailto> */}
 
             <div>
                 {isLightTheme ?
