@@ -4,7 +4,7 @@ const ThemeContextProvider = (props) => {
     const [isLightTheme, setLightTheme] = useState(true);
     const [themes, setThemes] = useState({
         light: { primaryColor: '#493d6e', div: '#cec8ff', bodyCopy: '#818181' },
-        dark: { primaryColor: '#181227', div: '#9fcaff', bodyCopy: '#c6c1cf' }
+        dark: { primaryColor: '#FFFFFF', div: '#9fcaff', bodyCopy: '#c6c1cf' }
     });
 
     const toggleTheme = () => {
