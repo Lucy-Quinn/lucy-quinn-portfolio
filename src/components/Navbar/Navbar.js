@@ -6,6 +6,7 @@ import LogoLight from './../../images/logo-light.svg';
 import LogoDark from './../../images/logo-dark.svg';
 import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import Resume from './../../images/cv.svg';
 import './Navbar.css';
 
 const Navbar = () => {
@@ -16,7 +17,7 @@ const Navbar = () => {
         setActive(!isActive);
     }
     return (
-        <div>
+        <div id="navbar">
             <nav className="navbar" style={{ background: theme.gradientOne }}>
                 {isActive ?
                     (<a href="#" className="toggle-button cross-toggle" onClick={handleToggle}>
@@ -36,31 +37,32 @@ const Navbar = () => {
                             }
 
                         </div>
-
                         <a href="#" className="toggle-button" onClick={handleToggle}>
                             <img src={ToggleButtonOpen} alt="toggle button open icon" />
                         </a>
                     </div>)
                 }
-                <div className="navbar-links">
+                <div style={{ background: isLightTheme ? 'white' : theme.languages, margin: 0 }} className="navbar-links">
                     <ul className={isActive ? "active" : null}>
                         <li>
                             <p style={{ color: theme.div }}>Menu</p>
                         </li>
                         <Link to="about">
-                            <h2 style={{ color: theme.primaryColor }}>About Lucy</h2>
+                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>About Lucy</h2>
                         </Link>
                         <Link to="portfolio">
-                            <h2 style={{ color: theme.primaryColor }}>Portfolio</h2>
+                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Portfolio</h2>
                         </Link>
                         <Link to="education">
-                            <h2 style={{ color: theme.primaryColor }}>Education</h2>
+                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Education</h2>
                         </Link>
                         <Link to="contact">
-                            <h2 style={{ color: theme.primaryColor }}>Contact</h2>
+                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Contact</h2>
                         </Link>
                         <Link to="#">
-                            <h2 style={{ color: theme.primaryColor }}>Resume</h2>
+                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>
+                                <img src={Resume} alt="icon to download resume" />
+                            </h2>
                         </Link>
                     </ul>
                 </div>
