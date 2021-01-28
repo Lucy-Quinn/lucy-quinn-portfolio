@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import './Contact.css';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ArrowUpLight from './../../images/button-arrow-up-light.svg';
-import ArrowUpDark from './../../images/button-arrow-down-dark.svg';
+import ArrowUpDark from './../../images/button-arrow-up-dark.svg';
 
 import SkypeLight from './../../images/skype-light.svg';
 import SkypeDark from './../../images/skype-dark.svg';

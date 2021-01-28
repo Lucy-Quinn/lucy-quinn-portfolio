@@ -1,7 +1,8 @@
 import React, { useContext } from 'react';
 import Uk from './../../images/uk.png';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import ArrowDown from './../../images/button-arrow-down.svg';
+import ArrowDownLight from './../../images/button-arrow-down-light.svg';
+import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
 import styled from 'styled-components';
 
 //Styled Components
@@ -69,8 +70,13 @@ const Header = () => {
         <Languages isLightTheme={isLightTheme} theme={theme}><h5>CSS3</h5></Languages>
         <Languages isLightTheme={isLightTheme} theme={theme}><h5>Bootstrap</h5></Languages>
       </LanguageTabs>
+
       <a href="#about">
-        <img src={ArrowDown} alt="" />
+        {isLightTheme ?
+          <img src={ArrowDownLight} alt="icon of arrow pointing down"></img>
+          :
+          <img src={ArrowDownDark} alt="icon of arrow pointing down"></img>
+        }
       </a>
     </header>
   );
