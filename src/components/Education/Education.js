@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
-
+import Resume from './../../images/cv.svg';
 
 //Styled components
 
@@ -18,15 +18,27 @@ const Heading = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
 `
 const Experience = styled.div`
+    border-top: 1px solid #E5E5E5;
+    padding: 10px;
+    border-bottom: ${(props) => (props.lastChild && '1px solid #E5E5E5')}
 
 `
 const School = styled.p`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
-
+  font-weight: 700;
 `
 
-const Qualification = styled.h4`
+const Qualification = styled.p`
   color: ${({ theme }) => theme.bodyCopy};
+`
+
+const CvHeading = styled.p`
+  color: ${({ theme }) => theme.bodyCopy};
+  margin: 15px 0 0 0;
+`
+
+const Cv = styled.img`
+    margin: 5px 0 40px 0;
 `
 
 
@@ -51,10 +63,12 @@ const Education = () => {
                 <Qualification theme={theme}>Web Development Module (JavaScript, HTML, CSS)</Qualification>
                 <Qualification theme={theme}>Erasmus Year (Oviedo, Spain): Sept 2010 - Jul 2011</Qualification>
             </Experience>
-            <Experience>
-                <School isLightTheme={isLightTheme} theme={theme}>Cardiff Metropolitan University: Sept 2006 - Jul 2007</School>
-                <Qualification theme={theme}>Art & Design Foundatio</Qualification>
+            <Experience lastChild >
+                <School isLightTheme={isLightTheme} theme={theme}>Cardiff Met University: Sept 2006 - Jul 2007</School>
+                <Qualification theme={theme}>Art & Design Foundation</Qualification>
             </Experience>
+            <CvHeading theme={theme}>Download my CV</CvHeading>
+            <Cv src={Resume} alt="icon to download resume"></Cv>
         </Container>
     );
 }
