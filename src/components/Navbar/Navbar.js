@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-import { HashLink as Link } from 'react-router-hash-link';
+// import { HashLink as Link } from 'react-router-hash-link';
 import ToggleButtonOpen from './../../images/button-open.svg';
 import ToggleButtonClose from './../../images/button-close.svg';
 import LogoLight from './../../images/logo-light.svg';
@@ -7,7 +7,88 @@ import LogoDark from './../../images/logo-dark.svg';
 import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Resume from './../../images/cv.svg';
+import styled from 'styled-components';
 import './Navbar.css';
+
+//Styled components
+
+const Nav = styled.nav`
+  background: ${({ theme }) => theme.gradientOne};
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  align-items: center;
+  @media (min-width: 1024px) {
+    flex-direction: row;
+  }
+`
+
+const NavLinks = styled.div`
+  width: 100%;
+  margin: 0;
+  background: ${({ isLightTheme, theme }) => isLightTheme ? '#fff' : theme.languages};
+  .active{ display: flex};
+  @media (min-width: 1024px) {
+    width: 100%;
+  }
+  @media (min-width: 1024px) {
+    background: ${({ theme }) => theme.gradientOne};
+  }
+`
+
+const NavLinkList = styled.ul`
+flex-direction: column;
+  padding: 0;
+  display: none;
+  @media (min-width: 1024px) {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 0;
+  }
+`
+
+const Link = styled.a`
+  display: block;
+  text-align: center;
+`
+
+const Menu = styled.li`
+ text-decoration: none;
+.navbar-links li {
+  list-style: none;
+}
+@media (min-width: 1024px) {
+    display: none;
+  }
+`
+const ToggleButton = styled.div`
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  top: ${(props) => (props.crossToggle ? '0.7rem' : '0.2rem')};
+  right: ${(props) => (props.crossToggle ? '0.7rem' : '0.2rem')};
+  @media (min-width: 1024px) {
+    display: none;
+  }
+`
+
+const BulbAndLogo = styled.div`
+display: flex;
+  justify-content: space-between;
+  width: 218px;
+  align-items: center;
+  margin: 5px 94px 0 0;
+`
+const BrandTitle = styled.div`
+ @media (min-width: 1024px) {
+    margin: 0 0 0 80px;
+  }
+`
+
 
 const Navbar = () => {
     const [isActive, setActive] = useState(false);
@@ -18,55 +99,54 @@ const Navbar = () => {
     }
     return (
         <div id="navbar">
-            <nav className="navbar" style={{ background: theme.gradientOne }}>
+            <Nav theme={theme}>
                 {isActive ?
-                    (<a href="#" className="toggle-button cross-toggle" onClick={handleToggle}>
+                    (<ToggleButton crossToggle onClick={handleToggle}>
                         <img src={ToggleButtonClose} alt="toggle button close icon" />
-                    </a>) :
+                    </ToggleButton>) :
                     (<div>
-                        <div className="bulb-and-logo">
+                        <BulbAndLogo>
                             <ThemeToggle />
                             {isLightTheme ?
-                                <div className="brand-title">
+                                <BrandTitle>
                                     <img src={LogoLight} alt="logo icon" />
-                                </div>
+                                </BrandTitle>
                                 :
-                                <div className="brand-title">
+                                <BrandTitle className="brand-title">
                                     <img src={LogoDark} alt="logo icon" />
-                                </div>
+                                </BrandTitle>
                             }
-
-                        </div>
-                        <a href="#" className="toggle-button" onClick={handleToggle}>
+                        </BulbAndLogo>
+                        <ToggleButton onClick={handleToggle}>
                             <img src={ToggleButtonOpen} alt="toggle button open icon" />
-                        </a>
+                        </ToggleButton>
                     </div>)
                 }
-                <div style={{ background: isLightTheme ? 'white' : theme.languages, margin: 0 }} className="navbar-links">
-                    <ul className={isActive ? "active" : null}>
-                        <li>
+                <NavLinks theme={theme} isLightTheme={isLightTheme} className="navbar-links">
+                    <NavLinkList className={isActive ? "active" : null}>
+                        <Menu>
                             <p style={{ color: theme.div }}>Menu</p>
-                        </li>
-                        <Link to="about">
+                        </Menu>
+                        <Link href="#about">
                             <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>About Lucy</h2>
                         </Link>
-                        <Link to="portfolio">
+                        <Link href="#portfolio">
                             <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Portfolio</h2>
                         </Link>
-                        <Link to="education">
+                        <Link href="#education">
                             <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Education</h2>
                         </Link>
-                        <Link to="contact">
+                        <Link href="#contact">
                             <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Contact</h2>
                         </Link>
-                        <Link to="#">
+                        <Link href="#">
                             <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>
                                 <img src={Resume} alt="icon to download resume" />
                             </h2>
                         </Link>
-                    </ul>
-                </div>
-            </nav>
+                    </NavLinkList>
+                </NavLinks>
+            </Nav>
         </div>
     );
 }

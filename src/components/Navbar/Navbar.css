@@ -1,84 +1,83 @@
-.navbar {
+/* .navbar {
   display: flex;
   justify-content: space-around;
   align-items: center;
   flex-direction: column;
   align-items: center;
-  /* padding: 5px; */
-}
+} */
 
-.navbar-links {
+/* .navbar-links {
   width: 100%;
-}
+} */
 
-.navbar-links .active {
+/* .navbar-links .active {
   display: flex;
-}
+} */
 
-.navbar-links ul {
+/* .navbar-links ul {
   flex-direction: column;
   padding: 0;
   display: none;
-}
-
+} */
+/* 
 .navbar-links a {
   text-decoration: none;
   display: block;
   text-align: center;
-}
+} */
 
-.navbar-links li {
+/* .navbar-links li {
   list-style: none;
-}
+} */
 
-/*dark mode*/
-.fa-moon {
+/* dark mode */
+/* .fa-moon {
   position: absolute;
   top: 1.5rem;
   right: 4.6rem;
-}
+} */
 
 /*Hamburger icon*/
 
-.toggle-button {
+/* .toggle-button {
   position: absolute;
   top: 0.2rem;
   right: 0.2rem;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-}
+} */
 
-.bulb-and-logo {
+/* .bulb-and-logo {
   display: flex;
   justify-content: space-between;
   width: 218px;
   align-items: center;
-  margin-right: 94px;
-}
-.cross-toggle {
+  margin: 5px 94px 0 0;
+} */
+/* .cross-toggle {
   top: 0.7rem;
   right: 0.7rem;
-}
+} */
 
 @media (min-width: 1024px) {
-  .toggle-button {
+  /* .toggle-button {
     display: none;
-  }
-  .navbar {
+  } */
+  /* .navbar {
     flex-direction: row;
-  }
-  .navbar-links {
+  } */
+  /* .navbar-links {
     width: 100%;
-  }
-  .brand-title {
+  } */
+  /* .brand-title {
     margin: 0 0 0 80px;
-  }
-  .navbar-links ul {
+  } */
+  /* .navbar-links ul {
     display: flex;
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
     padding: 0;
-  }
+  } */
 }
