@@ -47,13 +47,13 @@ const Socials = styled.p`
   margin: 50px 0 0 0;
 `
 
-const Top = styled.p`
-  color: ${({ theme }) => theme.primaryColor};
+const Top = styled.a`
   margin: 0 0 75px 0;
   font-weight: 300;
   & > h4 {
         font-weight: 300;
         margin: 5px 0 0 0;
+        color: ${({ theme }) => theme.primaryColor};
     }
 `
 
@@ -119,14 +119,14 @@ const Contact = () => {
 
             </div>
             <div>
-                <a href="#header">
+                <a href="#navbar">
                     {isLightTheme ?
                         <ArrowUp src={ArrowUpLight} alt="a> of arrow pointing up"></ArrowUp>
                         :
                         <ArrowUp src={ArrowUpDark} alt="a> of arrow pointing up"></ArrowUp>
                     }
                 </a>
-                <Top theme={theme} href="#header">
+                <Top theme={theme} href="#navbar">
                     <h4>Back to top</h4>
                 </Top>
             </div>
