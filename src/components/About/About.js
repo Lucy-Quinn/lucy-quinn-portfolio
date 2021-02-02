@@ -7,13 +7,13 @@ import styled from 'styled-components';
 //Styled components
 
 const Container = styled.div`
-    padding: 5px;
+  padding: 5px;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
 
 `
 
 const Image = styled.img`
-height: 200px;
+  height: 200px;
   width: auto;
   border-radius: 50%;
 `
@@ -30,21 +30,21 @@ const Heading = styled.h2`
 
 const Description = styled.p`
   color: ${({ theme }) => theme.bodyCopy};
-  margin-bottom: 100px;
+  margin-bottom: 30px;
 `
 
 
 const About = () => {
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
-    return (
-        <Container isLightTheme={isLightTheme} theme={theme} id="about">
-            <Image className="lucy" src={Lucy} alt="portrait of Lucy" ></Image>
-            <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
-            <Heading theme={theme}>About Lucy</Heading>
-            <Description theme={theme}>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut explicabo quasi consequuntur, eos recusandae magnam, temporibus itaque illum quo quibusdam fugit nobis quos animi, ut dolorem perspiciatis suscipit aliquid atque?</Description>
-        </Container>
-    );
+  const { isLightTheme, themes } = useContext(ThemeContext);
+  const theme = isLightTheme ? themes.light : themes.dark;
+  return (
+    <Container isLightTheme={isLightTheme} theme={theme} id="about">
+      <Image className="lucy" src={Lucy} alt="portrait of Lucy" ></Image>
+      <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
+      <Heading theme={theme}>About Lucy</Heading>
+      <Description theme={theme}>I am a web developer from Bristol in England, I have spent much time travelling abroad and have lived in Italy. I am an enthusiastic linguist, who is always learning and forever making lists. I love creating and making projects and seeing them to the end. My attention to detail is “spot on”! </Description>
+    </Container>
+  );
 }
 
 export default About;
