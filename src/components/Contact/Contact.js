@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
-import './Contact.css';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ArrowUpLight from './../../images/button-arrow-up-light.svg';
 import ArrowUpDark from './../../images/button-arrow-up-dark.svg';
@@ -33,9 +32,12 @@ const Div = styled.p`
 
 const Heading = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
+  margin: 8px 0 25px 0;
 `
 const ContactDetails = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
+  margin: 10px 0 0 0;
+  font-weight: 300;
 `
 
 const Tie = styled.p`
