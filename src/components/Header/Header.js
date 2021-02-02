@@ -46,6 +46,10 @@ const LanguageList = styled.p`
 const Header = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
+
+  const languagesArray = [
+    'JavaScript', 'React', 'MongoDB', 'Mongoose', 'Express.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap'
+  ]
   return (
     <header style={{
       padding: '10px',
@@ -60,17 +64,12 @@ const Header = () => {
         <LanguageList theme={theme}>I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
       </div>
       <LanguageTabs>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>JavaScript</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>React</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>MongoDB</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Mongoose</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Express.js</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Node.js</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>HTML5</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>CSS3</h5></Languages>
-        <Languages isLightTheme={isLightTheme} theme={theme}><h5>Bootstrap</h5></Languages>
+        {languagesArray.map((language) => {
+          return <Languages isLightTheme={isLightTheme} theme={theme}>
+            <h5>{language}</h5>
+          </Languages>
+        })}
       </LanguageTabs>
-
       <a href="#about">
         {isLightTheme ?
           <img src={ArrowDownLight} alt="icon of arrow pointing down"></img>
