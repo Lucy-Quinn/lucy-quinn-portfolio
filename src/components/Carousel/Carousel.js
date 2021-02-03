@@ -1,11 +1,7 @@
-import React, { useContext, useState } from 'react';
-import { ThemeContext } from '../../contexts/ThemeContext';
-import styled from 'styled-components';
+import React from 'react';
 import VideoStore from './../../images/the-video-store.png';
 import SimpleSteps from './../../images/simple-steps.png';
 import TravelGuru from './../../images/travel-guru.png';
-
-import Slick from "react-slick";
 import CarouselContainer from './../CarouselContainer/CarouselContainer'
 
 const projects = [
@@ -38,8 +34,6 @@ const projects = [
         languages: 'ReactJS | MongoDB | Mongoose | Express | CSS3 | HTML5 | Postman | Heroku'
     },
 ]
-
-
 
 const Carousel = () => {
     return (

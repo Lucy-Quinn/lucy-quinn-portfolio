@@ -6,9 +6,9 @@ import Carousel from './../Carousel/Carousel';
 //Styled components
 
 const Container = styled.div`
-    padding: 5px;
+    padding: 5px 0 95px 0;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
-  padding-bottom: 50px;
+  /* padding-bottom: 50px; */
 `
 
 const Div = styled.p`
