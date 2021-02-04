@@ -1,12 +1,13 @@
 import React, { useState, useContext } from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
 import ToggleButtonOpen from './../../images/button-open.svg';
-import ToggleButtonClose from './../../images/button-close.svg';
+import ToggleButtonCloseLight from './../../images/button-close-light.svg';
+import ToggleButtonCloseDark from './../../images/button-close-dark.svg';
 import LogoLight from './../../images/logo-light.svg';
 import LogoDark from './../../images/logo-dark.svg';
 import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import Resume from './../../images/cv.svg';
+import Resume from './../../images/open-cv.svg';
 import styled from 'styled-components';
 
 //Styled components
@@ -23,7 +24,7 @@ const Nav = styled.nav`
   }
 `
 
-const NavContainer = styled.div`
+const NavigationLinks = styled.div`
   width: 100%;
   margin: 0;
   background: ${({ isLightTheme, theme }) => isLightTheme ? '#fff' : theme.languages};
@@ -32,7 +33,7 @@ const NavContainer = styled.div`
     width: 100%;
     background: ${({ theme }) => theme.gradientOne};
   }
- 
+  border-radius: 0 0 50% 50%  / 70px;
 `
 
 const NavLinkList = styled.ul`
@@ -54,13 +55,19 @@ const Link = styled.a`
   & > h2 {
     color: ${({ theme }) => theme.primaryColor};
      font-weight: 300;
+     margin: 24px 0 0 0;
   }
+  margin-bottom: ${props => props.contactLink && '36px'};
+  margin-bottom: ${props => props.resumeLink && '36px'};
 `
 
 const Menu = styled.li`
  text-decoration: none;
 .navbar-links li {
   list-style: none;
+}
+& > p{
+  margin: 16px 0 0 0;
 }
 @media (min-width: 1024px) {
     display: none;
@@ -78,14 +85,14 @@ const ToggleButton = styled.div`
   }
 `
 
-const BulbAndLogo = styled.div`
+const ThemeToggleAndLogo = styled.div`
 display: flex;
   justify-content: space-between;
   width: 218px;
   align-items: center;
   margin: 5px 94px 0 0;
 `
-const BrandTitle = styled.div`
+const Logo = styled.div`
  @media (min-width: 1024px) {
     margin: 0 0 0 80px;
   }
@@ -103,28 +110,39 @@ const Navbar = () => {
     <div id="navbar">
       <Nav theme={theme}>
         {isActive ?
-          (<ToggleButton crossToggle onClick={handleToggle}>
-            <img src={ToggleButtonClose} alt="toggle button close icon" />
-          </ToggleButton>) :
+          //If isActive is true show close toggle button
+          <div>
+            {isLightTheme ?
+              (<ToggleButton crossToggle onClick={handleToggle}>
+                <img src={ToggleButtonCloseLight} alt="toggle button close icon" />
+              </ToggleButton>)
+              :
+              (<ToggleButton crossToggle onClick={handleToggle}>
+                <img src={ToggleButtonCloseDark} alt="toggle button close icon" />
+              </ToggleButton>)
+            }
+          </div>
+          :
+          //If isActive is false show open toggle button, themetoggle button and logo
           (<div>
-            <BulbAndLogo>
+            <ThemeToggleAndLogo>
               <ThemeToggle />
               {isLightTheme ?
-                <BrandTitle>
+                <Logo>
                   <img src={LogoLight} alt="logo icon" />
-                </BrandTitle>
+                </Logo>
                 :
-                <BrandTitle className="brand-title">
+                <Logo>
                   <img src={LogoDark} alt="logo icon" />
-                </BrandTitle>
+                </Logo>
               }
-            </BulbAndLogo>
+            </ThemeToggleAndLogo>
             <ToggleButton onClick={handleToggle}>
               <img src={ToggleButtonOpen} alt="toggle button open icon" />
             </ToggleButton>
           </div>)
         }
-        <NavContainer theme={theme} isLightTheme={isLightTheme} className="navbar-links">
+        <NavigationLinks theme={theme} isLightTheme={isLightTheme} className="navbar-links">
           <NavLinkList className={isActive ? "active" : null}>
             <Menu>
               <p style={{ color: theme.div }}>Menu</p>
@@ -138,16 +156,16 @@ const Navbar = () => {
             <Link theme={theme} href="#education">
               <h2>Education</h2>
             </Link>
-            <Link theme={theme} href="#contact">
+            <Link contactLink theme={theme} href="#contact">
               <h2>Contact</h2>
             </Link>
-            <Link theme={theme} href="#">
-              <h2>
+            <Link resumeLink theme={theme} href="#">
+              <a rel="noopener noreferrer" target="_blank" href="https://media-exp1.licdn.com/dms/document/C4D2DAQFF6ezP_Xi_Nw/profile-treasury-document-pdf-analyzed/0/1612445751485?e=1612548000&v=beta&t=UFtPHO9umyR5oPlzb_wL0dSUCQ7ChTeQr_N_5H-kGTU">
                 <img src={Resume} alt="icon to open resume" />
-              </h2>
+              </a>
             </Link>
           </NavLinkList>
-        </NavContainer>
+        </NavigationLinks>
       </Nav>
     </div>
   );
