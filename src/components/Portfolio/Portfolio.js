@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
 import Carousel from './../Carousel/Carousel';
@@ -6,7 +6,7 @@ import Carousel from './../Carousel/Carousel';
 //Styled components
 
 const Container = styled.div`
-    padding: 5px 0 95px 0;
+    padding: 5px 12px 95px 12px;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
   /* padding-bottom: 50px; */
 `

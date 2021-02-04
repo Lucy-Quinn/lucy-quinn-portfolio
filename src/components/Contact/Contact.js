@@ -16,6 +16,10 @@ import GithubDark from './../../images/github-dark.svg';
 
 //Styled components
 
+const ContactContainer = styled.div`
+    padding: 12px;
+`
+
 const Icons = styled.div`
     display: flex;
     justify-content: space-around;
@@ -72,7 +76,7 @@ const Contact = () => {
     };
 
     return (
-        <div style={{
+        <ContactContainer style={{
             padding: '10px',
             background: `linear-gradient(
                   180deg
@@ -96,14 +100,14 @@ const Contact = () => {
                 {isLightTheme ?
                     (
                         <Icons>
-                            <a target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={LinkedinLight} alt="a> of linkedin" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                <img src={LinkedinLight} alt="icon of linkedin" />
                             </a>
-                            <a target="_blank" href="https://github.com/Lucy-Quinn">
-                                <img src={GithubLight} alt="a> of github" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
+                                <img src={GithubLight} alt="icon of github" />
                             </a>
-                            <a target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={SkypeLight} alt="a> of skype" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                <img src={SkypeLight} alt="icon of skype" />
 
                             </a>
                         </Icons>
@@ -111,14 +115,14 @@ const Contact = () => {
                     (
                         <Icons>
 
-                            <a target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={LinkedinDark} alt="a> of linkedin" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                <img src={LinkedinDark} alt="icon of linkedin" />
                             </a>
-                            <a target="_blank" href="https://github.com/Lucy-Quinn">
-                                <img src={GithubDark} alt="a> of github" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
+                                <img src={GithubDark} alt="icon of github" />
                             </a>
-                            <a target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={SkypeDark} alt="a> of skype" />
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                <img src={SkypeDark} alt="icon of skype" />
                             </a>
                         </Icons>
                     )
@@ -128,16 +132,16 @@ const Contact = () => {
             <div>
                 <a href="#navbar">
                     {isLightTheme ?
-                        <ArrowUp src={ArrowUpLight} alt="a> of arrow pointing up"></ArrowUp>
+                        <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"></ArrowUp>
                         :
-                        <ArrowUp src={ArrowUpDark} alt="a> of arrow pointing up"></ArrowUp>
+                        <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"></ArrowUp>
                     }
                 </a>
                 <Top theme={theme} href="#navbar">
                     <h4>Back to top</h4>
                 </Top>
             </div>
-        </div>
+        </ContactContainer>
 
     );
 }

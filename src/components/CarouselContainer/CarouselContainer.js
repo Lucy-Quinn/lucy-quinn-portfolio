@@ -94,7 +94,7 @@ const Button = styled.button`
     background: ${({ isLightTheme, theme }) => isLightTheme ? 'white' : theme.primaryColor};
     color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
     width: 153px;
-
+    cursor: pointer;
     margin: 5px 0 8px 0;
 
 `
@@ -153,7 +153,6 @@ const CarouselContainer = ({ projects }) => {
         //setting state to current project
         setActiveProject({ title: currentProject.title, deploy: currentProject.deploy, github: currentProject.github, languages: currentProject.languages, text: currentProject.text })
     }
-    const { deploy, github } = activeProject;
 
     return (
         <div>
@@ -166,16 +165,16 @@ const CarouselContainer = ({ projects }) => {
                             <ProjectLinksContainer>
                                 <Button isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project</Button>
                                 <ProjectLinks theme={theme}>
-                                    <a target="_blank" href={project.deploy}>
+                                    <a rel="noopener noreferrer" target="_blank" href={project.deploy}>
                                         <i className="fas fa-external-link-alt"></i>
                                     </a>
                                     {isLightTheme ?
-                                        <a target="_blank" href={project.github}>
-                                            <img src={GithubLight} alt="of github" />
+                                        <a rel="noopener noreferrer" target="_blank" href={project.github}>
+                                            <img src={GithubLight} alt="icon of github" />
                                         </a>
                                         :
-                                        <a target="_blank" href={project.github}>
-                                            <img src={GithubDark} alt="of github" />
+                                        <a rel="noopener noreferrer" target="_blank" href={project.github}>
+                                            <img src={GithubDark} alt="icon of github" />
                                         </a>
                                     }
                                 </ProjectLinks>

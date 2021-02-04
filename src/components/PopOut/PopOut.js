@@ -85,7 +85,7 @@ const popout = {
 };
 
 const PopOut = ({ close, activeProject }) => {
-    const { title, deploy, github, languages, text } = activeProject;
+    const { title, languages, text } = activeProject;
 
     //Theme context
     const { isLightTheme, themes } = useContext(ThemeContext);

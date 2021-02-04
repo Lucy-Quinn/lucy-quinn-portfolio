@@ -1,6 +1,11 @@
 .App {
   text-align: center;
 }
+
+* {
+  scroll-behavior: smooth !important;
+}
+
 :root {
   --light-mode-primary-color: #493d6e;
   --light-mode-div: #cec8ff;
@@ -21,6 +26,12 @@ h1,
 h2,
 h3 {
   font-family: "Bitter", serif;
+}
+
+h4,
+h5,
+p {
+  font-family: Helvetica, Arial, sans-serif;
 }
 
 h1 {
@@ -52,12 +63,12 @@ h5 {
 p {
   font-size: 0.75rem; /*12px*/
   line-height: 24px;
-  font-family: Helvetica, Arial, sans-serif;
   font-weight: 300;
 }
 
 a {
   text-decoration: none;
+  cursor: pointer;
 }
 a:visited {
   color: inherit;

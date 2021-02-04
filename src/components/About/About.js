@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 
 //Styled components
 const Container = styled(motion.div)`
-  padding: 5px;
+  padding: 5px 12px;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
 `
 
@@ -117,28 +117,28 @@ const About = () => {
     scrollYValue >= image &&
       setIsScrollImage(true)
     return () => setIsScrollImage(false)
-  }, [isScrollImage, scrollYValue])
+  }, [isScrollImage, scrollYValue, image])
 
 
   useEffect(() => {
     scrollYValue >= div &&
       setIsScrollDiv(true)
     return () => setIsScrollDiv(false)
-  }, [isScrollDiv, scrollYValue])
+  }, [isScrollDiv, scrollYValue, div])
 
   useEffect(() => {
     scrollYValue >= title &&
       setIsScrollTitle(true)
     return () => setIsScrollTitle(false)
-  }, [isScrollTitle, scrollYValue])
+  }, [isScrollTitle, scrollYValue, title])
 
 
   useEffect(() => {
     scrollYValue >= description &&
       setIsScrollDesc(true)
     return () => setIsScrollDesc(false)
-  }, [isScrollDesc, scrollYValue])
-  console.log(scrollYValue);
+  }, [isScrollDesc, scrollYValue, description])
+  // console.log(scrollYValue);
 
 
   return (
@@ -148,7 +148,7 @@ const About = () => {
       animate="visible"
     >
       {isScrollImage ?
-        <Image src={Lucy} alt="portrait of Lucy"
+        <Image src={Lucy} alt="portrait photo of Lucy"
           variants={variants}
         ></Image>
         :

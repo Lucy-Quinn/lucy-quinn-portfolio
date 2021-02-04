@@ -8,7 +8,6 @@ import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Resume from './../../images/cv.svg';
 import styled from 'styled-components';
-import './Navbar.css';
 
 //Styled components
 
@@ -24,17 +23,16 @@ const Nav = styled.nav`
   }
 `
 
-const NavLinks = styled.div`
+const NavContainer = styled.div`
   width: 100%;
   margin: 0;
   background: ${({ isLightTheme, theme }) => isLightTheme ? '#fff' : theme.languages};
   .active{ display: flex};
   @media (min-width: 1024px) {
     width: 100%;
-  }
-  @media (min-width: 1024px) {
     background: ${({ theme }) => theme.gradientOne};
   }
+ 
 `
 
 const NavLinkList = styled.ul`
@@ -53,6 +51,10 @@ flex-direction: column;
 const Link = styled.a`
   display: block;
   text-align: center;
+  & > h2 {
+    color: ${({ theme }) => theme.primaryColor};
+     font-weight: 300;
+  }
 `
 
 const Menu = styled.li`
@@ -91,64 +93,64 @@ const BrandTitle = styled.div`
 
 
 const Navbar = () => {
-    const [isActive, setActive] = useState(false);
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const theme = isLightTheme ? themes.light : themes.dark;
-    const handleToggle = () => {
-        setActive(!isActive);
-    }
-    return (
-        <div id="navbar">
-            <Nav theme={theme}>
-                {isActive ?
-                    (<ToggleButton crossToggle onClick={handleToggle}>
-                        <img src={ToggleButtonClose} alt="toggle button close icon" />
-                    </ToggleButton>) :
-                    (<div>
-                        <BulbAndLogo>
-                            <ThemeToggle />
-                            {isLightTheme ?
-                                <BrandTitle>
-                                    <img src={LogoLight} alt="logo icon" />
-                                </BrandTitle>
-                                :
-                                <BrandTitle className="brand-title">
-                                    <img src={LogoDark} alt="logo icon" />
-                                </BrandTitle>
-                            }
-                        </BulbAndLogo>
-                        <ToggleButton onClick={handleToggle}>
-                            <img src={ToggleButtonOpen} alt="toggle button open icon" />
-                        </ToggleButton>
-                    </div>)
-                }
-                <NavLinks theme={theme} isLightTheme={isLightTheme} className="navbar-links">
-                    <NavLinkList className={isActive ? "active" : null}>
-                        <Menu>
-                            <p style={{ color: theme.div }}>Menu</p>
-                        </Menu>
-                        <Link href="#about">
-                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>About Lucy</h2>
-                        </Link>
-                        <Link href="#portfolio">
-                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Portfolio</h2>
-                        </Link>
-                        <Link href="#education">
-                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Education</h2>
-                        </Link>
-                        <Link href="#contact">
-                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>Contact</h2>
-                        </Link>
-                        <Link href="#">
-                            <h2 style={{ color: theme.primaryColor, 'font-weight': '300' }}>
-                                <img src={Resume} alt="icon to download resume" />
-                            </h2>
-                        </Link>
-                    </NavLinkList>
-                </NavLinks>
-            </Nav>
-        </div>
-    );
+  const [isActive, setActive] = useState(false);
+  const { isLightTheme, themes } = useContext(ThemeContext);
+  const theme = isLightTheme ? themes.light : themes.dark;
+  const handleToggle = () => {
+    setActive(!isActive);
+  }
+  return (
+    <div id="navbar">
+      <Nav theme={theme}>
+        {isActive ?
+          (<ToggleButton crossToggle onClick={handleToggle}>
+            <img src={ToggleButtonClose} alt="toggle button close icon" />
+          </ToggleButton>) :
+          (<div>
+            <BulbAndLogo>
+              <ThemeToggle />
+              {isLightTheme ?
+                <BrandTitle>
+                  <img src={LogoLight} alt="logo icon" />
+                </BrandTitle>
+                :
+                <BrandTitle className="brand-title">
+                  <img src={LogoDark} alt="logo icon" />
+                </BrandTitle>
+              }
+            </BulbAndLogo>
+            <ToggleButton onClick={handleToggle}>
+              <img src={ToggleButtonOpen} alt="toggle button open icon" />
+            </ToggleButton>
+          </div>)
+        }
+        <NavContainer theme={theme} isLightTheme={isLightTheme} className="navbar-links">
+          <NavLinkList className={isActive ? "active" : null}>
+            <Menu>
+              <p style={{ color: theme.div }}>Menu</p>
+            </Menu>
+            <Link theme={theme} href="#about">
+              <h2>About Lucy</h2>
+            </Link>
+            <Link theme={theme} href="#portfolio">
+              <h2>Portfolio</h2>
+            </Link>
+            <Link theme={theme} href="#education">
+              <h2>Education</h2>
+            </Link>
+            <Link theme={theme} href="#contact">
+              <h2>Contact</h2>
+            </Link>
+            <Link theme={theme} href="#">
+              <h2>
+                <img src={Resume} alt="icon to open resume" />
+              </h2>
+            </Link>
+          </NavLinkList>
+        </NavContainer>
+      </Nav>
+    </div>
+  );
 }
 
 export default Navbar;

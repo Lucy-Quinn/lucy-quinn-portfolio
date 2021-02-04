@@ -3,9 +3,13 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import ArrowDownLight from './../../images/button-arrow-down-light.svg';
 import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
 import styled from 'styled-components';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 //Styled Components
+
+const HeaderContainer = styled.div`
+  padding: 0 12px;
+`
 const Languages = styled.div`
   height: 32px;
   width: 72px;
@@ -51,7 +55,7 @@ const Header = () => {
     'JavaScript', 'React', 'MongoDB', 'Mongoose', 'Express.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap'
   ]
   return (
-    <header style={{
+    <HeaderContainer style={{
       padding: '10px',
       background: `linear-gradient(
             180deg
@@ -77,7 +81,7 @@ const Header = () => {
           <img src={ArrowDownDark} alt="icon of arrow pointing down"></img>
         }
       </a>
-    </header>
+    </HeaderContainer>
   );
 }
 
