@@ -14,7 +14,7 @@ const Image = styled(motion.img)`
   height: 200px;
   width: auto;
   border-radius: 50%;
-  /* display: ${props => props.hidden ? 'none' : 'block'}; */
+  margin-top: 32px;
 `
 
 const Div = styled(motion.p)`
@@ -181,4 +181,5 @@ const About = () => {
 }
 
 export default About;
+
 

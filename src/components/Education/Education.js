@@ -12,7 +12,7 @@ const Container = styled.div`
 `
 const Div = styled.p`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
-  margin: 20px 0 0 0;
+  margin: 16px 0 0 0;
 `
 const Heading = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
@@ -38,7 +38,7 @@ const CvHeading = styled.p`
 `
 
 const Cv = styled.img`
-    margin: 5px 0 56px 0;
+    margin: 5px 0 44px 0;
 `
 
 

@@ -75,64 +75,67 @@ const Contact = () => {
     };
 
     return (
-        <ContactContainer style={{
-            padding: '10px',
-            background: `linear-gradient(
+        <div style={{ background: theme.background }}>
+
+            <ContactContainer style={{
+                padding: '10px',
+                background: `linear-gradient(
                   180deg
                   , ${theme.gradientTwo} 0%, ${theme.gradientOne} 100%`
-        }} id="contact">
-            <div>
-                <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
-                <Heading theme={theme}>Contact Lucy</Heading>
-                <ContactDetails theme={theme}>+44(0)7894 274 470</ContactDetails>
-                <ContactDetails theme={theme}>+34 634 328 672</ContactDetails>
-                <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!"><ContactDetails theme={theme}>lucy.quinn.uk@gmail.com</ContactDetails></Mailto>
-                <Tie theme={theme}>Spanish permanent residency (TIE)</Tie>
-                <Socials theme={theme}>Follow me on socials and GitHub</Socials>
-            </div>
-            <div>
-                {isLightTheme ?
-                    (
-                        <Icons>
-                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={LinkedinLight} alt="icon of linkedin" />
-                            </a>
-                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
-                                <img src={GithubLight} alt="icon of github" />
-                            </a>
-                            <a href="skype:live:.cid.1d6573efe4ce3449?chat">
-                                <img src={SkypeLight} alt="icon of skype" />
-                            </a>
-                        </Icons>
-                    ) :
-                    (
-                        <Icons>
-                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={LinkedinDark} alt="icon of linkedin" />
-                            </a>
-                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
-                                <img src={GithubDark} alt="icon of github" />
-                            </a>
-                            <a href="skype:live:.cid.1d6573efe4ce3449?chat">
-                                <img src={SkypeDark} alt="icon of skype" />
-                            </a>
-                        </Icons>
-                    )
-                }
-            </div>
-            <div>
-                <a href="#navbar">
+            }} id="contact">
+                <div>
+                    <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
+                    <Heading theme={theme}>Contact Lucy</Heading>
+                    <ContactDetails theme={theme}>+44(0)7894 274 470</ContactDetails>
+                    <ContactDetails theme={theme}>+34 634 328 672</ContactDetails>
+                    <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!"><ContactDetails theme={theme}>lucy.quinn.uk@gmail.com</ContactDetails></Mailto>
+                    <Tie theme={theme}>Spanish permanent residency (TIE)</Tie>
+                    <Socials theme={theme}>Follow me on socials and GitHub</Socials>
+                </div>
+                <div>
                     {isLightTheme ?
-                        <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"></ArrowUp>
-                        :
-                        <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"></ArrowUp>
+                        (
+                            <Icons>
+                                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                    <img src={LinkedinLight} alt="icon of linkedin" />
+                                </a>
+                                <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
+                                    <img src={GithubLight} alt="icon of github" />
+                                </a>
+                                <a href="skype:live:.cid.1d6573efe4ce3449?chat">
+                                    <img src={SkypeLight} alt="icon of skype" />
+                                </a>
+                            </Icons>
+                        ) :
+                        (
+                            <Icons>
+                                <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                    <img src={LinkedinDark} alt="icon of linkedin" />
+                                </a>
+                                <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
+                                    <img src={GithubDark} alt="icon of github" />
+                                </a>
+                                <a href="skype:live:.cid.1d6573efe4ce3449?chat">
+                                    <img src={SkypeDark} alt="icon of skype" />
+                                </a>
+                            </Icons>
+                        )
                     }
-                </a>
-                <Top theme={theme} href="#navbar">
-                    <h4>Back to top</h4>
-                </Top>
-            </div>
-        </ContactContainer>
+                </div>
+                <div>
+                    <a href="#navbar">
+                        {isLightTheme ?
+                            <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"></ArrowUp>
+                            :
+                            <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"></ArrowUp>
+                        }
+                    </a>
+                    <Top theme={theme} href="#navbar">
+                        <h4>Back to top</h4>
+                    </Top>
+                </div>
+            </ContactContainer>
+        </div>
     );
 }
 

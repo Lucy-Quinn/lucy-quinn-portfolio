@@ -10,7 +10,7 @@ import styled from 'styled-components';
 const HeaderContainer = styled.div`
   padding: 0 12px;
     border-radius: 0 0 50% 50% / 70px;
-    margin-bottom: 38px;
+    /* margin-bottom: 38px; */
 `
 const Languages = styled.div`
   height: 32px;
@@ -69,7 +69,7 @@ const Header = () => {
     'JavaScript', 'React', 'MongoDB', 'Mongoose', 'Express.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap'
   ]
   return (
-    <div>
+    <div style={{ background: theme.background }}>
       <HeaderContainer style={{
         padding: '10px',
         background: `linear-gradient(
