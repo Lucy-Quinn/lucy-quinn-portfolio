@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
-import Resume from './../../images/cv.svg';
+import Resume from './../../images/open-cv.svg';
 
 //Styled components
 
@@ -12,16 +12,16 @@ const Container = styled.div`
 `
 const Div = styled.p`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
-  margin: 0;
+  margin: 20px 0 0 0;
 `
 const Heading = styled.h2`
   color: ${({ theme }) => theme.primaryColor};
 `
 const Experience = styled.div`
     border-top: 1px solid #E5E5E5;
+    margin-top: ${props => props.topBorder && '20px'};
     padding: 10px;
     border-bottom: ${(props) => (props.lastChild && '1px solid #E5E5E5')}
-
 `
 const School = styled.p`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
@@ -34,11 +34,11 @@ const Qualification = styled.p`
 
 const CvHeading = styled.p`
   color: ${({ theme }) => theme.bodyCopy};
-  margin: 15px 0 0 0;
+  margin: 25px 0 0 0;
 `
 
 const Cv = styled.img`
-    margin: 5px 0 40px 0;
+    margin: 5px 0 56px 0;
 `
 
 
@@ -49,7 +49,7 @@ const Education = () => {
     <Container isLightTheme={isLightTheme} theme={theme} id="education">
       <Div isLightTheme={isLightTheme} theme={theme}>&lt;div&gt;</Div>
       <Heading theme={theme}>Education</Heading>
-      <Experience>
+      <Experience topBorder>
         <School isLightTheme={isLightTheme} theme={theme}>Ironhack: Oct 2020 - Jan 2021 (Spain)</School>
         <Qualification theme={theme}>Full Stack Web Development Graduate</Qualification>
       </Experience>
@@ -67,8 +67,10 @@ const Education = () => {
         <School isLightTheme={isLightTheme} theme={theme}>Cardiff Met University: Sept 2006 - Jul 2007</School>
         <Qualification theme={theme}>Art & Design Foundation</Qualification>
       </Experience>
-      <CvHeading theme={theme}>Download my CV</CvHeading>
-      <Cv src={Resume} alt="icon to open resume"></Cv>
+      <CvHeading theme={theme}>Open my CV</CvHeading>
+      <a rel="noopener noreferrer" target="_blank" href="https://media-exp1.licdn.com/dms/document/C4D2DAQFF6ezP_Xi_Nw/profile-treasury-document-pdf-analyzed/0/1612445751485?e=1612548000&v=beta&t=UFtPHO9umyR5oPlzb_wL0dSUCQ7ChTeQr_N_5H-kGTU">
+        <Cv src={Resume} alt="icon to open resume" />
+      </a>
     </Container>
   );
 }
