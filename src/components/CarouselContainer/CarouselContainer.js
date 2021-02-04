@@ -11,11 +11,11 @@ import ProjectCard from './../ProjectCard/ProjectCard'
 import PopOut from '../PopOut/PopOut'
 import { AnimatePresence } from "framer-motion";
 import GithubLight from './../../images/github-light.svg';
-
+import GithubDark from './../../images/github-dark.svg';
 
 //Styled Components
-//React Slick styling
 
+//React Slick styling
 const Projects = styled(Slick)`
 .slick-prev {
     left: 66px;
@@ -68,6 +68,48 @@ const Projects = styled(Slick)`
 }
 `
 
+//Cards styling
+const ProjectLinks = styled.div`
+    display: flex;
+    left: 200px;
+    bottom: 42px;
+     & > a{
+        margin: 10px;
+        cursor: pointer;  
+    }
+    & > a:first-child{
+        font-size: 1.5rem;
+        color: ${({ theme }) => theme.primaryColor};
+    }
+    & > a > img{
+        height: 28px;
+        width: auto;
+    }
+`
+const Button = styled.button`
+    border-radius: 17px;
+    box-shadow: ${({ isLightTheme, theme }) => isLightTheme ? '0 1px 6px #d5d5d5' : null};
+    border: none;
+    padding: 10px 11px;
+    background: ${({ isLightTheme, theme }) => isLightTheme ? 'white' : theme.primaryColor};
+    color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
+    width: 153px;
+
+    margin: 5px 0 8px 0;
+
+`
+
+const ProjectLinksContainer = styled.div`
+width: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+height: 107px;
+`
+
+
 const CarouselContainer = ({ projects }) => {
 
     //States
@@ -111,6 +153,7 @@ const CarouselContainer = ({ projects }) => {
         //setting state to current project
         setActiveProject({ title: currentProject.title, deploy: currentProject.deploy, github: currentProject.github, languages: currentProject.languages, text: currentProject.text })
     }
+    const { deploy, github } = activeProject;
 
     return (
         <div>
@@ -120,13 +163,23 @@ const CarouselContainer = ({ projects }) => {
                     return (
                         <div key={index}>
                             <ProjectCard project={project} />
-                            <div className='links'>
-                                <button onClick={() => handleProject(project)} >Open me</button>
-                                <div className="link-two">
-                                    <i className="fas fa-external-link-alt"></i>
-                                    <img style={{ width: '20px' }} src={GithubLight} alt="of github" />
-                                </div>
-                            </div>
+                            <ProjectLinksContainer>
+                                <Button isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project</Button>
+                                <ProjectLinks theme={theme}>
+                                    <a target="_blank" href={project.deploy}>
+                                        <i className="fas fa-external-link-alt"></i>
+                                    </a>
+                                    {isLightTheme ?
+                                        <a target="_blank" href={project.github}>
+                                            <img src={GithubLight} alt="of github" />
+                                        </a>
+                                        :
+                                        <a target="_blank" href={project.github}>
+                                            <img src={GithubDark} alt="of github" />
+                                        </a>
+                                    }
+                                </ProjectLinks>
+                            </ProjectLinksContainer>
 
                         </div>
                     );

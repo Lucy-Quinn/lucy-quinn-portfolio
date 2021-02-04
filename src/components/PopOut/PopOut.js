@@ -3,8 +3,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
 import { motion } from "framer-motion";
 import './../../App.css'
-import GithubLight from './../../images/github-light.svg';
-import GithubDark from './../../images/github-dark.svg';
+
 
 //Styled components 
 //Cards
@@ -18,7 +17,7 @@ const CardHeader = styled.div`
 `
 const CardTitle = styled.h2`
     width: 59%;
-    color: ${({ theme }) => theme.primaryColor};
+    color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
 `
 
 const CardBody = styled.div`
@@ -61,38 +60,19 @@ const PopoutContainer = styled.div`
 `
 
 const PopoutCard = styled(motion.div)`
-  /* background: #818181; */
   background: #fff;
   box-shadow: 2px 5px 2px rgba(0, 0, 0, 0.9);
   border-radius: 20px;
   border: 1px solid grey;
   width: 400px;
-  /* height: 350px; */
-
-    height: 300px;
-    padding: 0 5px;
-
-    justify-content: center;
-    display: flex;
-    flex-direction: column;
+  height: 300px;
+  padding: 0 5px;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center
 `
-const CardLinks = styled.div`
-    display: flex;
-    left: 200px;
-    bottom: 42px;
-     & > a{
-        margin: 10px;
-        cursor: pointer;  
-    }
-    & > a:first-child{
-        font-size: 1.5rem;
-        color: ${({ theme }) => theme.primaryColor};
-    }
-    & > a > img{
-        height: 28px;
-        width: auto;
-    }
-`
+
 //Framer motion
 const background = {
     hidden: { opacity: 0 },
@@ -101,7 +81,7 @@ const background = {
 
 const popout = {
     hidden: { opacity: 0, y: 50 },
-    visible: { opacity: 1, y: 0, transition: { delay: 0.5 } }
+    visible: { opacity: 1, y: 0, transition: { delay: 0.2 } }
 };
 
 const PopOut = ({ close, activeProject }) => {
@@ -115,33 +95,18 @@ const PopOut = ({ close, activeProject }) => {
         <motion.div initial="hidden" animate="visible" exit="hidden">
             <Background
                 variants={background}
-            // transition={{ duration: 0.2 }}
+                onClick={close}
+                transition={{ duration: 0.2 }}
             >
-                <button onClick={close}>click</button>
             </Background>
             <PopoutContainer>
                 <PopoutCard variants={popout} >
                     <CardHeader>
-                        <CardTitle theme={theme}>{title}</CardTitle>
-                        <CardLinks theme={theme}>
-                            <a target="_blank" href={deploy}>
-                                <i className="fas fa-external-link-alt"></i>
-                            </a>
-                            {isLightTheme ?
-                                <a target="_blank" href={github}>
-                                    <img src={GithubLight} alt="of github" />
-                                </a>
-                                :
-                                <a target="_blank" href={github}>
-                                    <img src={GithubDark} alt="of github" />
-                                </a>
-                            }
-                        </CardLinks>
+                        <CardTitle isLightTheme={isLightTheme} theme={theme}>{title}</CardTitle>
                     </CardHeader>
                     <CardBody>
                         <Languages theme={theme}>{languages}</Languages>
                         <Description theme={theme}>{text}</Description>
-                        <a target="_blank" href="http://www.example.com/" title="example">See detail</a>
                     </CardBody>
                 </PopoutCard>
             </PopoutContainer>

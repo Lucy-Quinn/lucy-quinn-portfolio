@@ -62,17 +62,3 @@ a {
 a:visited {
   color: inherit;
 }
-
-.links {
-  width: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto;
-}
-
-.link-two {
-  display: flex;
-  justify-content: space-around;
-}
