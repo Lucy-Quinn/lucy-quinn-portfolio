@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
 import { ThemeContext } from '../../contexts/ThemeContext';
+
+//Images
 import ArrowUpLight from './../../images/button-arrow-up-light.svg';
 import ArrowUpDark from './../../images/button-arrow-up-dark.svg';
-
 import SkypeLight from './../../images/skype-light.svg';
 import SkypeDark from './../../images/skype-dark.svg';
 import LinkedinLight from './../../images/linkedin-light.svg';
@@ -12,12 +13,10 @@ import LinkedinDark from './../../images/linkedin-dark.svg';
 import GithubLight from './../../images/github-light.svg';
 import GithubDark from './../../images/github-dark.svg';
 
-
-
 //Styled components
-
 const ContactContainer = styled.div`
     padding: 12px;
+    border-radius: 50% 50% 0 0  / 70px;
 `
 
 const Icons = styled.div`
@@ -91,11 +90,6 @@ const Contact = () => {
                 <Tie theme={theme}>Spanish permanent residency (TIE)</Tie>
                 <Socials theme={theme}>Follow me on socials and GitHub</Socials>
             </div>
-
-            {/* <Mailto email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!">
-                    <i class="fas fa-envelope"></i>
-                </Mailto> */}
-
             <div>
                 {isLightTheme ?
                     (
@@ -109,26 +103,22 @@ const Contact = () => {
                             <a href="skype:live:.cid.1d6573efe4ce3449?chat">
                                 <img src={SkypeLight} alt="icon of skype" />
                             </a>
-
-
                         </Icons>
                     ) :
                     (
                         <Icons>
-
                             <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
                                 <img src={LinkedinDark} alt="icon of linkedin" />
                             </a>
                             <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
                                 <img src={GithubDark} alt="icon of github" />
                             </a>
-                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                            <a href="skype:live:.cid.1d6573efe4ce3449?chat">
                                 <img src={SkypeDark} alt="icon of skype" />
                             </a>
                         </Icons>
                     )
                 }
-
             </div>
             <div>
                 <a href="#navbar">
@@ -143,7 +133,6 @@ const Contact = () => {
                 </Top>
             </div>
         </ContactContainer>
-
     );
 }
 
