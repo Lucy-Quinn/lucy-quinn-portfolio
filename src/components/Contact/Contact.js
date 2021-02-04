@@ -106,10 +106,11 @@ const Contact = () => {
                             <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
                                 <img src={GithubLight} alt="icon of github" />
                             </a>
-                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                            <a href="skype:live:.cid.1d6573efe4ce3449?chat">
                                 <img src={SkypeLight} alt="icon of skype" />
-
                             </a>
+
+
                         </Icons>
                     ) :
                     (
