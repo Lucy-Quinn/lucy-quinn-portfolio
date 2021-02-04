@@ -1,9 +1,9 @@
 import React, { useContext } from 'react';
-import Uk from './../../images/uk.png';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import ArrowDownLight from './../../images/button-arrow-down-light.svg';
 import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 //Styled Components
 const Languages = styled.div`
