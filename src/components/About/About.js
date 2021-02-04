@@ -140,7 +140,6 @@ const About = () => {
   }, [isScrollDesc, scrollYValue, description])
   // console.log(scrollYValue);
 
-
   return (
     <Container isLightTheme={isLightTheme} theme={theme} id="about"
       variants={variantContainer}
