@@ -29,7 +29,6 @@ const Heading = styled(motion.h2)`
 
 const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
-  margin-bottom: 30px;
 `
 const Replacement = styled.div`
   height: 50px;
