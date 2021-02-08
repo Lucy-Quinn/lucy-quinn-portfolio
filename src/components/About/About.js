@@ -92,7 +92,7 @@ const About = () => {
 
 
 
-  function useWindowDistance() {
+  function useScrollDistance() {
     useEffect(() => {
       function handleScroll() {
         setscrollYValue(window.pageYOffset)
@@ -103,7 +103,7 @@ const About = () => {
     return scrollYValue
   }
 
-  useWindowDistance()
+  useScrollDistance()
 
   const scrollPosition = {
     image: 100,

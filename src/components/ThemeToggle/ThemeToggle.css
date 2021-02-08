@@ -1,0 +1,18 @@
+.toggle {
+  padding: 0;
+  margin: 0;
+  background: #fdfdfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+  width: 80%;
+  border-radius: 40px;
+}
+
+.light {
+}
+
+.dark {
+  opacity: 20%;
+}

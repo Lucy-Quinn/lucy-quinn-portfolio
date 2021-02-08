@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { motion } from 'framer-motion';
 
 //Images
 import ArrowUpLight from './../../images/button-arrow-up-light.svg';
@@ -25,8 +26,7 @@ const Icons = styled.div`
     margin: 25px 0 20px 0;
 `
 
-const ArrowUp = styled.img`
-`
+
 
 const Div = styled.p`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
@@ -61,6 +61,17 @@ const Top = styled.a`
         color: ${({ theme }) => theme.primaryColor};
     }
 `
+const arrowVariants = {
+    hover: {
+        y: '-10px'
+    }
+}
+
+const upVariants = {
+    hover: {
+        scale: 1.2
+    }
+}
 
 const Contact = () => {
     const { isLightTheme, themes } = useContext(ThemeContext);
@@ -76,7 +87,6 @@ const Contact = () => {
 
     return (
         <div style={{ background: theme.background }}>
-
             <ContactContainer style={{
                 padding: '10px',
                 background: `linear-gradient(
@@ -125,14 +135,24 @@ const Contact = () => {
                 <div>
                     <a href="#navbar">
                         {isLightTheme ?
-                            <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"></ArrowUp>
+                            <motion.img src={ArrowUpLight} alt="icon of arrow pointing up"
+                                whileHover="hover"
+                                variants={arrowVariants}
+                            ></motion.img>
                             :
-                            <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"></ArrowUp>
+                            <motion.img src={ArrowUpDark} alt="icon of arrow pointing up"
+                                whileHover="hover"
+                                variants={arrowVariants}
+                            ></motion.img>
                         }
+                        <Top theme={theme} href="#navbar">
+                            <motion.h4
+                                whileHover="hover"
+                                variants={upVariants}
+                            >Back to top</motion.h4>
+                        </Top>
                     </a>
-                    <Top theme={theme} href="#navbar">
-                        <h4>Back to top</h4>
-                    </Top>
+
                 </div>
             </ContactContainer>
         </div>

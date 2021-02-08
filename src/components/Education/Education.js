@@ -68,7 +68,7 @@ const Education = () => {
         <Qualification theme={theme}>Art & Design Foundation</Qualification>
       </Experience>
       <CvHeading theme={theme}>Open my CV</CvHeading>
-      <a rel="noopener noreferrer" target="_blank" href="https://media-exp1.licdn.com/dms/document/C4D2DAQFF6ezP_Xi_Nw/profile-treasury-document-pdf-analyzed/0/1612445751485?e=1612548000&v=beta&t=UFtPHO9umyR5oPlzb_wL0dSUCQ7ChTeQr_N_5H-kGTU">
+      <a rel="noopener noreferrer" target="_blank" href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing">
         <Cv src={Resume} alt="icon to open resume" />
       </a>
     </Container>
