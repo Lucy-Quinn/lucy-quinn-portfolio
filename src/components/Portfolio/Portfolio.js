@@ -149,6 +149,7 @@ const Portfolio = () => {
       initial="hidden"
       animate="visible"
     >
+
       {
         isScrollDiv ?
           <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>

@@ -1,5 +1,5 @@
 import React, { useState, useContext } from 'react';
-// import { HashLink as Link } from 'react-router-hash-link';
+// import { HashLink } from 'react-router-hash-link';
 import ToggleButtonOpen from './../../images/button-open.svg';
 import ToggleButtonCloseLight from './../../images/button-close-light.svg';
 import ToggleButtonCloseDark from './../../images/button-close-dark.svg';
@@ -9,10 +9,11 @@ import ThemeToggle from './../../components/ThemeToggle/ThemeToggle';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Resume from './../../images/open-cv.svg';
 import styled from 'styled-components';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import Logo from './../Logo/Logo';
-//Styled components
 
+
+//Styled components
 const Nav = styled.nav`
   background: ${({ theme }) => theme.gradientOne};
   display: flex;

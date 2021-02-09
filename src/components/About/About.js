@@ -30,11 +30,11 @@ const Heading = styled(motion.h2)`
 const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
 `
+
 const Replacement = styled.div`
   height: 50px;
   width: auto;
 `
-
 
 //Variants
 
@@ -77,7 +77,6 @@ const variantDesc = {
 
 
 
-
 const About = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
@@ -88,8 +87,6 @@ const About = () => {
   const [isScrollDiv, setIsScrollDiv] = useState(false);
   const [isScrollTitle, setIsScrollTitle] = useState(false);
   const [isScrollDesc, setIsScrollDesc] = useState(false);
-
-
 
   function useScrollDistance() {
     useEffect(() => {
@@ -140,11 +137,13 @@ const About = () => {
   // console.log(scrollYValue);
 
   return (
+
     <Container isLightTheme={isLightTheme} theme={theme} id="about"
       variants={variantContainer}
       initial="hidden"
       animate="visible"
     >
+
       {isScrollImage ?
         <Image src={Lucy} alt="portrait photo of Lucy"
           variants={variants}
@@ -152,6 +151,7 @@ const About = () => {
         :
         <Replacement></Replacement>
       }
+
       {isScrollDiv ?
         <Div isLightTheme={isLightTheme} theme={theme}
           variants={variants}

@@ -100,7 +100,6 @@ const qualChildVariants = {
 const Education = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
-
   const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
   const [isScrollDiv, setIsScrollDiv] = useState(false);
   const [isScrollTitle, setIsScrollTitle] = useState(false);
@@ -178,8 +177,7 @@ const Education = () => {
   }, [isScrollCv, scrollYValue])
 
   return (
-    <Container isLightTheme={isLightTheme} theme={theme}
-      id="education"
+    <Container id="education" isLightTheme={isLightTheme} theme={theme}
       variants={variantContainer}
       initial="hidden"
       animate="visible"
