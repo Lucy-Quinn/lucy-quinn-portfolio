@@ -41,8 +41,32 @@ const CvHeading = styled(motion.p)`
 const Cv = styled(motion.img)`
     margin: 5px 0 44px 0;
 `
-const Replacement = styled.div`
-  height: 50px;
+const ReplacementDiv = styled.div`
+  height: 24px;
+  width: auto;
+`
+const ReplacementTitle = styled.div`
+  height: 32px;
+  width: auto;
+`
+const ReplacementQualOne = styled.div`
+  height: 105px;
+  width: auto;
+`
+const ReplacementQualTwo = styled.div`
+  height: 105px;
+  width: auto;
+`
+const ReplacementQualThree = styled.div`
+  height: 177px;
+  width: auto;
+`
+const ReplacementQualFour = styled.div`
+  height: 106px;
+  width: auto;
+`
+const ReplacementCv = styled.div`
+  height: 140px;
   width: auto;
 `
 
@@ -144,16 +168,16 @@ const Education = () => {
         <Div isLightTheme={isLightTheme} theme={theme}
           variants={variants}>&lt;div&gt;</Div>
         :
-        <Replacement
+        <ReplacementDiv
           ref={divRef}
-        ></Replacement>
+        />
       }
       {isScrollTitle ?
         <Heading theme={theme} variants={variants}>Education</Heading>
         :
-        <Replacement
+        <ReplacementTitle
           ref={titleRef}
-        ></Replacement>
+        />
       }
       {isScrollQualOne ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -164,9 +188,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement
+        <ReplacementQualOne
           ref={qualOneRef}
-        ></Replacement>
+        />
       }
       {isScrollQualTwo ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -177,9 +201,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement
+        <ReplacementQualTwo
           ref={qualTwoRef}
-        ></Replacement>
+        />
       }
       {isScrollQualThree ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -192,9 +216,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement
+        <ReplacementQualThree
           ref={qualThreeRef}
-        ></Replacement>
+        />
       }
       {isScrollQualFour ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -205,9 +229,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement
+        <ReplacementQualFour
           ref={qualFourRef}
-        ></Replacement>
+        />
       }
       {isScrollCv ?
         <motion.div variants={variantContainer} initial="hidden"
@@ -218,9 +242,9 @@ const Education = () => {
           </motion.a>
         </motion.div>
         :
-        <Replacement
+        <ReplacementCv
           ref={cvRef}
-        ></Replacement>
+        />
       }
     </Container>
   );

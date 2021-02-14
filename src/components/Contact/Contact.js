@@ -61,11 +61,30 @@ const Top = styled(motion.a)`
     }
 `
 
-const Replacement = styled.div`
-  height: 50px;
+const ReplacementDiv = styled.div`
+  height: 74px;
   width: auto;
 `
-
+const ReplacementTitle = styled.div`
+  height: 32px;
+  width: auto;
+`
+const ReplacementContact = styled.div`
+  height: 41px;
+  width: auto;
+`
+const ReplacementSocial = styled.div`
+  height: 240px;
+  width: auto;
+`
+const ReplacementIcons = styled.div`
+  height: 60px;
+  width: auto;
+`
+const ReplacementArrow = styled.div`
+  height: 115px;
+  width: auto;
+`
 //Variants
 const arrowVariants = {
     hover: {
@@ -185,16 +204,16 @@ const Contact = () => {
                     {isScrollDiv ?
                         <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
                         :
-                        <Replacement
+                        <ReplacementDiv
                             ref={divRef}
-                        ></Replacement>
+                        />
                     }
                     {isScrollTitle ?
                         <Heading theme={theme} variants={variants}>Contact Lucy</Heading>
                         :
-                        <Replacement
+                        <ReplacementTitle
                             ref={titleRef}
-                        ></Replacement>
+                        />
                     }
                     {isScrollContact ?
                         <motion.div variants={contactParentVariants} initial="hidden"
@@ -203,9 +222,9 @@ const Contact = () => {
                             <ContactDetails theme={theme} variants={contactChildVariants}>+34 634 328 672</ContactDetails>
                         </motion.div>
                         :
-                        <Replacement
+                        <ReplacementContact
                             ref={contactRef}
-                        ></Replacement>
+                        />
                     }
                     {isScrollSocial ?
                         <motion.div variants={contactParentVariants}
@@ -218,9 +237,9 @@ const Contact = () => {
 
                         </motion.div>
                         :
-                        <Replacement
+                        <ReplacementSocial
                             ref={socialRef}
-                        ></Replacement>
+                        />
                     }
 
                 </div>
@@ -259,9 +278,9 @@ const Contact = () => {
                         }
                     </motion.div>
                     :
-                    <Replacement
+                    <ReplacementIcons
                         ref={iconsRef}
-                    ></Replacement>
+                    />
                 }
                 {isScrollArrow ?
                     <motion.div variants={contactParentVariants}
@@ -289,9 +308,9 @@ const Contact = () => {
 
                     </motion.div>
                     :
-                    <Replacement
+                    <ReplacementArrow
                         ref={arrowRef}
-                    ></Replacement>
+                    />
 
                 }
 

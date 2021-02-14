@@ -31,10 +31,24 @@ const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
   margin-bottom: 30px;
 `
-const Replacement = styled.div`
-  height: 50px;
+const ReplacementImg = styled.div`
+  height: 200px;
   width: auto;
 `
+
+const ReplacementDiv = styled.div`
+  height: 24px;
+  width: auto;
+`
+const ReplacementTitle = styled.div`
+  height: 32px;
+  width: auto;
+`
+const ReplacementDescription = styled.div`
+  height: 144px;
+  width: auto;
+`
+
 
 //Variants
 
@@ -125,7 +139,7 @@ const About = () => {
           variants={variants}
         ></Image>
         :
-        <Replacement ref={imageRef} />
+        <ReplacementImg ref={imageRef} />
       }
       {/* <Replacement ref={imageReplacementRef} /> */}
 
@@ -135,7 +149,7 @@ const About = () => {
 
         >&lt;div&gt;</Div>
         :
-        <Replacement ref={divRef} />
+        <ReplacementDiv ref={divRef} />
 
       }
       {/* <Replacement ref={divReplacementRef} /> */}
@@ -147,7 +161,7 @@ const About = () => {
 
         >About Lucy</Heading>
         :
-        <Replacement ref={titleRef} />
+        <ReplacementTitle ref={titleRef} />
 
       }
       {/* <Replacement ref={titleReplacementRef} /> */}
@@ -158,7 +172,7 @@ const About = () => {
 
         >I am a web developer from Bristol in England, I have spent much time travelling abroad and have lived in Italy. I am an enthusiastic linguist, who is always learning and forever making lists. I love creating and making projects and seeing them to the end. My attention to detail is “spot on”! </Description>
         :
-        <Replacement ref={descriptionRef} />
+        <ReplacementDescription ref={descriptionRef} />
 
       }
       {/* <Replacement ref={descriptionReplacementRef} /> */}

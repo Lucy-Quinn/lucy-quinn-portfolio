@@ -43,11 +43,22 @@ const Dots = styled.span`
     }
   }
 `
-const Replacement = styled.div`
-  height: 50px;
+const ReplacementDiv = styled.div`
+  height: 24px;
   width: auto;
 `
-
+const ReplacementHeading = styled.div`
+  height: 32px;
+  width: auto;
+`
+const ReplacementDescription = styled.div`
+  height: 126px;
+  width: auto;
+`
+const ReplacementCarousel = styled.div`
+  height: 350px;
+  width: auto;
+`
 //Variants
 const variantContainer = {
   hidden: {
@@ -127,17 +138,17 @@ const Portfolio = () => {
         isScrollDiv ?
           <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
           :
-          <Replacement
+          <ReplacementDiv
             ref={divRef}
-          ></Replacement>
+          ></ReplacementDiv>
       }
       {
         isScrollTitle ?
           <Heading theme={theme} variants={variants}>My Portfolio</Heading>
           :
-          <Replacement
+          <ReplacementHeading
             ref={titleRef}
-          ></Replacement>
+          ></ReplacementHeading>
       }
       {
         isScrollDesc ?
@@ -145,9 +156,9 @@ const Portfolio = () => {
       <br />
       More projects in progress<Dots></Dots> </Description>
           :
-          <Replacement
+          <ReplacementDescription
             ref={descriptionRef}
-          ></Replacement>
+          ></ReplacementDescription>
       }
       {
         isScrollCarousel ?
@@ -155,9 +166,9 @@ const Portfolio = () => {
             <Carousel />
           </motion.div>
           :
-          <Replacement
+          <ReplacementCarousel
             ref={carouselRef}
-          ></Replacement>
+          ></ReplacementCarousel>
       }
 
     </Container>
