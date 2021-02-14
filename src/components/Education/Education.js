@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
 import Resume from './../../images/open-cv.svg';
@@ -100,7 +100,7 @@ const qualChildVariants = {
 const Education = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
-  const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
+
   const [isScrollDiv, setIsScrollDiv] = useState(false);
   const [isScrollTitle, setIsScrollTitle] = useState(false);
   const [isScrollQualOne, setIsScrollQualOne] = useState(false);
@@ -109,72 +109,30 @@ const Education = () => {
   const [isScrollQualFour, setIsScrollQualFour] = useState(false);
   const [isScrollCv, setIsScrollCv] = useState(false);
 
-  function useScrollDistance() {
-    useEffect(() => {
-      function handleScroll() {
-        setscrollYValue(window.pageYOffset)
-      }
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-    return scrollYValue
-  }
-
-  useScrollDistance()
-
-  const scrollPosition = {
-    div: 1338,
-    title: 1378,
-    qualOne: 1420,
-    qualTwo: 1555,
-    qualThree: 1661,
-    qualFour: 1849,
-    cv: 1929,
-  };
-
-  const { div, title, qualOne, qualTwo, qualThree, qualFour, cv } = scrollPosition;
+  const divRef = useRef(null)
+  const titleRef = useRef(null)
+  const qualOneRef = useRef(null)
+  const qualTwoRef = useRef(null)
+  const qualThreeRef = useRef(null)
+  const qualFourRef = useRef(null)
+  const cvRef = useRef(null)
 
   useEffect(() => {
-    scrollYValue >= div &&
-      setIsScrollDiv(true)
-    return () => setIsScrollDiv(false)
-  }, [isScrollDiv, scrollYValue])
+    const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
 
-  useEffect(() => {
-    scrollYValue >= title &&
-      setIsScrollTitle(true)
-    return () => setIsScrollTitle(false)
-  }, [isScrollTitle, scrollYValue])
+    function handleScroll() {
+      if (isOnScreen(divRef)) setIsScrollDiv(true)
+      if (isOnScreen(titleRef)) setIsScrollTitle(true)
+      if (isOnScreen(qualOneRef)) setIsScrollQualOne(true)
+      if (isOnScreen(qualTwoRef)) setIsScrollQualTwo(true)
+      if (isOnScreen(qualThreeRef)) setIsScrollQualThree(true)
+      if (isOnScreen(qualFourRef)) setIsScrollQualFour(true)
+      if (isOnScreen(cvRef)) setIsScrollCv(true)
+    }
+    window.addEventListener('scroll', handleScroll)
 
-  useEffect(() => {
-    scrollYValue >= qualOne &&
-      setIsScrollQualOne(true)
-    return () => setIsScrollQualOne(false)
-  }, [isScrollQualOne, scrollYValue])
-
-  useEffect(() => {
-    scrollYValue >= qualTwo &&
-      setIsScrollQualTwo(true)
-    return () => setIsScrollQualTwo(false)
-  }, [isScrollQualTwo, scrollYValue])
-
-  useEffect(() => {
-    scrollYValue >= qualThree &&
-      setIsScrollQualThree(true)
-    return () => setIsScrollQualThree(false)
-  }, [isScrollQualThree, scrollYValue])
-
-  useEffect(() => {
-    scrollYValue >= qualFour &&
-      setIsScrollQualFour(true)
-    return () => setIsScrollQualFour(false)
-  }, [isScrollQualFour, scrollYValue])
-
-  useEffect(() => {
-    scrollYValue >= cv &&
-      setIsScrollCv(true)
-    return () => setIsScrollCv(false)
-  }, [isScrollCv, scrollYValue])
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <Container id="education" isLightTheme={isLightTheme} theme={theme}
@@ -186,12 +144,16 @@ const Education = () => {
         <Div isLightTheme={isLightTheme} theme={theme}
           variants={variants}>&lt;div&gt;</Div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={divRef}
+        ></Replacement>
       }
       {isScrollTitle ?
         <Heading theme={theme} variants={variants}>Education</Heading>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={titleRef}
+        ></Replacement>
       }
       {isScrollQualOne ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -202,7 +164,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={qualOneRef}
+        ></Replacement>
       }
       {isScrollQualTwo ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -213,7 +177,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={qualTwoRef}
+        ></Replacement>
       }
       {isScrollQualThree ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -226,7 +192,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={qualThreeRef}
+        ></Replacement>
       }
       {isScrollQualFour ?
         <motion.div variants={qualParentVariants} initial="hidden"
@@ -237,7 +205,9 @@ const Education = () => {
           </Experience>
         </motion.div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={qualFourRef}
+        ></Replacement>
       }
       {isScrollCv ?
         <motion.div variants={variantContainer} initial="hidden"
@@ -248,7 +218,9 @@ const Education = () => {
           </motion.a>
         </motion.div>
         :
-        <Replacement></Replacement>
+        <Replacement
+          ref={cvRef}
+        ></Replacement>
       }
     </Container>
   );

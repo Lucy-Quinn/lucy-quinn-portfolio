@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import styled from 'styled-components';
 import Carousel from './../Carousel/Carousel';
@@ -91,57 +91,30 @@ const Portfolio = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
 
-  const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
+  // const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
   const [isScrollDiv, setIsScrollDiv] = useState(false);
   const [isScrollTitle, setIsScrollTitle] = useState(false);
   const [isScrollDesc, setIsScrollDesc] = useState(false);
   const [isScrollCarousel, setIsScrollCarousel] = useState(false);
 
-  function useScrollDistance() {
-    useEffect(() => {
-      function handleScroll() {
-        setscrollYValue(window.pageYOffset)
-      }
-      window.addEventListener('scroll', handleScroll)
-      return () => window.removeEventListener('scroll', handleScroll)
-    }, [])
-    return scrollYValue
-  }
-
-  useScrollDistance()
-
-  const scrollPosition = {
-    div: 563,
-    title: 600,
-    description: 638,
-    carousel: 736,
-  };
-
-  const { div, title, description, carousel } = scrollPosition;
+  const divRef = useRef(null)
+  const titleRef = useRef(null)
+  const descriptionRef = useRef(null)
+  const carouselRef = useRef(null)
 
   useEffect(() => {
-    scrollYValue >= div &&
-      setIsScrollDiv(true)
-    return () => setIsScrollDiv(false)
-  }, [isScrollDiv, scrollYValue])
+    const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
 
-  useEffect(() => {
-    scrollYValue >= title &&
-      setIsScrollTitle(true)
-    return () => setIsScrollTitle(false)
-  }, [isScrollTitle, scrollYValue])
+    function handleScroll() {
+      if (isOnScreen(divRef)) setIsScrollDiv(true)
+      if (isOnScreen(titleRef)) setIsScrollTitle(true)
+      if (isOnScreen(descriptionRef)) setIsScrollDesc(true)
+      if (isOnScreen(carouselRef)) setIsScrollCarousel(true)
+    }
+    window.addEventListener('scroll', handleScroll)
 
-  useEffect(() => {
-    scrollYValue >= description &&
-      setIsScrollDesc(true)
-    return () => setIsScrollDesc(false)
-  }, [isScrollDesc, scrollYValue])
-
-  useEffect(() => {
-    scrollYValue >= carousel &&
-      setIsScrollCarousel(true)
-    return () => setIsScrollCarousel(false)
-  }, [isScrollCarousel, scrollYValue])
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
     <Container isLightTheme={isLightTheme} theme={theme} id="portfolio"
@@ -154,13 +127,17 @@ const Portfolio = () => {
         isScrollDiv ?
           <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
           :
-          <Replacement></Replacement>
+          <Replacement
+            ref={divRef}
+          ></Replacement>
       }
       {
         isScrollTitle ?
           <Heading theme={theme} variants={variants}>My Portfolio</Heading>
           :
-          <Replacement></Replacement>
+          <Replacement
+            ref={titleRef}
+          ></Replacement>
       }
       {
         isScrollDesc ?
@@ -168,7 +145,9 @@ const Portfolio = () => {
       <br />
       More projects in progress<Dots></Dots> </Description>
           :
-          <Replacement></Replacement>
+          <Replacement
+            ref={descriptionRef}
+          ></Replacement>
       }
       {
         isScrollCarousel ?
@@ -176,7 +155,9 @@ const Portfolio = () => {
             <Carousel />
           </motion.div>
           :
-          <Replacement></Replacement>
+          <Replacement
+            ref={carouselRef}
+          ></Replacement>
       }
 
     </Container>

@@ -123,7 +123,6 @@ const Navbar = () => {
   const handleToggle = () => {
     setActive(!isActive);
   }
-  console.log(isActive);
 
   return (
     <div id="navbar">

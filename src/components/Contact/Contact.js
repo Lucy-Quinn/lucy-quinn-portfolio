@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect, useRef } from 'react';
 // import { HashLink as Link } from 'react-router-hash-link';
 import styled from 'styled-components';
 import { ThemeContext } from '../../contexts/ThemeContext';
@@ -132,7 +132,6 @@ const Contact = () => {
     const { isLightTheme, themes } = useContext(ThemeContext);
     const theme = isLightTheme ? themes.light : themes.dark;
 
-    const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
     const [isScrollDiv, setIsScrollDiv] = useState(false);
     const [isScrollTitle, setIsScrollTitle] = useState(false);
     const [isScrollContact, setIsScrollContact] = useState(false);
@@ -148,67 +147,28 @@ const Contact = () => {
         return <a href={`mailto:${email}${params}`}>{children}</a>;
     };
 
-    function useScrollDistance() {
-        useEffect(() => {
-            function handleScroll() {
-                setscrollYValue(window.pageYOffset)
-            }
-            window.addEventListener('scroll', handleScroll)
-            return () => window.removeEventListener('scroll', handleScroll)
-        }, [])
-        return scrollYValue
-    }
-
-    useScrollDistance()
-
-    const scrollPosition = {
-        div: 2157,
-        title: 2178,
-        contact: 2238,
-        social: 2323,
-        icons: 2439,
-        arrow: 2570
-    };
-
-    const { div, title, contact, social, icons, arrow } = scrollPosition;
+    const divRef = useRef(null)
+    const titleRef = useRef(null)
+    const contactRef = useRef(null)
+    const socialRef = useRef(null)
+    const iconsRef = useRef(null)
+    const arrowRef = useRef(null)
 
     useEffect(() => {
-        scrollYValue >= div &&
-            setIsScrollDiv(true)
-        return () => setIsScrollDiv(false)
-    }, [isScrollDiv, scrollYValue])
+        const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
 
-    useEffect(() => {
-        scrollYValue >= title &&
-            setIsScrollTitle(true)
-        return () => setIsScrollTitle(false)
-    }, [isScrollTitle, scrollYValue])
+        function handleScroll() {
+            if (isOnScreen(divRef)) setIsScrollDiv(true)
+            if (isOnScreen(titleRef)) setIsScrollTitle(true)
+            if (isOnScreen(contactRef)) setIsScrollContact(true)
+            if (isOnScreen(socialRef)) setIsScrollSocial(true)
+            if (isOnScreen(iconsRef)) setIsScrollIcons(true)
+            if (isOnScreen(arrowRef)) setIsScrollArrow(true)
+        }
+        window.addEventListener('scroll', handleScroll)
 
-    useEffect(() => {
-        scrollYValue >= contact &&
-            setIsScrollContact(true)
-        return () => setIsScrollContact(false)
-    }, [isScrollContact, scrollYValue])
-
-    useEffect(() => {
-        scrollYValue >= social &&
-            setIsScrollSocial(true)
-        return () => setIsScrollSocial(false)
-    }, [isScrollSocial, scrollYValue])
-
-    useEffect(() => {
-        scrollYValue >= icons &&
-            setIsScrollIcons(true)
-        return () => setIsScrollIcons(false)
-    }, [isScrollIcons, scrollYValue])
-
-    useEffect(() => {
-        scrollYValue >= arrow &&
-            setIsScrollArrow(true)
-        return () => setIsScrollArrow(false)
-    }, [isScrollArrow, scrollYValue])
-
-    // console.log(scrollYValue);
+        return () => window.removeEventListener('scroll', handleScroll)
+    }, [])
 
     return (
         <div style={{ background: theme.background }}>
@@ -225,12 +185,16 @@ const Contact = () => {
                     {isScrollDiv ?
                         <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
                         :
-                        <Replacement></Replacement>
+                        <Replacement
+                            ref={divRef}
+                        ></Replacement>
                     }
                     {isScrollTitle ?
                         <Heading theme={theme} variants={variants}>Contact Lucy</Heading>
                         :
-                        <Replacement></Replacement>
+                        <Replacement
+                            ref={titleRef}
+                        ></Replacement>
                     }
                     {isScrollContact ?
                         <motion.div variants={contactParentVariants} initial="hidden"
@@ -239,7 +203,9 @@ const Contact = () => {
                             <ContactDetails theme={theme} variants={contactChildVariants}>+34 634 328 672</ContactDetails>
                         </motion.div>
                         :
-                        <Replacement></Replacement>
+                        <Replacement
+                            ref={contactRef}
+                        ></Replacement>
                     }
                     {isScrollSocial ?
                         <motion.div variants={contactParentVariants}
@@ -252,7 +218,9 @@ const Contact = () => {
 
                         </motion.div>
                         :
-                        <Replacement></Replacement>
+                        <Replacement
+                            ref={socialRef}
+                        ></Replacement>
                     }
 
                 </div>
@@ -291,7 +259,9 @@ const Contact = () => {
                         }
                     </motion.div>
                     :
-                    <Replacement></Replacement>
+                    <Replacement
+                        ref={iconsRef}
+                    ></Replacement>
                 }
                 {isScrollArrow ?
                     <motion.div variants={contactParentVariants}
@@ -319,7 +289,9 @@ const Contact = () => {
 
                     </motion.div>
                     :
-                    <Replacement></Replacement>
+                    <Replacement
+                        ref={arrowRef}
+                    ></Replacement>
 
                 }
 
