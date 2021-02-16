@@ -74,20 +74,19 @@ const ReplacementCv = styled.div`
 const variantContainer = {
   hidden: {
     opacity: 0,
-    y: 20
+    // y: 30
   },
   visible: {
     opacity: 1,
-    y: 0,
-    type: 'spring',
-    mass: 0.4,
+    // y: 0,
+    type: 'tween',
     staggerChildren: 1,
   }
 }
 const variants = {
   hidden: {
     opacity: 0,
-    y: 20
+    y: 30
   },
   visible: {
     opacity: 1,
@@ -98,13 +97,12 @@ const variants = {
 const qualParentVariants = {
   hidden: {
     opacity: 0,
-    y: 20
+    y: 30
   },
   visible: {
     opacity: 1,
     y: 0,
-    type: 'spring',
-    mass: 0.4,
+    type: 'tween',
     staggerChildren: 1
   }
 }
@@ -112,7 +110,7 @@ const qualParentVariants = {
 const qualChildVariants = {
   hidden: {
     opacity: 0,
-    y: 20
+    y: 30
   },
   visible: {
     opacity: 1,

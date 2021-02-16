@@ -33,7 +33,7 @@ const Description = styled(motion.p)`
 `
 const ReplacementImg = styled.div`
   height: 200px;
-  width: auto;
+  width: 200px;
 `
 
 const ReplacementDiv = styled.div`
@@ -58,7 +58,7 @@ const variantContainer = {
   },
   visible: {
     opacity: 1,
-    type: 'spring',
+    type: 'tween',
     mass: 0.4,
     damping: 8,
     when: "beforeChildren",
@@ -66,18 +66,6 @@ const variantContainer = {
   }
 }
 const variants = {
-  hidden: {
-    opacity: 0,
-    y: 20
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1 }
-  }
-}
-
-const variantDesc = {
   hidden: {
     opacity: 0,
     y: 30
@@ -88,6 +76,8 @@ const variantDesc = {
     transition: { duration: 1 }
   }
 }
+
+
 
 
 const About = () => {
@@ -112,13 +102,13 @@ const About = () => {
 
   useEffect(() => {
     const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
-
     function handleScroll() {
       if (isOnScreen(imageRef)) setIsScrollImage(true)
       if (isOnScreen(divRef)) setIsScrollDiv(true)
       if (isOnScreen(titleRef)) setIsScrollTitle(true)
       if (isOnScreen(descriptionRef)) setIsScrollDesc(true)
-      // if (isOnScreen(imageReplacementRef)) setIsScrollImage(true)
+
+      // if (isOnScreen(imageReplacementRef)) setIsScrollImage(false)
       // if (isOnScreen(divReplacementRef)) setIsScrollDiv(true)
       // if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true)
       // if (isOnScreen(descriptionReplacementRef)) setIsScrollDesc(true)
@@ -127,12 +117,13 @@ const About = () => {
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-  console.log(isScrollImage)
+
   return (
     <Container isLightTheme={isLightTheme} theme={theme} id="about"
       variants={variantContainer}
       initial="hidden"
       animate="visible"
+
     >
       {isScrollImage ?
         <Image src={Lucy} alt="portrait photo of Lucy"
@@ -140,17 +131,17 @@ const About = () => {
         ></Image>
         :
         <ReplacementImg ref={imageRef} />
+
       }
-      {/* <Replacement ref={imageReplacementRef} /> */}
+
+      {/* <Replacement  /> */}
 
       {isScrollDiv ?
         <Div isLightTheme={isLightTheme} theme={theme}
           variants={variants}
-
         >&lt;div&gt;</Div>
         :
         <ReplacementDiv ref={divRef} />
-
       }
       {/* <Replacement ref={divReplacementRef} /> */}
 
@@ -168,7 +159,7 @@ const About = () => {
 
       {isScrollDesc ?
         <Description theme={theme}
-          variants={variantDesc}
+          variants={variants}
 
         >I am a web developer from Bristol in England, I have spent much time travelling abroad and have lived in Italy. I am an enthusiastic linguist, who is always learning and forever making lists. I love creating and making projects and seeing them to the end. My attention to detail is “spot on”! </Description>
         :

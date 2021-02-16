@@ -4,7 +4,6 @@ import ArrowDownLight from './../../images/button-arrow-down-light.svg';
 import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
-
 //Styled Components
 
 const HeaderContainer = styled(motion.div)`
@@ -55,7 +54,6 @@ const ArrowDown = styled(motion.img)`
     margin: -10px 0 0 0;
     position: relative;
     top: 52px;
-
 `
 
 const headerParentVariants = {

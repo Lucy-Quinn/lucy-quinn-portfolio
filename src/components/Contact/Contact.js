@@ -66,11 +66,11 @@ const ReplacementDiv = styled.div`
   width: auto;
 `
 const ReplacementTitle = styled.div`
-  height: 32px;
+  height: 40px;
   width: auto;
 `
 const ReplacementContact = styled.div`
-  height: 41px;
+  height: 142px;
   width: auto;
 `
 const ReplacementSocial = styled.div`
@@ -78,7 +78,7 @@ const ReplacementSocial = styled.div`
   width: auto;
 `
 const ReplacementIcons = styled.div`
-  height: 60px;
+  height: 160px;
   width: auto;
 `
 const ReplacementArrow = styled.div`
@@ -98,38 +98,14 @@ const upVariants = {
     }
 }
 
-const variantContainer = {
-    hidden: {
-        opacity: 0,
-        y: 20
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        type: 'tween',
-        staggerChildren: 1,
-    }
-}
-const variants = {
-    hidden: {
-        opacity: 0,
-        y: 20
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: { duration: 0.2 }
-    }
-}
-
 const contactParentVariants = {
     hidden: {
         opacity: 0,
-        y: 20
+        // y: 30
     },
     visible: {
         opacity: 1,
-        y: 0,
+        // y: 0,
         type: 'tween',
         staggerChildren: 2
     }
@@ -138,7 +114,7 @@ const contactParentVariants = {
 const contactChildVariants = {
     hidden: {
         opacity: 0,
-        y: 20
+        y: 30
     },
     visible: {
         opacity: 1,
@@ -197,19 +173,19 @@ const Contact = () => {
                   180deg
                   , ${theme.gradientTwo} 0%, ${theme.gradientOne} 100%`
             }} id="contact"
-                variants={variantContainer}
+                variants={contactParentVariants}
                 initial="hidden"
                 animate="visible">
                 <div>
                     {isScrollDiv ?
-                        <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
+                        <Div isLightTheme={isLightTheme} theme={theme} variants={contactChildVariants}>&lt;div&gt;</Div>
                         :
                         <ReplacementDiv
                             ref={divRef}
                         />
                     }
                     {isScrollTitle ?
-                        <Heading theme={theme} variants={variants}>Contact Lucy</Heading>
+                        <Heading theme={theme} variants={contactChildVariants}>Contact Lucy</Heading>
                         :
                         <ReplacementTitle
                             ref={titleRef}

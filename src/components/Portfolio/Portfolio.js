@@ -48,11 +48,11 @@ const ReplacementDiv = styled.div`
   width: auto;
 `
 const ReplacementHeading = styled.div`
-  height: 32px;
+  height: 232px;
   width: auto;
 `
 const ReplacementDescription = styled.div`
-  height: 126px;
+  height: 226px;
   width: auto;
 `
 const ReplacementCarousel = styled.div`
@@ -66,26 +66,12 @@ const variantContainer = {
   },
   visible: {
     opacity: 1,
-    type: 'spring',
-    mass: 0.4,
-    damping: 8,
+    type: 'tween',
     when: "beforeChildren",
     staggerChildren: 1
   }
 }
 const variants = {
-  hidden: {
-    opacity: 0,
-    y: 20
-  },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 1 }
-  }
-}
-
-const variantDesc = {
   hidden: {
     opacity: 0,
     y: 30
@@ -96,6 +82,8 @@ const variantDesc = {
     transition: { duration: 1 }
   }
 }
+
+
 
 const Portfolio = () => {
 
