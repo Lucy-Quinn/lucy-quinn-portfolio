@@ -185,17 +185,15 @@ display: flex;
 `
 
 const Background = styled.div`
-/* display: none;  */
 opacity: 0;
-  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
   will-change: opacity;
-  z-index: 1;
-  /* animation: showBackground; */
+  z-index: ${({ isActive }) => isActive && 1};
+  position: ${({ isActive }) => isActive && 'fixed'};
   animation-delay: 2s;
   /* @-webkit-keyframes showBackground {
   0%   { opacity: 0; }
@@ -284,8 +282,6 @@ const Navbar = () => {
     prevScrollpos = currentScrollPos;
   }
 
-
-
   const screenWidth = window.innerWidth;
   return (
     <div id="navbar">
@@ -295,7 +291,7 @@ const Navbar = () => {
         :
         null
       } */}
-      <Background className={isActive ? 'background full' : "not-active"} />
+      <Background className={isActive ? 'background full' : "not-active"} isActive={isActive} />
       {/* <Background style={isActive ? { animation: 'showBackground', animationDelay: '4s', display: 'block' } : null} /> */}
 
       <Nav theme={theme}>
@@ -353,8 +349,8 @@ const Navbar = () => {
             </ThemeToggleAndLogo>
             <ToggleButton onClick={handleToggle}>
               <motion.img src={ToggleButtonOpen} alt="toggle button open icon"
-              // variants={toggleButtonVariants}
-              // animate={isActive ? "visible" : "hidden"} 
+                variants={toggleButtonVariants}
+                animate={isActive ? "visible" : "hidden"}
               />
             </ToggleButton>
           </div>)
@@ -398,4 +394,5 @@ const Navbar = () => {
 }
 
 export default Navbar;
+
 
