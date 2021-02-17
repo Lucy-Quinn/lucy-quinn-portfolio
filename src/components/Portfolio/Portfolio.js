@@ -48,15 +48,15 @@ const ReplacementDiv = styled.div`
   width: auto;
 `
 const ReplacementHeading = styled.div`
-  height: 232px;
+  height: 32px;
   width: auto;
 `
 const ReplacementDescription = styled.div`
-  height: 226px;
+  height: 126px;
   width: auto;
 `
 const ReplacementCarousel = styled.div`
-  height: 350px;
+  height: 460px;
   width: auto;
 `
 //Variants
@@ -66,19 +66,18 @@ const variantContainer = {
   },
   visible: {
     opacity: 1,
-    type: 'tween',
-    when: "beforeChildren",
+    // when: "beforeChildren",
     staggerChildren: 1
   }
 }
 const variants = {
   hidden: {
     opacity: 0,
-    y: 30
+    x: 10
   },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: { duration: 1 }
   }
 }
@@ -101,19 +100,40 @@ const Portfolio = () => {
   const descriptionRef = useRef(null)
   const carouselRef = useRef(null)
 
+  const divReplacementRef = useRef(null);
+  const titleReplacementRef = useRef(null);
+  const descriptionReplacementRef = useRef(null);
+  const carouselReplacementRef = useRef(null);
+
+
   useEffect(() => {
-    const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
+
+    const isOnScreen = (ref) => {
+      const isOffsetBottom = window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop;
+      const isOffsetTop = window.pageYOffset < ref.current?.offsetTop + ref.current?.offsetHeight;
+
+      return isOffsetBottom && isOffsetTop;
+    };
+
 
     function handleScroll() {
-      if (isOnScreen(divRef)) setIsScrollDiv(true)
-      if (isOnScreen(titleRef)) setIsScrollTitle(true)
-      if (isOnScreen(descriptionRef)) setIsScrollDesc(true)
-      if (isOnScreen(carouselRef)) setIsScrollCarousel(true)
+      if (isOnScreen(divReplacementRef)) setIsScrollDiv(true)
+      if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true)
+      if (isOnScreen(descriptionReplacementRef)) setIsScrollDesc(true)
+      if (isOnScreen(carouselReplacementRef)) setIsScrollCarousel(true)
+
+      if (divReplacementRef && !isOnScreen(divRef)) setIsScrollDiv(false);
+      if (titleReplacementRef && !isOnScreen(titleRef)) setIsScrollTitle(false);
+      if (descriptionReplacementRef && !isOnScreen(descriptionRef)) setIsScrollDesc(false);
+      if (carouselReplacementRef && !isOnScreen(carouselRef)) setIsScrollCarousel(false);
+
     }
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+
 
   return (
     <Container isLightTheme={isLightTheme} theme={theme} id="portfolio"
@@ -124,38 +144,47 @@ const Portfolio = () => {
 
       {
         isScrollDiv ?
-          <Div isLightTheme={isLightTheme} theme={theme} variants={variants}>&lt;div&gt;</Div>
+          <Div isLightTheme={isLightTheme} theme={theme} variants={variants}
+            ref={divRef}
+          >&lt;div&gt;</Div>
           :
           <ReplacementDiv
-            ref={divRef}
+            ref={divReplacementRef}
           ></ReplacementDiv>
       }
       {
         isScrollTitle ?
-          <Heading theme={theme} variants={variants}>My Portfolio</Heading>
+          <Heading theme={theme} variants={variants}
+            ref={titleRef}
+          >My Portfolio</Heading>
           :
           <ReplacementHeading
-            ref={titleRef}
+            ref={titleReplacementRef}
           ></ReplacementHeading>
       }
       {
         isScrollDesc ?
-          <Description theme={theme} variants={variants}>Here are a collection of my projects that I have created, where I have implemented the languages that I have learnt.
+          <Description theme={theme} variants={variants}
+            ref={descriptionRef}
+
+          >Here are a collection of my projects that I have created, where I have implemented the languages that I have learnt.
       <br />
       More projects in progress<Dots></Dots> </Description>
           :
           <ReplacementDescription
-            ref={descriptionRef}
+            ref={descriptionReplacementRef}
           ></ReplacementDescription>
       }
       {
         isScrollCarousel ?
-          <motion.div variants={variants}>
+          <motion.div variants={variants}
+            ref={carouselRef}
+          >
             <Carousel />
           </motion.div>
           :
           <ReplacementCarousel
-            ref={carouselRef}
+            ref={carouselReplacementRef}
           ></ReplacementCarousel>
       }
 

@@ -74,35 +74,29 @@ const ReplacementCv = styled.div`
 const variantContainer = {
   hidden: {
     opacity: 0,
-    // y: 30
   },
   visible: {
     opacity: 1,
-    // y: 0,
-    type: 'tween',
     staggerChildren: 1,
   }
 }
 const variants = {
   hidden: {
     opacity: 0,
-    y: 30
+    x: 10
   },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: { duration: 0.2 }
   }
 }
 const qualParentVariants = {
   hidden: {
     opacity: 0,
-    y: 30
   },
   visible: {
     opacity: 1,
-    y: 0,
-    type: 'tween',
     staggerChildren: 1
   }
 }
@@ -110,11 +104,11 @@ const qualParentVariants = {
 const qualChildVariants = {
   hidden: {
     opacity: 0,
-    y: 30
+    x: 10
   },
   visible: {
     opacity: 1,
-    y: 0,
+    x: 0,
     transition: { duration: 0.5 }
   }
 }
@@ -139,22 +133,46 @@ const Education = () => {
   const qualFourRef = useRef(null)
   const cvRef = useRef(null)
 
+  const divReplacementRef = useRef(null);
+  const titleReplacementRef = useRef(null);
+  const qualOneReplacementRef = useRef(null);
+  const qualTwoReplacementRef = useRef(null);
+  const qualThreeReplacementRef = useRef(null);
+  const qualFourReplacementRef = useRef(null);
+  const cvReplacementRef = useRef(null);
+
+
   useEffect(() => {
-    const isOnScreen = (ref) => window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop
+    const isOnScreen = (ref) => {
+      const isOffsetBottom = window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop;
+      const isOffsetTop = window.pageYOffset < ref.current?.offsetTop + ref.current?.offsetHeight;
+
+      return isOffsetBottom && isOffsetTop;
+    };
 
     function handleScroll() {
-      if (isOnScreen(divRef)) setIsScrollDiv(true)
-      if (isOnScreen(titleRef)) setIsScrollTitle(true)
-      if (isOnScreen(qualOneRef)) setIsScrollQualOne(true)
-      if (isOnScreen(qualTwoRef)) setIsScrollQualTwo(true)
-      if (isOnScreen(qualThreeRef)) setIsScrollQualThree(true)
-      if (isOnScreen(qualFourRef)) setIsScrollQualFour(true)
-      if (isOnScreen(cvRef)) setIsScrollCv(true)
+      if (isOnScreen(divReplacementRef)) setIsScrollDiv(true)
+      if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true)
+      if (isOnScreen(qualOneReplacementRef)) setIsScrollQualOne(true)
+      if (isOnScreen(qualTwoReplacementRef)) setIsScrollQualTwo(true)
+      if (isOnScreen(qualThreeReplacementRef)) setIsScrollQualThree(true)
+      if (isOnScreen(qualFourReplacementRef)) setIsScrollQualFour(true)
+      if (isOnScreen(cvReplacementRef)) setIsScrollCv(true)
+
+      if (divReplacementRef && !isOnScreen(divRef)) setIsScrollDiv(false);
+      if (titleReplacementRef && !isOnScreen(titleRef)) setIsScrollTitle(false);
+      if (qualOneReplacementRef && !isOnScreen(qualOneRef)) setIsScrollQualOne(false);
+      if (qualTwoReplacementRef && !isOnScreen(qualTwoRef)) setIsScrollQualTwo(false);
+      if (qualThreeReplacementRef && !isOnScreen(qualThreeRef)) setIsScrollQualThree(false);
+      if (qualFourReplacementRef && !isOnScreen(qualFourRef)) setIsScrollQualFour(false);
+      if (cvReplacementRef && !isOnScreen(cvRef)) setIsScrollCv(false);
+
     }
     window.addEventListener('scroll', handleScroll)
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
 
   return (
     <Container id="education" isLightTheme={isLightTheme} theme={theme}
@@ -164,22 +182,30 @@ const Education = () => {
     >
       {isScrollDiv ?
         <Div isLightTheme={isLightTheme} theme={theme}
-          variants={variants}>&lt;div&gt;</Div>
+          variants={variants}
+          ref={divRef}
+        >&lt;div&gt;</Div>
         :
         <ReplacementDiv
-          ref={divRef}
+          ref={divReplacementRef}
         />
       }
+
+
       {isScrollTitle ?
-        <Heading theme={theme} variants={variants}>Education</Heading>
+        <Heading theme={theme} variants={variants}
+          ref={titleRef}
+        >Education</Heading>
         :
         <ReplacementTitle
-          ref={titleRef}
+          ref={titleReplacementRef}
         />
       }
       {isScrollQualOne ?
         <motion.div variants={qualParentVariants} initial="hidden"
-          animate="visible">
+          animate="visible"
+          ref={qualOneRef}
+        >
           <Experience topBorder variants={qualChildVariants}>
             <School isLightTheme={isLightTheme} theme={theme} variants={qualChildVariants}>Ironhack: Oct 2020 - Jan 2021 (Spain)</School>
             <Qualification theme={theme} variants={qualChildVariants}>Full Stack Web Development Graduate</Qualification>
@@ -187,12 +213,16 @@ const Education = () => {
         </motion.div>
         :
         <ReplacementQualOne
-          ref={qualOneRef}
+          ref={qualOneReplacementRef}
         />
       }
+
+
       {isScrollQualTwo ?
         <motion.div variants={qualParentVariants} initial="hidden"
-          animate="visible">
+          animate="visible"
+          ref={qualTwoRef}
+        >
           <Experience variants={qualChildVariants}>
             <School isLightTheme={isLightTheme} theme={theme} variants={qualChildVariants}>Don Milani: Oct 2012 - Dec 2012 (Italy)</School>
             <Qualification theme={theme} variants={qualChildVariants}>CIL Duo (B2 Higher Intermediate Italian)</Qualification>
@@ -200,12 +230,14 @@ const Education = () => {
         </motion.div>
         :
         <ReplacementQualTwo
-          ref={qualTwoRef}
+          ref={qualTwoReplacementRef}
         />
       }
       {isScrollQualThree ?
         <motion.div variants={qualParentVariants} initial="hidden"
-          animate="visible">
+          animate="visible"
+          ref={qualThreeRef}
+        >
           <Experience variants={qualChildVariants}>
             <School isLightTheme={isLightTheme} theme={theme}>Leeds University: Sept 2008 - Jul 2012</School>
             <Qualification theme={theme}>Spanish & Latin American Studies (BA Hons)</Qualification>
@@ -215,12 +247,15 @@ const Education = () => {
         </motion.div>
         :
         <ReplacementQualThree
-          ref={qualThreeRef}
+          ref={qualThreeReplacementRef}
         />
       }
+
       {isScrollQualFour ?
         <motion.div variants={qualParentVariants} initial="hidden"
-          animate="visible">
+          animate="visible"
+          ref={qualFourRef}
+        >
           <Experience lastChild variants={qualChildVariants}>
             <School isLightTheme={isLightTheme} theme={theme}>Cardiff Met University: Sept 2006 - Jul 2007</School>
             <Qualification theme={theme}>Art & Design Foundation</Qualification>
@@ -228,24 +263,29 @@ const Education = () => {
         </motion.div>
         :
         <ReplacementQualFour
-          ref={qualFourRef}
+          ref={qualFourReplacementRef}
         />
       }
       {isScrollCv ?
         <motion.div variants={variantContainer} initial="hidden"
-          animate="visible">
-          <CvHeading theme={theme} variants={variants}>Open my CV</CvHeading>
-          <motion.a variants={variants} rel="noopener noreferrer" target="_blank" href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing">
+          animate="visible"
+          ref={cvRef}
+        >
+          <CvHeading theme={theme} variants={variants}
+          >Open my CV</CvHeading>
+          <motion.a variants={variants} rel="noopener noreferrer" target="_blank" href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
+          >
             <Cv src={Resume} variants={variants} alt="icon to open resume" />
           </motion.a>
         </motion.div>
         :
         <ReplacementCv
-          ref={cvRef}
+          ref={cvReplacementRef}
         />
       }
     </Container>
   );
+
 }
 
 export default Education;

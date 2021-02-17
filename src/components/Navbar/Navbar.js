@@ -361,9 +361,7 @@ const Navbar = () => {
             <NavigationLinksDesktop theme={theme} isLightTheme={isLightTheme}
             >
               {/* style={isActive ? { display: 'flex', animation: 'expandnav 2s' } : { display: 'none' }} */}
-
               <NavLinkList className={isActive ? "active" : "not-active"}
-
               >
                 <Menu >
                   <p style={{ color: theme.div }}>Menu</p>
