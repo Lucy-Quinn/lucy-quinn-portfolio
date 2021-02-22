@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 //Styled Components
 const ThemeToggleButton = styled(motion.img)`
     cursor: pointer;
+
 `
 
 const toggleThemeVariants = {

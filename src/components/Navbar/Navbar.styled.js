@@ -87,10 +87,11 @@ border-radius: 0 0 50% 50%  / 70px;
   @media (min-width: 1024px) {
     display: flex;
     flex-direction: row;
-    justify-content: flex-end;
+    justify-content: space-around;
     align-items: center;
     padding: 0;
     width: 100%;
+    
   }
 `
 
@@ -107,6 +108,11 @@ const Link = styled(motion.a)`
   @media (min-width: 1024px) {
     margin-bottom: ${props => props.contactLink && '0'};
   margin-bottom: ${props => props.resumeLink && '0'};
+  & > h2{
+      font-size: 1rem;
+     margin: 0 0 0;
+
+    }
   }
 `
 
@@ -120,6 +126,7 @@ const Menu = styled(motion.li)`
 }
 @media (min-width: 1024px) {
     display: none;
+    
   }
 `
 
@@ -128,6 +135,7 @@ const ToggleButton = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  postion: ${(props) => (props.crossToggle && 'absolute')};
   top: ${(props) => (props.crossToggle ? '0.7rem' : '0.2rem')};
   right: ${(props) => (props.crossToggle ? '0.7rem' : '0.2rem')};
   z-index: 1;
@@ -170,9 +178,22 @@ const ToggleImage = styled(motion.img)`
 const ThemeToggleAndLogo = styled.div`
 display: flex;
   justify-content: space-between;
-  width: 218px;
+  width: 69%;
   align-items: center;
   margin: 5px 94px 0 0;
+  @media (min-width: 375px) {
+    width: 66%;
+
+  }
+  @media (min-width: 425px) {
+    width: 65%;
+
+  }
+  @media (min-width: 728px) {
+    width: 58%;
+
+  }
+
 `
 
 const Background = styled.div`
@@ -216,6 +237,22 @@ opacity: 0;
 
 `
 
+const NavNotActive = styled.div`
+display: flex;
+    justify-content: space-between;
+    width: 100%;
+`
+
+// width 1028px
+const ThemeToggleAndCv = styled.div`
+@media (min-width: 1024px) {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`
+
+
 export {
   Nav,
   NavigationLinksMobile,
@@ -226,5 +263,7 @@ export {
   ToggleButton,
   ToggleImage,
   ThemeToggleAndLogo,
-  Background
+  Background,
+  NavNotActive,
+  ThemeToggleAndCv
 }
