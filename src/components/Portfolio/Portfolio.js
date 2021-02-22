@@ -83,6 +83,20 @@ const variants = {
 }
 
 
+const carouselVariants = {
+  hidden: {
+    opacity: 0,
+    x: 10,
+    transition: { duration: 2 }
+
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 3 }
+  }
+}
+
 
 const Portfolio = () => {
 
@@ -177,7 +191,7 @@ const Portfolio = () => {
       }
       {
         isScrollCarousel ?
-          <motion.div variants={variants}
+          <motion.div variants={carouselVariants}
             ref={carouselRef}
           >
             <Carousel />

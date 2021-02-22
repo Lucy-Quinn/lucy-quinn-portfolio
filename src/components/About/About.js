@@ -33,6 +33,7 @@ const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
   margin-bottom: 30px;
 `;
+
 const ReplacementImg = styled.div`
   height: 200px;
   width: 200px;
@@ -42,10 +43,12 @@ const ReplacementDiv = styled.div`
   height: 24px;
   width: auto;
 `;
+
 const ReplacementTitle = styled.div`
   height: 32px;
   width: auto;
 `;
+
 const ReplacementDescription = styled.div`
   height: 144px;
   width: auto;
@@ -63,6 +66,7 @@ const variantContainer = {
     staggerChildren: 1,
   },
 };
+
 const variants = {
   hidden: {
     opacity: 0,
@@ -97,22 +101,24 @@ const About = () => {
 
   useEffect(() => {
     const isOnScreen = (ref) => {
+      //to check that the element is on the screen or you have past it
       const isOffsetBottom = window.pageYOffset + window.innerHeight - 30 >= ref.current?.offsetTop;
+
+      //to check that you are at the bottom of the element or past this point
       const isOffsetTop = window.pageYOffset < ref.current?.offsetTop + ref.current?.offsetHeight;
+
       return isOffsetBottom && isOffsetTop;
+      //when isOffsetBottom is true is when the image is on the screen. When this is true evaluate isOffsetTop. isOffsetTop will return true up until the bottom of the element. I.E. this function will return true when the image is on screen.
     };
 
-    // console.log('image', imageRef.current?.offsetHeight);
-    // console.log('div', divRef.current?.offsetHeight);
-    // console.log('title', titleRef.current?.offsetHeight);
-    // console.log('descr', descriptionRef.current?.offsetHeight);
-
     function handleScroll() {
+      //if replacementRef is on screen set state to true
       if (isOnScreen(imageReplacementRef)) setIsScrollImage(true);
       if (isOnScreen(divReplacementRef)) setIsScrollDiv(true);
       if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true);
       if (isOnScreen(descriptionReplacementRef)) setIsScrollDesc(true);
 
+      //if replacementRef is true && the elementRef is NOT on screen set state to false
       if (imageReplacementRef && !isOnScreen(imageRef)) setIsScrollImage(false);
       if (divReplacementRef && !isOnScreen(divRef)) setIsScrollDiv(false);
       if (titleReplacementRef && !isOnScreen(titleRef)) setIsScrollTitle(false);
@@ -132,6 +138,7 @@ const About = () => {
       initial="hidden"
       animate="visible"
     >
+
       {isScrollImage ? (
         <Image
           src={Lucy}
@@ -142,6 +149,7 @@ const About = () => {
       ) : (
           <ReplacementImg ref={imageReplacementRef} />
         )}
+
       {isScrollDiv ? (
         <Div
           isLightTheme={isLightTheme}
@@ -154,6 +162,7 @@ const About = () => {
       ) : (
           <ReplacementDiv ref={divReplacementRef} />
         )}
+
       {isScrollTitle ? (
         <Heading theme={theme} variants={variants} ref={titleRef}>
           About Lucy
@@ -161,6 +170,7 @@ const About = () => {
       ) : (
           <ReplacementTitle ref={titleReplacementRef} />
         )}
+
       {isScrollDesc ? (
         <Description theme={theme} variants={variants} ref={descriptionRef}>
           I am a web developer from Bristol in England, I have spent much time

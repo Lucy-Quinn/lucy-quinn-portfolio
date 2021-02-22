@@ -51,7 +51,7 @@ const Socials = styled(motion.p)`
   margin: 50px 0 0 0;
 `
 
-const Top = styled(motion.a)`
+const Top = styled(motion.div)`
   margin: 0 0 75px 0;
   font-weight: 300;
   & > h4 {
@@ -119,6 +119,29 @@ const contactChildVariants = {
         transition: { duration: 0.5 }
     }
 }
+
+const socialParentVariants = {
+    hidden: {
+        opacity: 0,
+    },
+    visible: {
+        opacity: 1,
+        staggerChildren: 3
+    }
+}
+
+const socialChildVariants = {
+    hidden: {
+        opacity: 0,
+        x: 10
+    },
+    visible: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.5 }
+    }
+}
+
 
 const Contact = () => {
     const { isLightTheme, themes } = useContext(ThemeContext);
@@ -227,15 +250,15 @@ const Contact = () => {
                         />
                     }
                     {isScrollSocial ?
-                        <motion.div variants={contactParentVariants}
+                        <motion.div variants={socialParentVariants}
                             initial="hidden"
                             animate="visible"
 
                         >
-                            <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!" variants={contactChildVariants}>
+                            <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!" variants={socialChildVariants}>
                                 <ContactDetails theme={theme} ref={socialRef}>lucy.quinn.uk@gmail.com</ContactDetails>
                             </Mailto>
-                            <Tie theme={theme} variants={contactChildVariants}>Spanish permanent residency (TIE)</Tie>
+                            <Tie theme={theme} variants={socialChildVariants}>Spanish permanent residency (TIE)</Tie>
 
                         </motion.div>
                         :
