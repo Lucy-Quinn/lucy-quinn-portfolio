@@ -1,83 +1,9 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Lucy from "./../../images/lucy.png";
-import styled from "styled-components";
-import { motion } from "framer-motion";
+import { Container, Image, Div, Heading, Description, ReplacementImg, ReplacementDiv, ReplacementTitle, ReplacementDescription } from './About.styled';
+import { variantContainer, variants } from './About.variants';
 
-//Styled components
-const Container = styled(motion.div)`
-  padding: 5px 12px;
-  background: ${({ isLightTheme, theme }) =>
-    isLightTheme ? null : theme.background};
-`;
-
-const Image = styled(motion.img)`
-  height: 200px;
-  width: auto;
-  border-radius: 50%;
-  margin-top: 32px;
-`;
-
-const Div = styled(motion.p)`
-  color: ${({ isLightTheme, theme }) =>
-    isLightTheme ? theme.primaryColor : theme.div};
-  font-weight: 300;
-  margin: 0;
-`;
-
-const Heading = styled(motion.h2)`
-  color: ${({ theme }) => theme.primaryColor};
-`;
-
-const Description = styled(motion.p)`
-  color: ${({ theme }) => theme.bodyCopy};
-  margin-bottom: 30px;
-`;
-
-const ReplacementImg = styled.div`
-  height: 200px;
-  width: 200px;
-`;
-
-const ReplacementDiv = styled.div`
-  height: 24px;
-  width: auto;
-`;
-
-const ReplacementTitle = styled.div`
-  height: 32px;
-  width: auto;
-`;
-
-const ReplacementDescription = styled.div`
-  height: 144px;
-  width: auto;
-`;
-
-//Variants
-
-const variantContainer = {
-  hidden: {
-    opacity: 0,
-  },
-  visible: {
-    opacity: 1,
-    // when: "beforeChildren",
-    staggerChildren: 1,
-  },
-};
-
-const variants = {
-  hidden: {
-    opacity: 0,
-    x: 10,
-  },
-  visible: {
-    opacity: 1,
-    x: 0,
-    transition: { duration: 1 },
-  },
-};
 
 const About = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);

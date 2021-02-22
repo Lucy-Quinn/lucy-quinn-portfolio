@@ -10,6 +10,7 @@ import { motion } from 'framer-motion';
 const ThemeToggleButton = styled(motion.img)`
     cursor: pointer;
 `
+
 const toggleThemeVariants = {
     hidden: {
         rotate: 0
@@ -23,10 +24,6 @@ const toggleThemeVariants = {
         transition: { duration: 1 },
     }
 }
-
-
-
-
 
 const ThemeToggle = () => {
     const { toggleTheme, isLightTheme } = useContext(ThemeContext);

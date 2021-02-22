@@ -1,48 +1,25 @@
 import React, { useContext } from 'react';
-// import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { ThemeContext } from '../../contexts/ThemeContext';
+import { svgVariants, pathVariants } from './Logo.variants';
 
-const svgVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-        opacity: 1,
-        transition: { staggerChildren: 0.1 }
-    },
-}
-
-const pathVariants = {
-    hidden: {
-        opacity: 0,
-        pathLength: 0,
-    },
-    visible: {
-        opacity: 1,
-        pathLength: 1,
-        transition: {
-            duration: 1,
-            ease: "easeInOut",
-        }
-    }
-
-};
 const Logo = () => {
-    const { isLightTheme, themes } = useContext(ThemeContext);
-    const stroke = isLightTheme ? themes.light.primaryColor : themes.dark.primaryColor;
-    return (
+  const { isLightTheme, themes } = useContext(ThemeContext);
+  const stroke = isLightTheme ? themes.light.primaryColor : themes.dark.primaryColor;
+  return (
 
-        <div className="logo"  >
-            <motion.svg xmlns="http://www.w3.org/2000/svg"
-                width="1.11111in" height="0.433333in"
-                // width='250px' height='135px'
-                variants={svgVariants}
-                initial="hidden"
-                animate="visible"
-                viewBox="0 0 222 86"
-                style={{ margin: "0 5 0 0" }}>
-                <motion.path
-                    fill="none" stroke={stroke} stroke-width="100"
-                    d="M 2.00,9.00
+    <div className="logo"  >
+      <motion.svg xmlns="http://www.w3.org/2000/svg"
+        width="1.11111in" height="0.433333in"
+        // width='250px' height='135px'
+        variants={svgVariants}
+        initial="hidden"
+        animate="visible"
+        viewBox="0 0 222 86"
+        style={{ margin: "0 5 0 0" }}>
+        <motion.path
+          fill="none" stroke={stroke} stroke-width="100"
+          d="M 2.00,9.00
                        C 2.00,9.00 12.00,10.00 12.00,10.00
                          12.00,10.00 8.00,11.00 8.00,11.00
                          8.00,11.00 8.00,32.00 8.00,32.00
@@ -52,11 +29,11 @@ const Logo = () => {
                          1.00,33.00 5.00,32.00 5.00,32.00
                          5.00,32.00 4.45,14.09 4.45,14.09
                          4.45,14.09 2.00,9.00 2.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 20.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 20.00,9.00
                        C 20.00,9.00 29.00,9.00 29.00,9.00
                          29.00,9.00 26.54,13.26 26.54,13.26
                          25.13,17.33 24.91,33.32 33.95,30.92
@@ -68,11 +45,11 @@ const Logo = () => {
                          36.94,35.20 27.63,36.29 24.17,29.94
                          22.35,26.60 23.00,15.30 23.00,11.00
                          23.00,11.00 20.00,9.00 20.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 68.00,30.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 68.00,30.00
                        C 59.24,39.67 47.14,32.81 48.10,20.00
                          48.57,13.64 53.24,7.97 60.00,8.39
                          62.21,8.53 65.36,9.27 66.43,11.43
@@ -80,11 +57,11 @@ const Logo = () => {
                          64.16,14.33 61.74,10.79 58.01,11.84
                          51.00,13.83 50.28,25.08 55.39,29.31
                          59.38,32.62 62.05,29.38 68.00,30.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 70.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 70.00,9.00
                        C 70.00,9.00 80.00,10.00 80.00,10.00
                          80.00,10.00 77.00,11.00 77.00,11.00
                          77.00,11.00 82.00,22.00 82.00,22.00
@@ -96,11 +73,11 @@ const Logo = () => {
                          86.00,34.00 77.00,34.00 77.00,34.00
                          77.92,32.38 79.34,30.74 79.66,28.87
                          80.75,22.57 73.08,14.09 70.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 122.00,37.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 122.00,37.00
                        C 118.49,42.03 113.37,39.38 109.00,37.00
                          100.69,32.48 94.19,32.09 95.10,20.00
                          96.28,4.13 118.73,4.22 117.95,22.00
@@ -110,11 +87,11 @@ const Logo = () => {
                          M 105.02,11.47
                        C 94.87,15.50 97.86,33.43 107.98,31.34
                          116.37,29.61 117.86,10.87 105.02,11.47 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 121.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 121.00,9.00
                        C 121.00,9.00 130.00,9.00 130.00,9.00
                          130.00,9.00 127.54,13.26 127.54,13.26
                          126.13,17.33 125.91,33.32 134.95,30.92
@@ -126,11 +103,11 @@ const Logo = () => {
                          137.84,35.34 128.56,36.15 125.17,29.94
                          123.35,26.60 124.00,15.30 124.00,11.00
                          124.00,11.00 121.00,9.00 121.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 148.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 148.00,9.00
                        C 148.00,9.00 158.00,9.00 158.00,9.00
                          158.00,9.00 155.54,13.26 155.54,13.26
                          155.54,13.26 155.00,32.00 155.00,32.00
@@ -139,11 +116,11 @@ const Logo = () => {
                          148.00,33.00 152.00,32.00 152.00,32.00
                          152.00,32.00 151.42,14.09 151.42,14.09
                          151.42,14.09 148.00,9.00 148.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 161.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 161.00,9.00
                        C 161.00,9.00 167.67,10.02 167.67,10.02
                          167.67,10.02 180.00,28.00 180.00,28.00
                          180.00,28.00 180.00,11.00 180.00,11.00
@@ -159,11 +136,11 @@ const Logo = () => {
                          160.00,33.00 164.00,32.00 164.00,32.00
                          164.00,32.00 163.45,14.09 163.45,14.09
                          163.45,14.09 161.00,9.00 161.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 190.00,9.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 190.00,9.00
                        C 190.00,9.00 196.67,10.02 196.67,10.02
                          196.67,10.02 209.00,28.00 209.00,28.00
                          209.00,28.00 209.00,11.00 209.00,11.00
@@ -179,12 +156,12 @@ const Logo = () => {
                          190.00,34.00 192.45,28.91 192.45,28.91
                          192.45,28.91 193.00,11.00 193.00,11.00
                          193.00,11.00 190.00,9.00 190.00,9.00 Z"
-                    variants={pathVariants}
-                />
-                {/* Developer */}
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 2.00,49.00
+          variants={pathVariants}
+        />
+        {/* Developer */}
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 2.00,49.00
                        C 7.72,49.00 16.05,48.27 20.79,51.88
                          27.30,56.84 26.35,70.49 18.91,74.55
                          15.07,76.63 6.55,76.00 2.00,76.00
@@ -196,11 +173,11 @@ const Logo = () => {
                          22.19,67.99 22.25,57.12 17.77,53.74
                          15.26,51.84 11.98,52.03 9.00,52.00
                          9.00,52.00 9.00,73.00 9.00,73.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 29.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 29.00,49.00
                        C 29.00,49.00 48.00,49.00 48.00,49.00
                          48.00,49.00 48.00,56.00 48.00,56.00
                          48.00,56.00 45.00,52.00 45.00,52.00
@@ -216,11 +193,11 @@ const Logo = () => {
                          29.00,76.00 31.46,71.74 31.46,71.74
                          31.46,71.74 32.00,52.00 32.00,52.00
                          32.00,52.00 29.00,49.00 29.00,49.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 50.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 50.00,49.00
                        C 50.00,49.00 60.00,49.00 60.00,49.00
                          60.00,49.00 57.00,52.00 57.00,52.00
                          57.00,52.00 64.00,71.00 64.00,71.00
@@ -233,11 +210,11 @@ const Logo = () => {
                          60.66,75.41 59.62,71.73 59.00,70.00
                          59.00,70.00 54.04,56.05 54.04,56.05
                          52.60,53.01 51.18,52.47 50.00,49.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 79.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 79.00,49.00
                        C 79.00,49.00 98.00,49.00 98.00,49.00
                          98.00,49.00 98.00,56.00 98.00,56.00
                          98.00,56.00 95.00,52.00 95.00,52.00
@@ -253,11 +230,11 @@ const Logo = () => {
                          79.00,76.00 81.46,71.74 81.46,71.74
                          81.46,71.74 82.00,52.00 82.00,52.00
                          82.00,52.00 79.00,49.00 79.00,49.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 102.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 102.00,49.00
                        C 102.00,49.00 112.00,49.00 112.00,49.00
                          112.00,49.00 109.54,54.17 109.54,54.17
                          109.54,54.17 109.00,73.00 109.00,73.00
@@ -267,13 +244,13 @@ const Logo = () => {
                          102.00,76.00 104.46,71.74 104.46,71.74
                          104.46,71.74 105.00,52.00 105.00,52.00
                          105.00,52.00 102.00,49.00 102.00,49.00 Z"
-                    variants={pathVariants}
-                />
+          variants={pathVariants}
+        />
 
-                {/* o */}
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 131.00,49.74
+        {/* o */}
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 131.00,49.74
                        C 135.60,48.64 140.04,48.82 143.61,52.39
                          149.17,57.95 148.31,71.59 139.98,75.35
                          124.73,82.23 115.43,58.07 131.00,49.74 Z
@@ -291,11 +268,11 @@ const Logo = () => {
                        M 133.04,52.45
                        C 122.34,57.02 126.73,76.14 136.98,73.02
                          145.14,70.54 146.80,51.08 133.04,52.45 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 174.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 174.00,49.00
                        C 174.00,49.00 193.00,49.00 193.00,49.00
                          193.00,49.00 193.00,56.00 193.00,56.00
                          193.00,56.00 190.00,52.00 190.00,52.00
@@ -311,11 +288,11 @@ const Logo = () => {
                          174.00,76.00 176.46,71.74 176.46,71.74
                          176.46,71.74 177.00,52.00 177.00,52.00
                          177.00,52.00 174.00,49.00 174.00,49.00 Z"
-                    variants={pathVariants}
-                />
-                <motion.path id="Selection #1"
-                    fill="none" stroke={stroke} stroke-width="20"
-                    d="M 198.00,49.00
+          variants={pathVariants}
+        />
+        <motion.path id="Selection #1"
+          fill="none" stroke={stroke} stroke-width="20"
+          d="M 198.00,49.00
                        C 202.43,49.00 210.06,48.48 213.87,50.57
                          219.80,53.83 218.01,59.88 213.00,63.00
                          213.00,63.00 220.00,76.00 220.00,76.00
@@ -336,11 +313,11 @@ const Logo = () => {
                        C 215.31,61.39 214.74,55.23 211.69,53.17
                          209.86,51.95 207.11,52.05 205.00,52.00
                          205.00,52.00 205.00,62.00 205.00,62.00 Z"
-                    variants={pathVariants}
-                />
-            </motion.svg>
-        </div>
-    );
+          variants={pathVariants}
+        />
+      </motion.svg>
+    </div>
+  );
 }
 
 export default Logo;
