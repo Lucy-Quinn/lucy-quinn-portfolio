@@ -66,48 +66,50 @@ const About = () => {
     >
 
       {isScrollImage ? (
-        <Image
-          src={Lucy}
-          alt="portrait photo of Lucy"
-          variants={variants}
-          ref={imageRef}
-        />
+        <div>
+          <Image
+            src={Lucy}
+            alt="portrait photo of Lucy"
+            variants={variants}
+            ref={imageRef}
+          />
+        </div>
       ) : (
           <ReplacementImg ref={imageReplacementRef} />
         )}
 
-      {isScrollDiv ? (
-        <Div
-          isLightTheme={isLightTheme}
-          theme={theme}
-          variants={variants}
-          ref={divRef}
-        >
-          &lt;div&gt;
-        </Div>
-      ) : (
-          <ReplacementDiv ref={divReplacementRef} />
-        )}
-
-      {isScrollTitle ? (
-        <Heading theme={theme} variants={variants} ref={titleRef}>
-          About Lucy
-        </Heading>
-      ) : (
-          <ReplacementTitle ref={titleReplacementRef} />
-        )}
-
-      {isScrollDesc ? (
-        <Description theme={theme} variants={variants} ref={descriptionRef}>
-          I am a web developer from Bristol in England, I have spent much time
-          travelling abroad and have lived in Italy. I am an enthusiastic
-          linguist, who is always learning and forever making lists. I love
-          creating and making projects and seeing them to the end. My attention
-          to detail is “spot on”!
-        </Description>
-      ) : (
-          <ReplacementDescription ref={descriptionReplacementRef} />
-        )}
+      <div>
+        {isScrollDiv ? (
+          <Div
+            isLightTheme={isLightTheme}
+            theme={theme}
+            variants={variants}
+            ref={divRef}
+          >
+            &lt;div&gt;
+          </Div>
+        ) : (
+            <ReplacementDiv ref={divReplacementRef} />
+          )}
+        {isScrollTitle ? (
+          <Heading theme={theme} variants={variants} ref={titleRef}>
+            About Lucy
+          </Heading>
+        ) : (
+            <ReplacementTitle ref={titleReplacementRef} />
+          )}
+        {isScrollDesc ? (
+          <Description theme={theme} variants={variants} ref={descriptionRef}>
+            I am a web developer from Bristol in England, I have spent much time
+            travelling abroad and have lived in Italy. I am an enthusiastic
+            linguist, who is always learning and forever making lists. I love
+            creating and making projects and seeing them to the end. My attention
+            to detail is “spot on”!
+          </Description>
+        ) : (
+            <ReplacementDescription ref={descriptionReplacementRef} />
+          )}
+      </div>
     </Container>
   );
 };

@@ -5,7 +5,12 @@ import { motion } from "framer-motion";
 const Container = styled(motion.div)`
   padding: 5px 12px;
   background: ${({ isLightTheme, theme }) =>
-        isLightTheme ? null : theme.background};
+    isLightTheme ? null : theme.background};
+@media(min-width: 1024px){
+
+  display: flex;
+  flex-direction: row-reverse;
+}
 `;
 
 const Image = styled(motion.img)`
@@ -17,7 +22,7 @@ const Image = styled(motion.img)`
 
 const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) =>
-        isLightTheme ? theme.primaryColor : theme.div};
+    isLightTheme ? theme.primaryColor : theme.div};
   font-weight: 300;
   margin: 0;
 `;
@@ -52,13 +57,13 @@ const ReplacementDescription = styled.div`
 `;
 
 export {
-    Container,
-    Image,
-    Div,
-    Heading,
-    Description,
-    ReplacementImg,
-    ReplacementDiv,
-    ReplacementTitle,
-    ReplacementDescription
+  Container,
+  Image,
+  Div,
+  Heading,
+  Description,
+  ReplacementImg,
+  ReplacementDiv,
+  ReplacementTitle,
+  ReplacementDescription
 }
