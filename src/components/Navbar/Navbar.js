@@ -80,6 +80,25 @@ const variants = {
   // }
 };
 
+const backgroundVariants = {
+  hidden: {
+    opacity: 0,
+    position: 'fixed'
+  },
+  visible: {
+    opacity: 1,
+    transition: {
+      duration: 2
+    }
+  },
+  hiddenExit: {
+    opacity: 0,
+    transition: {
+      duration: 2
+    }
+  }
+}
+
 const Navbar = () => {
   const [isActive, setActive] = useState(false);
   const { isLightTheme, themes } = useContext(ThemeContext);
@@ -105,15 +124,16 @@ const Navbar = () => {
   const screenWidth = window.innerWidth;
   return (
     <div id="navbar">
-      {/* <AnimatePresence> */}
-
-      {isActive && (
-        <Background
-          className={`overlay${isActive ? "-active" : "-not-active"}`}
-          isActive={isActive}
-        />
-      )}
-      {/* </AnimatePresence> */}
+      <AnimatePresence>
+        {isActive && (
+          <Background
+            variants={backgroundVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hiddenExit"
+          />
+        )}
+      </AnimatePresence>
 
 
       <Nav theme={theme}>
@@ -124,13 +144,9 @@ const Navbar = () => {
               {isActive && (
                 <motion.div
                   style={{ width: "100%" }}
-                  // exit="hiddenExit"
                   exit="hidden"
                   initial="hidden"
                   animate="visible"
-                  // initial={{ opacity: 0 }}
-                  // animate={{ opacity: 1 }}
-                  // exit={{ opacity: 0 }}
                   variants={variantContainer}
                 >
                   <NavigationLinksMobile
@@ -139,7 +155,6 @@ const Navbar = () => {
                   >
                     <NavLinkList className={isActive ? "active" : "not-active"}
                       variants={variants}
-
                     >
                       <Menu>
                         <p style={{ color: theme.bodyCopy }}>Menu</p>
@@ -211,7 +226,6 @@ const Navbar = () => {
             <Logo screenWidth={screenWidth} />
 
             <NavigationLinksDesktop theme={theme} isLightTheme={isLightTheme}>
-              {/* style={isActive ? { display: 'flex', animation: 'expandnav 2s' } : { display: 'none' }} */}
               <NavLinkList className={isActive ? "active" : "not-active"}>
                 <Menu>
                   <p style={{ color: theme.div }}>Menu</p>

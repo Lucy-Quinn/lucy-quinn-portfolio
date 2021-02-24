@@ -203,18 +203,14 @@ const fadeIn = keyframes`
   }
 `;
 
-const Background = styled.div`
+const Background = styled(motion.div)`
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
-  will-change: opacity;
-  /* z-index: ${({ isActive }) => isActive && 0}; */
-  position: ${({ isActive }) => isActive && "fixed"};
-  animation-delay: 1s;
-  animation: 1s ${fadeIn} ease-in;
 `;
+
 
 const NavNotActive = styled.div`
   display: flex;
