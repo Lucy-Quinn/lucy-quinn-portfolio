@@ -1,103 +1,16 @@
 import React, { useState, useContext, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { ThemeContext } from "../../contexts/ThemeContext";
 import {
-  Nav,
-  NavigationLinksMobile,
-  NavigationLinksDesktop,
-  NavLinkList,
-  Link,
-  Menu,
-  ToggleButton,
-  ToggleImage,
-  ThemeToggleAndLogo,
-  Background,
-  NavNotActive,
-  ThemeToggleAndCv,
+  Nav, NavigationLinksMobile, NavigationLinksDesktop, NavLinkList, Link, Menu, ToggleButton, ToggleImage, ThemeToggleAndLogo, Background, NavNotActive, ThemeToggleAndCv,
 } from "./Navbar.styled";
-
+import { toggleButtonVariants, variantContainer, variants, backgroundVariants } from './Navbar.variants';
 import ToggleButtonOpen from "./../../images/button-open.svg";
 import ToggleButtonCloseLight from "./../../images/button-close-light.svg";
 import ToggleButtonCloseDark from "./../../images/button-close-dark.svg";
 import ThemeToggle from "./../../components/ThemeToggle/ThemeToggle";
-import { ThemeContext } from "../../contexts/ThemeContext";
 import Resume from "./../../images/open-cv.svg";
-
 import Logo from "./../Logo/Logo";
-
-const toggleButtonVariants = {
-  // hidden: {
-  //   rotate: 0
-  // },
-  // visible: {
-  //   rotate: -360,
-  // }
-};
-const variantContainer = {
-  hidden: {
-    opacity: 0,
-    type: 'tween',
-    // y: -400,
-    transition: { duration: 0.5, delay: 0.5 }
-
-  },
-  visible: {
-    opacity: 1,
-    type: 'tween',
-    y: 0,
-    transition: { duration: 0.5 },
-
-  },
-
-  // hiddenExit: {
-  //   // opacity: 0,
-  //   type: 'tween',
-  //   y: -400,
-  //   transition: { duration: 0.5 }
-
-
-  // }
-};
-const variants = {
-  hidden: {
-    // opacity: 0,
-    y: -400,
-    // y: 0
-    transition: { duration: 0.5 }
-
-  },
-  visible: {
-    // opacity: 1,
-    y: 0,
-    // transition: { duration: 1, delay: 0.5 }
-    transition: { duration: 1 }
-  },
-
-  // hiddenExit: {
-  //   y: -400,
-  //   // y: 0
-  //   transition: { duration: 0.5 }
-
-  // }
-};
-
-const backgroundVariants = {
-  hidden: {
-    opacity: 0,
-    position: 'fixed'
-  },
-  visible: {
-    opacity: 1,
-    transition: {
-      duration: 2
-    }
-  },
-  hiddenExit: {
-    opacity: 0,
-    transition: {
-      duration: 2
-    }
-  }
-}
 
 const Navbar = () => {
   const [isActive, setActive] = useState(false);
@@ -184,6 +97,10 @@ const Navbar = () => {
 
                     <ToggleButton crossToggle onClick={handleToggle}>
                       <ToggleImage
+                        variants={toggleButtonVariants}
+                        initial="hidden"
+                        animate="visible"
+                        exit="hiddenExit"
                         src={
                           isLightTheme
                             ? ToggleButtonCloseLight
