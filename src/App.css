@@ -73,3 +73,21 @@ a {
 a:visited {
   color: inherit;
 }
+
+@media (min-width: 1024px) {
+  p {
+    font-size: 1.5rem;
+  }
+  h1 {
+    font-size: 4.75rem;
+  }
+  h2 {
+    font-size: 3.875rem;
+  }
+  h3 {
+    font-size: 2rem;
+  }
+  h5 {
+    font-size: 1rem;
+  }
+}

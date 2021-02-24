@@ -23,7 +23,6 @@ import { ThemeContext } from "../../contexts/ThemeContext";
 import Resume from "./../../images/open-cv.svg";
 
 import Logo from "./../Logo/Logo";
-import "./Navbar.css";
 
 const toggleButtonVariants = {
   // hidden: {

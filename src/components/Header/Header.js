@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { motion } from 'framer-motion';
-import { HeaderContainer, Languages, LanguageTabs, Div, Lucy, Title, LanguageList, ArrowDown } from './Header.styled';
+import { HeaderContainer, Languages, LanguageTabs, Div, Lucy, Title, LanguageList, ArrowDown, HeaderContainerDesktop } from './Header.styled';
 import { headerParentVariants, headerChildVariants, languageParentVariants, languageChildVariants, arrowVariants } from './Header.variants'
 import ArrowDownLight from './../../images/button-arrow-down-light.svg';
 import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
@@ -31,54 +31,47 @@ const Header = () => {
               , ${theme.gradientOne} 0%, ${theme.gradientTwo} 100%`
 
       }}>
-        <motion.div id="header"
-          variants={headerParentVariants}
-          initial="hidden"
-          animate="visible">
-
-          <Div isLightTheme={isLightTheme} theme={theme}
-            variants={headerChildVariants}
-          >&lt;div&gt;</Div>
-          <Lucy theme={theme}
-            variants={headerChildVariants}
-          >I am Lucy.</Lucy>
-          <Title theme={theme}
-            variants={headerChildVariants}
-          >A full stack web developer based in sunny Barcelona</Title>
-          <LanguageList theme={theme}
-            variants={headerChildVariants}
-          >I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
-        </motion.div>
-
-        {isLoad ?
-          <LanguageTabs
-            variants={languageParentVariants}
+        <HeaderContainerDesktop>
+          <motion.div id="header"
+            variants={headerParentVariants}
             initial="hidden"
-            animate="visible"
-          >
-            {languagesArray.map((language, index) => {
-              return <Languages key={index} isLightTheme={isLightTheme} theme={theme}
-                variants={languageChildVariants}
-              >
-                <h5>{language}</h5>
-              </Languages>
-            })}
-          </LanguageTabs>
-          :
-          null
-        }
-        <motion.a href="#about">
-          {isLightTheme ?
-            <ArrowDown src={ArrowDownLight} alt="icon of arrow pointing down"
-              whileHover="hover"
-              variants={arrowVariants}
-            ></ArrowDown>
+            animate="visible">
+            <Div isLightTheme={isLightTheme} theme={theme}
+              variants={headerChildVariants}
+            >&lt;div&gt;</Div>
+            <Lucy theme={theme}
+              variants={headerChildVariants}
+            >I am Lucy.</Lucy>
+            <Title theme={theme}
+              variants={headerChildVariants}
+            >A full stack web developer based in sunny Barcelona</Title>
+            <LanguageList theme={theme}
+              variants={headerChildVariants}
+            >I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
+          </motion.div>
+          {isLoad ?
+            <LanguageTabs
+              variants={languageParentVariants}
+              initial="hidden"
+              animate="visible"
+            >
+              {languagesArray.map((language, index) => {
+                return <Languages key={index} isLightTheme={isLightTheme} theme={theme}
+                  variants={languageChildVariants}
+                >
+                  <h5>{language}</h5>
+                </Languages>
+              })}
+            </LanguageTabs>
             :
-            <ArrowDown src={ArrowDownDark} alt="icon of arrow pointing down"
-              whileHover="hover"
-              variants={arrowVariants}
-            ></ArrowDown>
+            null
           }
+        </HeaderContainerDesktop>
+        <motion.a href="#about">
+          <ArrowDown src={isLightTheme ? ArrowDownLight : ArrowDownDark} alt="icon of arrow pointing down"
+            whileHover="hover"
+            variants={arrowVariants}
+          ></ArrowDown>
         </motion.a>
       </HeaderContainer>
     </div>

@@ -112,7 +112,7 @@ const Link = styled(motion.a)`
     margin-bottom: ${(props) => props.contactLink && "0"};
     margin-bottom: ${(props) => props.resumeLink && "0"};
     & > h2 {
-      font-size: 1rem;
+      font-size: 1.3rem;
       margin: 0 0 0;
     }
   }
