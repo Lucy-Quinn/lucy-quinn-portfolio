@@ -34,28 +34,50 @@ const toggleButtonVariants = {
   // }
 };
 const variantContainer = {
-  // hidden: {
-  //   opacity: 0,
-  // },
-  // visible: {
-  //   opacity: 1,
+  hidden: {
+    opacity: 0,
+    type: 'tween',
+    // y: -400,
+    transition: { duration: 0.5, delay: 0.5 }
+
+  },
+  visible: {
+    opacity: 1,
+    type: 'tween',
+    y: 0,
+    transition: { duration: 0.5 },
+
+  },
+
+  // hiddenExit: {
+  //   // opacity: 0,
   //   type: 'tween',
-  //   when: "beforeChildren",
-  //   // staggerChildren: 4,
-  //   // delayChildren: 1,
+  //   y: -400,
+  //   transition: { duration: 0.5 }
+
+
   // }
 };
 const variants = {
-  // hidden: {
-  //   opacity: 0,
+  hidden: {
+    // opacity: 0,
+    y: -400,
+    // y: 0
+    transition: { duration: 0.5 }
+
+  },
+  visible: {
+    // opacity: 1,
+    y: 0,
+    // transition: { duration: 1, delay: 0.5 }
+    transition: { duration: 1 }
+  },
+
+  // hiddenExit: {
   //   y: -400,
   //   // y: 0
-  // },
-  // visible: {
-  //   opacity: 1,
-  //   y: 0,
-  //   // transition: { duration: 1, delay: 0.5 }
-  //   transition: { duration: 1 }
+  //   transition: { duration: 0.5 }
+
   // }
 };
 
@@ -84,12 +106,16 @@ const Navbar = () => {
   const screenWidth = window.innerWidth;
   return (
     <div id="navbar">
+      {/* <AnimatePresence> */}
+
       {isActive && (
         <Background
           className={`overlay${isActive ? "-active" : "-not-active"}`}
           isActive={isActive}
         />
       )}
+      {/* </AnimatePresence> */}
+
 
       <Nav theme={theme}>
         {screenWidth <= 768 && (
@@ -99,15 +125,23 @@ const Navbar = () => {
               {isActive && (
                 <motion.div
                   style={{ width: "100%" }}
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  exit={{ opacity: 0, background: "red" }}
+                  // exit="hiddenExit"
+                  exit="hidden"
+                  initial="hidden"
+                  animate="visible"
+                  // initial={{ opacity: 0 }}
+                  // animate={{ opacity: 1 }}
+                  // exit={{ opacity: 0 }}
+                  variants={variantContainer}
                 >
                   <NavigationLinksMobile
                     theme={theme}
                     isLightTheme={isLightTheme}
                   >
-                    <NavLinkList className={isActive ? "active" : "not-active"}>
+                    <NavLinkList className={isActive ? "active" : "not-active"}
+                      variants={variants}
+
+                    >
                       <Menu>
                         <p style={{ color: theme.bodyCopy }}>Menu</p>
                       </Menu>
@@ -163,8 +197,8 @@ const Navbar = () => {
                     <motion.img
                       src={ToggleButtonOpen}
                       alt="toggle button open icon"
-                      variants={toggleButtonVariants}
-                      animate={isActive ? "visible" : "hidden"}
+                      isActive={isActive}
+
                     />
                   </ToggleButton>
                 </NavNotActive>

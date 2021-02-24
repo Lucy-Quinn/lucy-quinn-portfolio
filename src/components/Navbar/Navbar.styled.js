@@ -13,6 +13,24 @@ const Nav = styled.nav`
   }
 `;
 
+const expandNav = keyframes`
+    0% {
+      max-height: 0px;
+    }
+    100% {
+      max-height: 400px;
+    }
+`;
+
+const shrinkNav = keyframes`
+    0% {
+      max-height: 400px;
+    }
+    100% {
+      max-height: 0px;
+    }
+`;
+
 const NavigationLinksMobile = styled(motion.div)`
   width: 100%;
   margin: 0;
@@ -23,54 +41,21 @@ const NavigationLinksMobile = styled(motion.div)`
   background: ${({ isLightTheme, theme }) =>
     isLightTheme ? theme.div : theme.languages};
   border-radius: 0 0 50% 50% / 70px;
+  
+
   .active {
     display: flex;
-    -webkit-animation: expandNav 1s alternate ease-in-out; /* Safari 4+ */
-    -moz-animation: expandNav 1s alternate ease-in-out; /* Fx 5+ */
-    -o-animation: expandNav 1s alternate ease-in-out; /* Opera 12+ */
-    animation: expandNav 1s alternate ease-in-out; /* IE 10+, Fx 29+ */
-    /* animation: expandNav 1s alternate ease-in-out; */
+    /* animation: 1s ${expandNav} alternate ease-in-out; */
+   /* animation: 1s ${({ isActive }) => isActive ? shrinkNav : expandNav}; */
+ 
   }
-  @-webkit-keyframes expandNav {
-    0% {
-      max-height: 0px;
-    }
-    100% {
-      max-height: 400px;
-    }
-  }
-  @-moz-keyframes expandNav {
-    0% {
-      max-height: 0px;
-    }
-    100% {
-      max-height: 400px;
-    }
-  }
-  @-o-keyframes expandNav {
-    0% {
-      max-height: 0px;
-    }
-    100% {
-      max-height: 400px;
-    }
-  }
-  @keyframes expandNav {
-    0% {
-      max-height: 0px;
-    }
-    100% {
-      max-height: 400px;
-    }
-  }
+  /* .not-active {
+    
+    animation: 1s ${shrinkNav} alternate ease-in-out;
 
-  /* .not-active{
-  animation: shrinkNav 1s alternate-reverse;
-  };
-@keyframes shrinkNav {
-  0% { max-height: 400px; }
-  100% { max-height: 0px; }
-}; */
+  } */
+
+
   @media (min-width: 1024px) {
     display: flex;
     opacity: 1;
@@ -86,6 +71,7 @@ const NavigationLinksDesktop = styled(motion.div)`
   background: ${({ isLightTheme, theme }) =>
     isLightTheme ? "#fff" : theme.languages};
   border-radius: 0 0 50% 50% / 70px;
+
   @media (min-width: 1024px) {
     display: flex;
     opacity: 1;
@@ -150,6 +136,7 @@ const ToggleButton = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  
   postion: ${(props) => props.crossToggle && "absolute"};
   top: ${(props) => (props.crossToggle ? "0.7rem" : "0.2rem")};
   right: ${(props) => (props.crossToggle ? "0.7rem" : "0.2rem")};
@@ -179,7 +166,7 @@ const closeNav = keyframes`
 
 
 const ToggleImage = styled(motion.img)`
-  animation: 1s ${({ isActive }) => isActive ? 'openNav' : 'closeNav'};
+  animation: 1s ${({ isActive }) => isActive ? openNav : closeNav};
 `;
 
 const ThemeToggleAndLogo = styled.div`
@@ -199,10 +186,10 @@ const ThemeToggleAndLogo = styled.div`
   }
 `;
 
-const showBackground = keyframes`
-    0% {   opacity: 0; }
-    100% { opacity: 1; }
-`;
+// const showBackground = keyframes`
+//     0% {   opacity: 0; }
+//     100% { opacity: 1; }
+// `;
 
 // opacity: ${({ isActive }) => isActive ? 1 : 0 };
 //   transition: opacity 5s;
@@ -223,10 +210,10 @@ const Background = styled.div`
   bottom: 0;
   background: rgba(0, 0, 0, 0.9);
   will-change: opacity;
-  z-index: ${({ isActive }) => isActive && 1};
+  /* z-index: ${({ isActive }) => isActive && 0}; */
   position: ${({ isActive }) => isActive && "fixed"};
   animation-delay: 1s;
-  animation: 1s ${fadeIn} ease-out;
+  animation: 1s ${fadeIn} ease-in;
 `;
 
 const NavNotActive = styled.div`
