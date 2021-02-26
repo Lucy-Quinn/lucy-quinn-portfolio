@@ -9,11 +9,19 @@ justify-content: center;
 align-items: center;
 flex-direction: row;
 width: 100%;
-/* height: 100px; */
 `
+
 const CardTitle = styled.h2`
 width: 59%;
 color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
+@media(min-width: 1024px){
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 25px;
+}
 `
 
 const CardBody = styled.div`
@@ -23,14 +31,25 @@ overflow: hidden;
 text-align: center;
 max-width: 335px;
 width: 100%;
+@media(min-width: 1024px){
+    max-width: 450px;
+    height: 315px;
+}
+
 `
 
 const Description = styled.p`
 color: ${({ theme }) => theme.bodyCopy};
+@media(min-width: 1024px){
+line-height: 30px;
+}
 `
 
 const Languages = styled.p`
 color: ${({ theme }) => theme.div};
+@media(min-width: 1024px){
+line-height: 30px;
+}
 `
 
 const Background = styled(motion.div)`
@@ -68,7 +87,11 @@ padding: 0 5px;
 justify-content: center;
 display: flex;
 flex-direction: column;
-align-items: center
+align-items: center;
+@media(min-width: 1024px){
+    width: 600px;
+    height: auto;
+}
 `
 
 export {

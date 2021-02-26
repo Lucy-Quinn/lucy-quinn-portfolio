@@ -1,7 +1,7 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import Lucy from "./../../images/lucy.png";
-import { Container, Image, Div, Heading, Description, ReplacementImg, ReplacementDiv, ReplacementTitle, ReplacementDescription } from './About.styled';
+import { Container, Image, Div, Heading, Description, ReplacementImg, ReplacementDiv, ReplacementTitle, ReplacementDescription, AboutContainerDesktop } from './About.styled';
 import { variantContainer, variants } from './About.variants';
 
 
@@ -66,19 +66,17 @@ const About = () => {
     >
 
       {isScrollImage ? (
-        <div>
-          <Image
-            src={Lucy}
-            alt="portrait photo of Lucy"
-            variants={variants}
-            ref={imageRef}
-          />
-        </div>
+        <Image
+          src={Lucy}
+          alt="portrait photo of Lucy"
+          variants={variants}
+          ref={imageRef}
+        />
       ) : (
           <ReplacementImg ref={imageReplacementRef} />
         )}
 
-      <div>
+      <AboutContainerDesktop>
         {isScrollDiv ? (
           <Div
             isLightTheme={isLightTheme}
@@ -100,16 +98,16 @@ const About = () => {
           )}
         {isScrollDesc ? (
           <Description theme={theme} variants={variants} ref={descriptionRef}>
-            I am a web developer from Bristol in England, I have spent much time
-            travelling abroad and have lived in Italy. I am an enthusiastic
-            linguist, who is always learning and forever making lists. I love
-            creating and making projects and seeing them to the end. My attention
-            to detail is “spot on”!
+            I am a full stack web developer from Bristol in England. I have spent much time travelling abroad both personally and through work and have lived in Italy and am now residing in Spain. I am an enthusiastic linguist, who is always learning and forever making lists. I love creating projects and seeing them to the end. My attention to detail is “spot on”!
+            <br />
+            My spare time consists of running 10kms, making fajitas, watching foreign films and planning my next scuba diving trip.
+            <br />
+            In October 2020, I received a scholarship to take part in the Ironhack bootcamp course, from which I graduated in January 2021 and am currently in search of experience to grow further as a web developer.
           </Description>
         ) : (
             <ReplacementDescription ref={descriptionReplacementRef} />
           )}
-      </div>
+      </AboutContainerDesktop>
     </Container>
   );
 };

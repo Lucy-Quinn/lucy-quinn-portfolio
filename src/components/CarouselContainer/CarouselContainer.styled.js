@@ -31,7 +31,9 @@ color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.
 width: 153px;
 cursor: pointer;
 margin: 5px 0 8px 0;
-
+@media(min-width: 1024px){
+    font-size: 1.2rem;
+}
 `
 
 const ProjectLinksContainer = styled.div`

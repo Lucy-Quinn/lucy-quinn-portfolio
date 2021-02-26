@@ -66,19 +66,19 @@ const ReplacementCv = styled.div`
 `
 
 export {
-    Container,
-    Div,
-    Heading,
-    Experience,
-    School,
-    Qualification,
-    CvHeading,
-    Cv,
-    ReplacementDiv,
-    ReplacementTitle,
-    ReplacementQualOne,
-    ReplacementQualTwo,
-    ReplacementQualThree,
-    ReplacementQualFour,
-    ReplacementCv
+  Container,
+  Div,
+  Heading,
+  Experience,
+  School,
+  Qualification,
+  CvHeading,
+  Cv,
+  ReplacementDiv,
+  ReplacementTitle,
+  ReplacementQualOne,
+  ReplacementQualTwo,
+  ReplacementQualThree,
+  ReplacementQualFour,
+  ReplacementCv
 }

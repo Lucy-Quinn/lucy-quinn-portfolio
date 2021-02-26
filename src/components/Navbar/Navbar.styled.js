@@ -111,11 +111,13 @@ const Link = styled(motion.a)`
   @media (min-width: 1024px) {
     margin-bottom: ${(props) => props.contactLink && "0"};
     margin-bottom: ${(props) => props.resumeLink && "0"};
+    margin-right: ${(props) => props.resumeLink && "7px"};
     & > h2 {
       font-size: 1.3rem;
       margin: 0 0 0;
     }
   }
+
 `;
 
 const Menu = styled(motion.li)`

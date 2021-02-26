@@ -9,15 +9,32 @@ const Container = styled(motion.div)`
 const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   margin: 40px 0 0 0;
+  @media(min-width: 1024px){
+    margin: 0 0 22px 0;
+  }
 `
 
 const Heading = styled(motion.h2)`
   color: ${({ theme }) => theme.primaryColor};
+  @media(min-width: 1024px){
+    margin: 0 0 22px 0;
+    width: 100%;
+    height: 84px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 `
 
 const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
   padding-bottom: 30px;
+  @media(min-width: 1024px){
+    margin: 24px auto 60px auto;
+    width: 64%;
+    height: 88px;
+    line-height: 44px;
+  }
 `
 
 const Dots = styled.span`
@@ -62,13 +79,13 @@ const ReplacementCarousel = styled.div`
 `
 
 export {
-    Container,
-    Div,
-    Heading,
-    Description,
-    Dots,
-    ReplacementDiv,
-    ReplacementHeading,
-    ReplacementDescription,
-    ReplacementCarousel
+  Container,
+  Div,
+  Heading,
+  Description,
+  Dots,
+  ReplacementDiv,
+  ReplacementHeading,
+  ReplacementDescription,
+  ReplacementCarousel
 }

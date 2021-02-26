@@ -18,6 +18,10 @@ const CardImage = styled.img`
     width: auto;
     height: 350px;
     margin: 0 auto;
+    @media(min-width: 1024px){
+        height: 510px;
+
+    }
 `
 
 export {

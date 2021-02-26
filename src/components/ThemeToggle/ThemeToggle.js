@@ -3,13 +3,15 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import LightBulbLight from './../../images/light-bulb-light.svg';
 import LightBulbDark from './../../images/light-bulb-dark.svg';
 import styled from 'styled-components';
-import './ThemeToggle.css'
 import { motion } from 'framer-motion';
 
 //Styled Components
 const ThemeToggleButton = styled(motion.img)`
     cursor: pointer;
-
+    @media(min-width: 1024px){
+        height: 64px;
+        width: 64px;
+    }
 `
 
 const toggleThemeVariants = {
