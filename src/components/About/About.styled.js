@@ -9,7 +9,7 @@ const Container = styled(motion.div)`
 @media(min-width: 1024px){
   display: flex;
   flex-direction: row-reverse;
-  margin: 0 30px;
+  padding: 0 30px;
 }
 `;
 
@@ -43,7 +43,6 @@ const Heading = styled(motion.h2)`
   color: ${({ theme }) => theme.primaryColor};
   @media(min-width: 1024px){
     height: 84px;
-    /* width: 727px; */
     margin: 0 0 24px 0;
     text-align: left;
     width: 100%;
@@ -59,7 +58,6 @@ const Description = styled(motion.p)`
     height: 100%;
     text-align: left;
     margin: 0;
-    /* width: 540px; */
     width: 100%;
     line-height: 44px;
   }
@@ -79,6 +77,7 @@ const ReplacementImg = styled.div`
   width: auto;
   @media(min-width: 1024px){
     width: 35%;
+  height: 329px;
   }
 `;
 
@@ -87,7 +86,7 @@ const ReplacementDiv = styled.div`
   width: auto;
   @media(min-width: 1024px){
     width: 100%;
-  height: 24.734px;
+  height: 30px;
     
   }
 `;
@@ -97,7 +96,7 @@ const ReplacementTitle = styled.div`
   width: auto;
   @media(min-width: 1024px){
     width: 100%;
-    height: 69.266px;
+    height: 84px;
 
   }
 `;
@@ -106,7 +105,6 @@ const ReplacementDescription = styled.div`
   height: 296px;
   width: auto;
   @media(min-width: 1024px){
-    /* width: 100%; */
     width: 564px;
     height: 724px;
   }

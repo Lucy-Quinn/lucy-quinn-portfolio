@@ -71,11 +71,17 @@ const ReplacementHeading = styled.div`
 const ReplacementDescription = styled.div`
   height: 126px;
   width: auto;
+  @media(min-width: 1024px){
+    height: 126px;
+  }
 `
 
 const ReplacementCarousel = styled.div`
   height: 460px;
   width: auto;
+  @media(min-width: 1024px){
+    height: 620px;
+  }
 `
 
 export {

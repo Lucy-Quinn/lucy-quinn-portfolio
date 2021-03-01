@@ -1,6 +1,6 @@
 import React, { useContext, useState, useEffect, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
-import { ContactContainer, Icons, Div, Heading, ContactDetails, Tie, Socials, Top, ReplacementDiv, ReplacementTitle, ReplacementContact, ReplacementSocial, ReplacementIcons, ReplacementArrow } from './Contact.styled.js';
+import { ContactContainer, Icons, Div, Heading, ContactDetails, Tie, Socials, ArrowUp, Top, ReplacementDiv, ReplacementTitle, ReplacementContact, ReplacementSocial, ReplacementIcons, ReplacementArrow } from './Contact.styled.js';
 import { motion } from 'framer-motion';
 import { arrowVariants, upVariants, contactParentVariants, contactChildVariants, socialParentVariants, socialChildVariants } from './Contact.variants';
 
@@ -56,7 +56,9 @@ const Contact = () => {
             return isOffsetBottom && isOffsetTop;
         };
 
+
         function handleScroll() {
+
             if (isOnScreen(divReplacementRef)) setIsScrollDiv(true)
             if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true)
             if (isOnScreen(contactRefReplacementRef)) setIsScrollContact(true)
@@ -189,15 +191,15 @@ const Contact = () => {
                     >
                         <a href="#navbar">
                             {isLightTheme ?
-                                <motion.img src={ArrowUpLight} alt="icon of arrow pointing up"
+                                <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"
                                     whileHover="hover"
                                     variants={arrowVariants}
-                                ></motion.img>
+                                ></ArrowUp>
                                 :
-                                <motion.img src={ArrowUpDark} alt="icon of arrow pointing up"
+                                <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"
                                     whileHover="hover"
                                     variants={arrowVariants}
-                                ></motion.img>
+                                ></ArrowUp>
                             }
                             <Top theme={theme} href="#navbar">
                                 <motion.h4

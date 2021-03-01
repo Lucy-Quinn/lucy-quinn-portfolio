@@ -43,7 +43,6 @@ const About = () => {
       if (isOnScreen(divReplacementRef)) setIsScrollDiv(true);
       if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true);
       if (isOnScreen(descriptionReplacementRef)) setIsScrollDesc(true);
-
       //if replacementRef is true && the elementRef is NOT on screen set state to false
       if (imageReplacementRef && !isOnScreen(imageRef)) setIsScrollImage(false);
       if (divReplacementRef && !isOnScreen(divRef)) setIsScrollDiv(false);

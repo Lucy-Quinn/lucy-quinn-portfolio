@@ -107,8 +107,8 @@ const ArrowDown = styled(motion.img)`
     left: 400px;
     bottom: 218px;
     top: -106px;
-    width: 102px;
-    height: 101px;
+    width: auto;
+    height: 123px;
   }
   @media (min-width: 1100px) {
     top: -40px;

@@ -65,6 +65,8 @@ const Education = () => {
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
+  const screenWidth = window.innerWidth;
+
 
   return (
     <Container id="education" isLightTheme={isLightTheme} theme={theme}
@@ -82,7 +84,6 @@ const Education = () => {
           ref={divReplacementRef}
         />
       }
-
 
       {isScrollTitle ?
         <Heading theme={theme} variants={variants}
