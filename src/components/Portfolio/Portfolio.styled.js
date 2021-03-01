@@ -61,18 +61,24 @@ const Dots = styled.span`
 const ReplacementDiv = styled.div`
   height: 24px;
   width: auto;
+  @media(min-width: 1024px){
+    height: 24px;
+  }
 `
 
 const ReplacementHeading = styled.div`
   height: 32px;
   width: auto;
+  @media(min-width: 1024px){
+    height: 84px;
+  }
 `
 
 const ReplacementDescription = styled.div`
   height: 126px;
   width: auto;
   @media(min-width: 1024px){
-    height: 126px;
+    height: 202px;
   }
 `
 

@@ -127,13 +127,11 @@ const Contact = () => {
                         <motion.div variants={socialParentVariants}
                             initial="hidden"
                             animate="visible"
-
                         >
                             <Mailto theme={theme} email="lucy.quinn.uk@gmail.com" subject="Let's Talk" body="Hello world!" variants={socialChildVariants}>
                                 <ContactDetails theme={theme} ref={socialRef}>lucy.quinn.uk@gmail.com</ContactDetails>
                             </Mailto>
                             <Tie theme={theme} variants={socialChildVariants}>Spanish permanent residency (TIE)</Tie>
-
                         </motion.div>
                         :
                         <ReplacementSocial
@@ -149,34 +147,17 @@ const Contact = () => {
                         ref={iconsRef}
                     >
                         <Socials theme={theme} variants={contactChildVariants}>Follow me on socials and GitHub</Socials>
-                        {isLightTheme ?
-                            (
-                                <Icons variants={contactChildVariants}>
-                                    <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                        <img src={LinkedinLight} alt="icon of linkedin" />
-                                    </a>
-                                    <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
-                                        <img src={GithubLight} alt="icon of github" />
-                                    </a>
-                                    <a href="skype:live:.cid.1d6573efe4ce3449?chat">
-                                        <img src={SkypeLight} alt="icon of skype" />
-                                    </a>
-                                </Icons>
-                            ) :
-                            (
-                                <Icons variants={contactChildVariants}>
-                                    <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                        <img src={LinkedinDark} alt="icon of linkedin" />
-                                    </a>
-                                    <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
-                                        <img src={GithubDark} alt="icon of github" />
-                                    </a>
-                                    <a href="skype:live:.cid.1d6573efe4ce3449?chat">
-                                        <img src={SkypeDark} alt="icon of skype" />
-                                    </a>
-                                </Icons>
-                            )
-                        }
+                        <Icons variants={contactChildVariants}>
+                            <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
+                                <img src={isLightTheme ? LinkedinLight : LinkedinDark} alt="icon of linkedin" />
+                            </a>
+                            <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
+                                <img src={isLightTheme ? GithubLight : GithubDark} alt="icon of github" />
+                            </a>
+                            <a href="skype:live:.cid.1d6573efe4ce3449?chat">
+                                <img src={isLightTheme ? SkypeLight : SkypeDark} alt="icon of skype" />
+                            </a>
+                        </Icons>
                     </motion.div>
                     :
                     <ReplacementIcons
@@ -190,17 +171,10 @@ const Contact = () => {
                         ref={arrowRef}
                     >
                         <a href="#navbar">
-                            {isLightTheme ?
-                                <ArrowUp src={ArrowUpLight} alt="icon of arrow pointing up"
-                                    whileHover="hover"
-                                    variants={arrowVariants}
-                                ></ArrowUp>
-                                :
-                                <ArrowUp src={ArrowUpDark} alt="icon of arrow pointing up"
-                                    whileHover="hover"
-                                    variants={arrowVariants}
-                                ></ArrowUp>
-                            }
+                            <ArrowUp src={isLightTheme ? ArrowUpLight : ArrowUpDark} alt="icon of arrow pointing up"
+                                whileHover="hover"
+                                variants={arrowVariants}
+                            ></ArrowUp>
                             <Top theme={theme} href="#navbar">
                                 <motion.h4
                                     whileHover="hover"
@@ -208,7 +182,6 @@ const Contact = () => {
                                 >Back to top</motion.h4>
                             </Top>
                         </a>
-
                     </motion.div>
                     :
                     <ReplacementArrow

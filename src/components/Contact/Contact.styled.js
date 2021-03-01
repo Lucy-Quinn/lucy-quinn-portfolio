@@ -9,8 +9,6 @@ const ContactContainer = styled(motion.div)`
     }
 `
 
-
-
 const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   margin: 50px 0 0 0;
@@ -115,14 +113,14 @@ const ReplacementDiv = styled.div`
   height: 24px;
   width: auto;
   @media (min-width: 1024px) {
-    height: 29px;
+    height: 175px;
   }
 `
 const ReplacementTitle = styled.div`
   height: 32px;
   width: auto;
   @media (min-width: 1024px) {
-    height: 84px;
+    height: 141px;
   }
 `
 const ReplacementContact = styled.div`
@@ -136,7 +134,7 @@ const ReplacementSocial = styled.div`
   height: 68px;
   width: auto;
   @media (min-width: 1024px) {
-    height: 84px;
+    height: 168px;
   }
 `
 const ReplacementIcons = styled.div`

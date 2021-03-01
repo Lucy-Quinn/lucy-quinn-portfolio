@@ -4,6 +4,26 @@ import Resume from './../../images/open-cv.svg';
 import { motion } from 'framer-motion';
 import { Container, Div, Heading, Experience, School, Qualification, CvHeading, Cv, ReplacementDiv, ReplacementTitle, ReplacementQualOne, ReplacementQualTwo, ReplacementQualThree, ReplacementQualFour, ReplacementCv } from './Education.styled';
 import { variantContainer, variants, qualParentVariants, qualChildVariants } from './Education.variants'
+import ExperienceCard from './ExperienceCard';
+
+const EDUCATION_DATA = [
+  {
+    school: ["Ironhack (Spain)", "Oct 2020 - Jan 2021"],
+    qualification: ["Full Stack Web Development Graduate"],
+  },
+  {
+    school: ["Don Milani (Italy)", "Oct 2012 - Dec 2012"],
+    qualification: ["CIL Duo (B2 Higher Intermediate Italian)"],
+  },
+  {
+    school: ["Leeds University (Spain)", "Sept 2008 - Jul 2012"],
+    qualification: ["Spanish & Latin American Studies (BA Hons)", "Web Dev Module (JavaScript, HTML, CSS)", "Erasmus (Oviedo, Spain): Sept 2010 - Jul 2011"]
+  },
+  {
+    school: ["Cardiff Met University (UK)", "Sept 2006 - Jul 2007"],
+    qualification: ["Art & Design Foundation"]
+  }
+];
 
 const Education = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
@@ -69,113 +89,126 @@ const Education = () => {
 
 
   return (
-    <Container id="education" isLightTheme={isLightTheme} theme={theme}
+    <Container
+      id="education"
+      isLightTheme={isLightTheme}
+      theme={theme}
       variants={variantContainer}
       initial="hidden"
       animate="visible"
     >
-      {isScrollDiv ?
-        <Div isLightTheme={isLightTheme} theme={theme}
+      {isScrollDiv ? (
+        <Div
+          isLightTheme={isLightTheme}
+          theme={theme}
           variants={variants}
           ref={divRef}
-        >&lt;div&gt;</Div>
-        :
-        <ReplacementDiv
-          ref={divReplacementRef}
-        />
-      }
+        >
+          &lt;div&gt;
+        </Div>
+      ) : (
+          <ReplacementDiv ref={divReplacementRef} />
+        )}
 
-      {isScrollTitle ?
-        <Heading theme={theme} variants={variants}
-          ref={titleRef}
-        >Education</Heading>
-        :
-        <ReplacementTitle
-          ref={titleReplacementRef}
-        />
-      }
-      {isScrollQualOne ?
-        <motion.div variants={qualParentVariants} initial="hidden"
+      {isScrollTitle ? (
+        <Heading theme={theme} variants={variants} ref={titleRef}>
+          Education
+        </Heading>
+      ) : (
+          <ReplacementTitle ref={titleReplacementRef} />
+        )}
+      {isScrollQualOne ? (
+        <motion.div
+          variants={qualParentVariants}
+          initial="hidden"
           animate="visible"
           ref={qualOneRef}
         >
-          <Experience topBorder variants={qualChildVariants}>
-            <School isLightTheme={isLightTheme} theme={theme} variants={qualChildVariants}>Ironhack: Oct 2020 - Jan 2021 (Spain)</School>
-            <Qualification theme={theme} variants={qualChildVariants}>Full Stack Web Development Graduate</Qualification>
-          </Experience>
+          <ExperienceCard
+            data={EDUCATION_DATA[0]}
+            qualChildVariants={qualChildVariants}
+            isLightTheme={isLightTheme}
+            theme={theme}
+          />
         </motion.div>
-        :
-        <ReplacementQualOne
-          ref={qualOneReplacementRef}
-        />
-      }
+      ) : (
+          <ReplacementQualOne ref={qualOneReplacementRef} />
+        )}
 
-
-      {isScrollQualTwo ?
-        <motion.div variants={qualParentVariants} initial="hidden"
+      {isScrollQualTwo ? (
+        <motion.div
+          variants={qualParentVariants}
+          initial="hidden"
           animate="visible"
           ref={qualTwoRef}
         >
-          <Experience variants={qualChildVariants}>
-            <School isLightTheme={isLightTheme} theme={theme} variants={qualChildVariants}>Don Milani: Oct 2012 - Dec 2012 (Italy)</School>
-            <Qualification theme={theme} variants={qualChildVariants}>CIL Duo (B2 Higher Intermediate Italian)</Qualification>
-          </Experience>
+          <ExperienceCard
+            data={EDUCATION_DATA[1]}
+            qualChildVariants={qualChildVariants}
+            isLightTheme={isLightTheme}
+            theme={theme}
+          />
         </motion.div>
-        :
-        <ReplacementQualTwo
-          ref={qualTwoReplacementRef}
-        />
-      }
-      {isScrollQualThree ?
-        <motion.div variants={qualParentVariants} initial="hidden"
+      ) : (
+          <ReplacementQualTwo ref={qualTwoReplacementRef} />
+        )}
+      {isScrollQualThree ? (
+        <motion.div
+          variants={qualParentVariants}
+          initial="hidden"
           animate="visible"
           ref={qualThreeRef}
         >
-          <Experience variants={qualChildVariants}>
-            <School isLightTheme={isLightTheme} theme={theme}>Leeds University: Sept 2008 - Jul 2012</School>
-            <Qualification theme={theme}>Spanish & Latin American Studies (BA Hons)</Qualification>
-            <Qualification theme={theme}>Web Dev Module (JavaScript, HTML, CSS)</Qualification>
-            <Qualification theme={theme}>Erasmus (Oviedo, Spain): Sept 2010 - Jul 2011</Qualification>
-          </Experience>
+          <ExperienceCard
+            data={EDUCATION_DATA[2]}
+            qualChildVariants={qualChildVariants}
+            isLightTheme={isLightTheme}
+            theme={theme}
+          />
         </motion.div>
-        :
-        <ReplacementQualThree
-          ref={qualThreeReplacementRef}
-        />
-      }
+      ) : (
+          <ReplacementQualThree ref={qualThreeReplacementRef} />
+        )}
 
-      {isScrollQualFour ?
-        <motion.div variants={qualParentVariants} initial="hidden"
+      {isScrollQualFour ? (
+        <motion.div
+          variants={qualParentVariants}
+          initial="hidden"
           animate="visible"
           ref={qualFourRef}
         >
-          <Experience lastChild variants={qualChildVariants}>
-            <School isLightTheme={isLightTheme} theme={theme}>Cardiff Met University: Sept 2006 - Jul 2007</School>
-            <Qualification theme={theme}>Art & Design Foundation</Qualification>
-          </Experience>
+          <ExperienceCard
+            data={EDUCATION_DATA[3]}
+            qualChildVariants={qualChildVariants}
+            isLightTheme={isLightTheme}
+            theme={theme}
+          />
         </motion.div>
-        :
-        <ReplacementQualFour
-          ref={qualFourReplacementRef}
-        />
-      }
-      {isScrollCv ?
-        <motion.div variants={variantContainer} initial="hidden"
+      ) : (
+          <ReplacementQualFour ref={qualFourReplacementRef} />
+        )}
+      {isScrollCv ? (
+        <motion.div
+          variants={variantContainer}
+          initial="hidden"
           animate="visible"
           ref={cvRef}
         >
-          <CvHeading theme={theme} variants={variants}
-          >Open my CV</CvHeading>
-          <motion.a variants={variants} rel="noopener noreferrer" target="_blank" href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
+          <CvHeading theme={theme} variants={variants}>
+            Open my CV
+          </CvHeading>
+          <motion.a
+            variants={variants}
+            rel="noopener noreferrer"
+            target="_blank"
+            href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
           >
             <Cv src={Resume} variants={variants} alt="icon to open resume" />
           </motion.a>
         </motion.div>
-        :
-        <ReplacementCv
-          ref={cvReplacementRef}
-        />
-      }
+      ) : (
+          <ReplacementCv ref={cvReplacementRef} />
+        )}
     </Container>
   );
 

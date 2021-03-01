@@ -13,23 +13,6 @@ const Nav = styled.nav`
   }
 `;
 
-const expandNav = keyframes`
-    0% {
-      max-height: 0px;
-    }
-    100% {
-      max-height: 400px;
-    }
-`;
-
-const shrinkNav = keyframes`
-    0% {
-      max-height: 400px;
-    }
-    100% {
-      max-height: 0px;
-    }
-`;
 
 const NavigationLinksMobile = styled(motion.div)`
   width: 100%;
@@ -41,21 +24,9 @@ const NavigationLinksMobile = styled(motion.div)`
   background: ${({ isLightTheme, theme }) =>
     isLightTheme ? theme.div : theme.languages};
   border-radius: 0 0 50% 50% / 70px;
-  
-
   .active {
     display: flex;
-    /* animation: 1s ${expandNav} alternate ease-in-out; */
-   /* animation: 1s ${({ isActive }) => isActive ? shrinkNav : expandNav}; */
- 
   }
-  /* .not-active {
-    
-    animation: 1s ${shrinkNav} alternate ease-in-out;
-
-  } */
-
-
   @media (min-width: 1024px) {
     display: flex;
     opacity: 1;
@@ -138,7 +109,6 @@ const ToggleButton = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  
   postion: ${(props) => props.crossToggle && "absolute"};
   top: ${(props) => (props.crossToggle ? "0.7rem" : "0.2rem")};
   right: ${(props) => (props.crossToggle ? "0.7rem" : "0.2rem")};
@@ -169,6 +139,9 @@ const closeNav = keyframes`
 
 const ToggleImage = styled(motion.img)`
   animation: 1s ${({ isActive }) => isActive ? openNav : closeNav};
+  @media(min-width: 1024px){
+    height: 65px;
+  }
 `;
 
 const ThemeToggleAndLogo = styled.div`
