@@ -8,20 +8,20 @@ import ExperienceCard from './ExperienceCard';
 
 const EDUCATION_DATA = [
   {
-    school: ["Ironhack (Spain)", "Oct 2020 - Jan 2021"],
-    qualification: ["Full Stack Web Development Graduate"],
+    schoolArr: ["Ironhack (Spain)", "Oct 2020 - Jan 2021"],
+    qualifications: ["Full Stack Web Development Graduate"],
   },
   {
-    school: ["Don Milani (Italy)", "Oct 2012 - Dec 2012"],
-    qualification: ["CIL Duo (B2 Higher Intermediate Italian)"],
+    schoolArr: ["Don Milani (Italy)", "Oct 2012 - Dec 2012"],
+    qualifications: ["CIL Duo (B2 Higher Intermediate Italian)"],
   },
   {
-    school: ["Leeds University (Spain)", "Sept 2008 - Jul 2012"],
-    qualification: ["Spanish & Latin American Studies (BA Hons)", "Web Dev Module (JavaScript, HTML, CSS)", "Erasmus (Oviedo, Spain): Sept 2010 - Jul 2011"]
+    schoolArr: ["Leeds University (Spain)", "Sept 2008 - Jul 2012"],
+    qualifications: ["Spanish & Latin American Studies (BA Hons)", "Web Dev Module (JavaScript, HTML, CSS)", "Erasmus (Oviedo, Spain): Sept 2010 - Jul 2011"]
   },
   {
-    school: ["Cardiff Met University (UK)", "Sept 2006 - Jul 2007"],
-    qualification: ["Art & Design Foundation"]
+    schoolArr: ["Cardiff Met University (UK)", "Sept 2006 - Jul 2007"],
+    qualifications: ["Art & Design Foundation"]
   }
 ];
 

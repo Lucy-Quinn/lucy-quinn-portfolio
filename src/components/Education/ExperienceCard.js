@@ -1,10 +1,11 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Experience, School, Qualification } from "./Education.styled";
 import useWindowSize from "../../hooks/useWindowSize";
 
 const ExperienceCard = ({ data, qualChildVariants, isLightTheme, theme }) => {
-    const { school, qualification } = data;
+    const { schoolArr, qualifications } = data;
     const { width } = useWindowSize();
+
     if (width > 768) {
         return (
             <Experience variants={qualChildVariants}>
@@ -14,17 +15,17 @@ const ExperienceCard = ({ data, qualChildVariants, isLightTheme, theme }) => {
                     variants={qualChildVariants}
                     style={{ width: '25%', textAlign: 'left' }}
                 >
-                    {school[0]}
+                    {schoolArr[0]}
                 </School>
                 <Qualification theme={theme} variants={qualChildVariants}>
-                    {qualification.length > 1 ?
-                        <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
-                            {qualification.map(el => {
-                                return <span>{el}</span>
+                    {qualifications.length > 1 ?
+                        <span style={{ display: 'flex', flexDirection: 'column', justifyContent: 'space-around' }}>
+                            {qualifications.map((qualification, index) => {
+                                return <span key={index} >{qualification}</span>
                             })}
-                        </div>
+                        </span>
                         :
-                        qualification[0]
+                        qualifications[0]
                     }
                 </Qualification>
                 <School
@@ -33,7 +34,7 @@ const ExperienceCard = ({ data, qualChildVariants, isLightTheme, theme }) => {
                     variants={qualChildVariants}
                     style={{ width: '25%' }}
                 >
-                    {school[1]}
+                    {schoolArr[1]}
                 </School>
             </Experience>
         );
@@ -46,12 +47,12 @@ const ExperienceCard = ({ data, qualChildVariants, isLightTheme, theme }) => {
                 theme={theme}
                 variants={qualChildVariants}
             >
-                {school.map((el, index) => {
-                    return <span style={{ order: index }}>{el}</span>;
+                {schoolArr.map((school, index) => {
+                    return <span key={index} >{school}</span>;
                 })}
             </School>
             <Qualification theme={theme} variants={qualChildVariants}>
-                {qualification}
+                {qualifications}
             </Qualification>
         </Experience>
     );

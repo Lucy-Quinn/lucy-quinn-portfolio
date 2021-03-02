@@ -3,7 +3,7 @@ import { motion } from 'framer-motion';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { svgVariants, pathVariants } from './Logo.variants';
 
-const Logo = ({ screenWidth }) => {
+const Logo = ({ width }) => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const stroke = isLightTheme ? themes.light.primaryColor : themes.dark.primaryColor;
   return (
@@ -12,13 +12,13 @@ const Logo = ({ screenWidth }) => {
       <motion.svg xmlns="http://www.w3.org/2000/svg"
         // width="1.11111in" height="0.433333in"
         // width='250px' height='135px'
-        width={screenWidth <= '768' ? "1.11111in" : '169px'}
-        height={screenWidth <= '768' ? "0.433333in" : '65px'}
+        width={width <= '768' ? "1.11111in" : '169px'}
+        height={width <= '768' ? "0.433333in" : '65px'}
         variants={svgVariants}
         initial="hidden"
         animate="visible"
         viewBox="0 0 222 86"
-        style={screenWidth <= '768' ? { margin: "0 5 0 0" } : { margin: '18px' }}>
+        style={width <= '768' ? { margin: "0 5 0 0" } : { margin: '18px' }}>
         <motion.path
           fill="none" stroke={stroke} stroke-width="100"
           d="M 2.00,9.00
