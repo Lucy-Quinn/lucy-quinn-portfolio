@@ -8,8 +8,6 @@ const headerParentVariants = {
             duration: 2.5,
             type: 'tween',
             ease: 'easeIn',
-            // delayChildren: 0.5,
-            // when: "beforeChildren",
             staggerChildren: 0.2
         }
     }

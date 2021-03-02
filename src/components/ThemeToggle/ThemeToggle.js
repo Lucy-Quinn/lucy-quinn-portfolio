@@ -2,31 +2,8 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import LightBulbLight from './../../images/light-bulb-light.svg';
 import LightBulbDark from './../../images/light-bulb-dark.svg';
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
-
-//Styled Components
-const ThemeToggleButton = styled(motion.img)`
-    cursor: pointer;
-    @media(min-width: 1024px){
-        height: 64px;
-        width: 64px;
-    }
-`
-
-const toggleThemeVariants = {
-    hidden: {
-        rotate: 0
-    },
-    visible: {
-        rotate: 45
-
-    },
-    hover: {
-        scale: 1.2,
-        transition: { duration: 1 },
-    }
-}
+import ThemeToggleButton from './ThemeToggle.styled';
+import toggleThemeVariants from './ThemeToggle.variants';
 
 const ThemeToggle = () => {
     const { toggleTheme, isLightTheme } = useContext(ThemeContext);

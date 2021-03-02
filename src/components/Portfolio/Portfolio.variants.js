@@ -4,10 +4,10 @@ const variantContainer = {
     },
     visible: {
         opacity: 1,
-        // when: "beforeChildren",
         staggerChildren: 1
     }
 }
+
 const variants = {
     hidden: {
         opacity: 0,
@@ -19,7 +19,6 @@ const variants = {
         transition: { duration: 1 }
     }
 }
-
 
 const carouselVariants = {
     hidden: {

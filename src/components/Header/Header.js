@@ -29,7 +29,6 @@ const Header = () => {
         background: `linear-gradient(
               180deg
               , ${theme.gradientOne} 0%, ${theme.gradientTwo} 100%`
-
       }}>
         <HeaderContainerDesktop>
           <motion.div id="header"

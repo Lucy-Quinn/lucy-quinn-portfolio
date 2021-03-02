@@ -4,8 +4,8 @@ import { motion } from 'framer-motion';
 const Container = styled(motion.div)`
   padding: 5px 16px;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
-
 `
+
 const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   margin: 16px 0 0 0;
@@ -15,6 +15,7 @@ const Div = styled(motion.p)`
     margin: auto auto 22px auto;
   }
 `
+
 const Heading = styled(motion.h2)`
   color: ${({ theme }) => theme.primaryColor};
   margin: auto auto 20px auto;
@@ -27,12 +28,12 @@ const Heading = styled(motion.h2)`
     justify-content: center;
   }
 `
+
 const Experience = styled(motion.div)`
     border-top: 1px solid #E5E5E5;
     margin-top: ${props => props.topBorder && '20px'};
     padding: 10px;
     border-bottom: 1px solid #E5E5E5;
-
     @media(min-width: 1024px){
       display: flex;
       justify-content: space-around;
@@ -40,6 +41,7 @@ const Experience = styled(motion.div)`
       height: 150px;
     }
 `
+
 const School = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   font-weight: 700;
@@ -68,6 +70,7 @@ const Cv = styled(motion.img)`
     margin: 12px 0 44px 0;
   }
 `
+
 const ReplacementDiv = styled.div`
   height: 24px;
   width: auto;
@@ -75,6 +78,7 @@ const ReplacementDiv = styled.div`
     height: 52px;
   }
 `
+
 const ReplacementTitle = styled.div`
   height: 32px;
   width: auto;
@@ -82,6 +86,7 @@ const ReplacementTitle = styled.div`
     height: 144px;
   }
 `
+
 const ReplacementQualOne = styled.div`
   height: 105px;
   width: auto;
@@ -89,6 +94,7 @@ const ReplacementQualOne = styled.div`
     height: 172px;
   }
 `
+
 const ReplacementQualTwo = styled.div`
   height: 105px;
   width: auto;
@@ -96,6 +102,7 @@ const ReplacementQualTwo = styled.div`
     height: 172px;
   }
 `
+
 const ReplacementQualThree = styled.div`
   height: 177px;
   width: auto;
@@ -103,6 +110,7 @@ const ReplacementQualThree = styled.div`
     height: 172px;
   }
 `
+
 const ReplacementQualFour = styled.div`
   height: 106px;
   width: auto;
@@ -110,6 +118,7 @@ const ReplacementQualFour = styled.div`
     height: 172px;
   }
 `
+
 const ReplacementCv = styled.div`
   height: 140px;
   width: auto;

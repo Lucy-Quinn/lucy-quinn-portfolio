@@ -10,7 +10,6 @@ const Portfolio = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
 
-  // const [scrollYValue, setscrollYValue] = useState(window.pageYOffset)
   const [isScrollDiv, setIsScrollDiv] = useState(false);
   const [isScrollTitle, setIsScrollTitle] = useState(false);
   const [isScrollDesc, setIsScrollDesc] = useState(false);

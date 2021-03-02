@@ -56,9 +56,7 @@ const Contact = () => {
             return isOffsetBottom && isOffsetTop;
         };
 
-
         function handleScroll() {
-
             if (isOnScreen(divReplacementRef)) setIsScrollDiv(true)
             if (isOnScreen(titleReplacementRef)) setIsScrollTitle(true)
             if (isOnScreen(contactRefReplacementRef)) setIsScrollContact(true)
@@ -77,7 +75,6 @@ const Contact = () => {
 
         return () => window.removeEventListener('scroll', handleScroll)
     }, [])
-
 
     return (
         <div style={{ background: theme.background }}>

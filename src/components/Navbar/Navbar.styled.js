@@ -13,7 +13,6 @@ const Nav = styled.nav`
   }
 `;
 
-
 const NavigationLinksMobile = styled(motion.div)`
   width: 100%;
   margin: 0;
@@ -42,7 +41,6 @@ const NavigationLinksDesktop = styled(motion.div)`
   background: ${({ isLightTheme, theme }) =>
     isLightTheme ? "#fff" : theme.languages};
   border-radius: 0 0 50% 50% / 70px;
-
   @media (min-width: 1024px) {
     display: flex;
     opacity: 1;
@@ -88,7 +86,6 @@ const Link = styled(motion.a)`
       margin: 0 0 0;
     }
   }
-
 `;
 
 const Menu = styled(motion.li)`
@@ -135,8 +132,6 @@ const closeNav = keyframes`
     }
 `;
 
-
-
 const ToggleImage = styled(motion.img)`
   animation: 1s ${({ isActive }) => isActive ? openNav : closeNav};
   @media(min-width: 1024px){
@@ -161,23 +156,6 @@ const ThemeToggleAndLogo = styled.div`
   }
 `;
 
-// const showBackground = keyframes`
-//     0% {   opacity: 0; }
-//     100% { opacity: 1; }
-// `;
-
-// opacity: ${({ isActive }) => isActive ? 1 : 0 };
-//   transition: opacity 5s;
-
-const fadeIn = keyframes`
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-`;
-
 const Background = styled(motion.div)`
   top: 0;
   left: 0;
@@ -186,14 +164,12 @@ const Background = styled(motion.div)`
   background: rgba(0, 0, 0, 0.9);
 `;
 
-
 const NavNotActive = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
 `;
 
-// width 1028px
 const ThemeToggleAndCv = styled.div`
   @media (min-width: 1024px) {
     display: flex;

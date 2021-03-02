@@ -7,6 +7,7 @@ const variantContainer = {
         staggerChildren: 1,
     }
 }
+
 const variants = {
     hidden: {
         opacity: 0,
@@ -18,6 +19,7 @@ const variants = {
         transition: { duration: 0.2 }
     }
 }
+
 const qualParentVariants = {
     hidden: {
         opacity: 0,

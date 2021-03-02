@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const Container = styled(motion.div)`
-    padding: 5px 12px 95px 12px;
+  padding: 5px 12px 95px 12px;
   background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
 `
 

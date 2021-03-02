@@ -39,8 +39,8 @@ const Languages = styled(motion.div)`
     width: 141px;
     height: 46px;
   }
-  
 `
+
 const LanguageTabs = styled(motion.div)`
   display: flex;
   flex-wrap: wrap;
@@ -55,6 +55,7 @@ const LanguageTabs = styled(motion.div)`
     height: 115px;
   }
 `
+
 const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   margin: 12px 0 0 0;
@@ -98,6 +99,7 @@ const LanguageList = styled(motion.p)`
     line-height: 44px;
   }
 `
+
 const ArrowDown = styled(motion.img)`
   margin: -10px 0 0 0;
   position: relative;
@@ -114,6 +116,7 @@ const ArrowDown = styled(motion.img)`
     top: -40px;
   }
 `
+
 const HeaderContainerDesktop = styled.div`
 @media (min-width: 768px) {
   display: flex;

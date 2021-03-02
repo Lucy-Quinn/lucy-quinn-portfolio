@@ -1,16 +1,15 @@
 import styled from "styled-components";
 import { motion } from "framer-motion";
 
-//Styled components
 const Container = styled(motion.div)`
   padding: 5px 12px;
   background: ${({ isLightTheme, theme }) =>
     isLightTheme ? null : theme.background};
-@media(min-width: 1024px){
-  display: flex;
-  flex-direction: row-reverse;
-  padding: 0 30px;
-}
+  @media(min-width: 1024px){
+    display: flex;
+    flex-direction: row-reverse;
+    padding: 0 30px;
+  }
 `;
 
 const Image = styled(motion.img)`
@@ -20,10 +19,10 @@ const Image = styled(motion.img)`
   margin-top: 32px;
   @media(min-width: 1024px){
   display: flex; 
-  align-items: center; 
-  height: 100%;
-  width: 35%;
-}
+    align-items: center; 
+    height: 100%;
+    width: 35%;
+  }
 `;
 
 const Div = styled(motion.p)`
@@ -31,13 +30,12 @@ const Div = styled(motion.p)`
     isLightTheme ? theme.primaryColor : theme.div};
   font-weight: 300;
   margin: 0;
-@media(min-width: 1024px){
-  height: 50px;
-  width: 100%;
-  margin: 20px 0 16px 0;
-  text-align: left;
-}
-
+  @media(min-width: 1024px){
+    height: 50px;
+    width: 100%;
+    margin: 20px 0 16px 0;
+    text-align: left;
+  }
 `;
 
 const Heading = styled(motion.h2)`
@@ -78,13 +76,13 @@ const ReplacementImg = styled.div`
   width: auto;
   @media(min-width: 1024px){
     width: 35%;
-  height: 369.391px;
+    height: 369.391px;
   }
   @media(min-width: 1024px){
-  height: 501px;
+    height: 501px;
   }
   @media(min-width: 1100px){
-  height: 394px;
+    height: 394px;
   }
 `;
 
@@ -96,7 +94,7 @@ const ReplacementDiv = styled.div`
     height: 68.625px;
   }
   @media(min-width: 1100px){
-  height: 71.375px;
+    height: 71.375px;
   }
 `;
 
@@ -123,7 +121,6 @@ const ReplacementDescription = styled.div`
     height: 500.734px;
   }
 `;
-
 
 export {
   Container,

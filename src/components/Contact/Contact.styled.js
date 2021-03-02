@@ -2,11 +2,11 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
 const ContactContainer = styled(motion.div)`
-    padding: 12px;
-    border-radius: 50% 50% 0 0  / 70px;
-    @media (min-width: 1024px) {
-      border-radius: 55% 55%  0 0  / 361px;
-    }
+  padding: 12px;
+  border-radius: 50% 50% 0 0  / 70px;
+  @media (min-width: 1024px) {
+    border-radius: 55% 55%  0 0  / 361px;
+  }
 `
 
 const Div = styled(motion.p)`
@@ -17,7 +17,6 @@ const Div = styled(motion.p)`
     height: 29px;
     margin: 130px auto 16px auto;
   }
-
 `
 
 const Heading = styled(motion.h2)`
@@ -45,7 +44,6 @@ const ContactDetails = styled(motion.h2)`
     display: flex;
     align-items: center;
     justify-content: center;
-   
   }
 `
 
@@ -74,19 +72,19 @@ const Socials = styled(motion.p)`
   }
 `
 const Icons = styled(motion.div)`
-    display: flex;
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0 20px 0;
+  @media (min-width: 1024px) {
     justify-content: space-around;
-    margin: 25px 0 20px 0;
-    @media (min-width: 1024px) {
-      justify-content: space-around;
-      width: 40%;
-      align-items: center;
-      margin: auto auto 82px auto;
-      & img{
-        width: auto;
-        height: 101px;
-      }
+    width: 40%;
+    align-items: center;
+    margin: auto auto 82px auto;
+    & img{
+      width: auto;
+      height: 101px;
     }
+  }
 `
 
 const ArrowUp = styled(motion.img)`
@@ -100,13 +98,13 @@ const Top = styled(motion.div)`
   margin: 0 0 75px 0;
   font-weight: 300;
   & > h4 {
-        font-weight: 300;
-        margin: 5px 0 0 0;
-        color: ${({ theme }) => theme.primaryColor};
-    }
-    @media (min-width: 1024px) {
-      display: none;
-    }
+    font-weight: 300;
+    margin: 5px 0 0 0;
+    color: ${({ theme }) => theme.primaryColor};
+  }
+  @media (min-width: 1024px) {
+    display: none;
+  }
 `
 
 const ReplacementDiv = styled.div`
@@ -123,6 +121,7 @@ const ReplacementTitle = styled.div`
     height: 141px;
   }
 `
+
 const ReplacementContact = styled.div`
   height: 74px;
   width: auto;
@@ -130,6 +129,7 @@ const ReplacementContact = styled.div`
     height: 168px;
   }
 `
+
 const ReplacementSocial = styled.div`
   height: 68px;
   width: auto;
@@ -137,6 +137,7 @@ const ReplacementSocial = styled.div`
     height: 168px;
   }
 `
+
 const ReplacementIcons = styled.div`
   height: 109px;
   width: auto;
@@ -144,6 +145,7 @@ const ReplacementIcons = styled.div`
     height: 200px;
   }
 `
+
 const ReplacementArrow = styled.div`
   height: 115px;
   width: auto;

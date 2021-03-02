@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import Resume from './../../images/open-cv.svg';
 import { motion } from 'framer-motion';
-import { Container, Div, Heading, Experience, School, Qualification, CvHeading, Cv, ReplacementDiv, ReplacementTitle, ReplacementQualOne, ReplacementQualTwo, ReplacementQualThree, ReplacementQualFour, ReplacementCv } from './Education.styled';
+import { Container, Div, Heading, CvHeading, Cv, ReplacementDiv, ReplacementTitle, ReplacementQualOne, ReplacementQualTwo, ReplacementQualThree, ReplacementQualFour, ReplacementCv } from './Education.styled';
 import { variantContainer, variants, qualParentVariants, qualChildVariants } from './Education.variants'
 import ExperienceCard from './ExperienceCard';
 
@@ -84,9 +84,6 @@ const Education = () => {
 
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const screenWidth = window.innerWidth;
-
 
   return (
     <Container

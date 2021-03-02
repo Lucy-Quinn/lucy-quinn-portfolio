@@ -9,8 +9,6 @@ import SimpleStepsDark from './../../images/simple_steps_dark.png';
 import TravelGuruDark from './../../images/travel_guru_dark.png';
 import CarouselContainer from './../CarouselContainer/CarouselContainer'
 
-
-
 const Carousel = () => {
 
     const { isLightTheme, themes } = useContext(ThemeContext);

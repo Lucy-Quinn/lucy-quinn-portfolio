@@ -10,8 +10,6 @@ const Logo = ({ width }) => {
 
     <div className="logo"  >
       <motion.svg xmlns="http://www.w3.org/2000/svg"
-        // width="1.11111in" height="0.433333in"
-        // width='250px' height='135px'
         width={width <= '768' ? "1.11111in" : '169px'}
         height={width <= '768' ? "0.433333in" : '65px'}
         variants={svgVariants}
