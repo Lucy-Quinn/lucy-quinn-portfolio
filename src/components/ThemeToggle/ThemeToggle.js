@@ -27,7 +27,6 @@ const ThemeToggle = () => {
                     variants={toggleThemeVariants}
                     whileHover="hover"
                     animate={isToggled ? "visible" : "hidden"}
-
                     src={LightBulbDark} alt="icon of dark bulb" />
             }
         </div>

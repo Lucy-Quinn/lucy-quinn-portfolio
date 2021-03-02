@@ -12,7 +12,8 @@ const Div = styled(motion.p)`
   @media(min-width: 1024px){
     width: 98px;
     height: 30px;
-    margin: auto auto 22px auto;
+    margin: auto auto 2px auto;
+    font-size: 1.1rem;
   }
 `
 
@@ -30,15 +31,13 @@ const Heading = styled(motion.h2)`
 `
 
 const Experience = styled(motion.div)`
-    border-top: 1px solid #E5E5E5;
-    margin-top: ${props => props.topBorder && '20px'};
     padding: 10px;
-    border-bottom: 1px solid #E5E5E5;
+    border-bottom: 1px solid #e5e5e591;
     @media(min-width: 1024px){
       display: flex;
       justify-content: space-around;
       align-items: center;
-      height: 150px;
+      height: 125px;
     }
 `
 

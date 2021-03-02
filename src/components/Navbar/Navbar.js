@@ -5,7 +5,7 @@ import useWindowSize from "../../hooks/useWindowSize";
 import {
   Nav, Link, ToggleButton, ThemeToggleAndLogo, Background, NavNotActive, ThemeToggleAndCv,
 } from "./Navbar.styled";
-import { variantContainer, backgroundVariants } from './Navbar.variants';
+import { variantContainer, backgroundVariants, cvVariants } from './Navbar.variants';
 import MobileNavLinks from './MobileNavLinks';
 import ToggleButtonOpen from "./../../images/button-open.svg";
 import ThemeToggle from "./../../components/ThemeToggle/ThemeToggle";
@@ -112,7 +112,12 @@ const Navbar = () => {
                 target="_blank"
                 href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
               >
-                <img src={Resume} alt="icon to open resume" />
+                <motion.img
+                  variants={cvVariants}
+                  whileHover="hover"
+                  src={Resume}
+                  alt="icon to open resume"
+                />
               </Link>
             </ThemeToggleAndCv>
           </>

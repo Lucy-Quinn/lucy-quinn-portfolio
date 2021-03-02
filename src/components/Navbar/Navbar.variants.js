@@ -20,6 +20,13 @@ const toggleButtonVariants = {
     }
 };
 
+const cvVariants = {
+    hover: {
+        scale: 1.1,
+        transition: { duration: 1 },
+    }
+}
+
 const variantContainer = {
     hidden: {
         opacity: 0,
@@ -75,6 +82,7 @@ const backgroundVariants = {
 
 export {
     toggleButtonVariants,
+    cvVariants,
     variantContainer,
     variants,
     backgroundVariants

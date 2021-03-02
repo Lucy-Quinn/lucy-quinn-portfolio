@@ -86,10 +86,8 @@ const Portfolio = () => {
         isScrollDesc ?
           <Description theme={theme} variants={variants}
             ref={descriptionRef}
-
-          >Here are a collection of my projects that I have created, where I have implemented the languages that I have learnt.
-      <br />
-      More projects in progress<Dots></Dots> </Description>
+          >
+            Here are a collection of my projects that I have created, where I have implemented the languages that I have learnt. More projects in progress<Dots></Dots> </Description>
           :
           <ReplacementDescription
             ref={descriptionReplacementRef}

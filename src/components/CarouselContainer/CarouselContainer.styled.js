@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Slick from "react-slick";
+import { motion } from 'framer-motion';
 import ArrowLeft from './../../images/button-arrow-left.svg'
 import ArrowRight from './../../images/button-arrow-right.svg'
 
@@ -21,7 +22,7 @@ const ProjectLinks = styled.div`
         width: auto;
     }
 `
-const Button = styled.button`
+const Button = styled(motion.button)`
     border-radius: 17px;
     box-shadow: ${({ isLightTheme, theme }) => isLightTheme ? '0 1px 6px #d5d5d5' : null};
     border: none;
@@ -36,7 +37,7 @@ const Button = styled.button`
     }
 `
 
-const ProjectLinksContainer = styled.div`
+const ProjectLinksContainer = styled(motion.div)`
     width: 100px;
     display: flex;
     flex-direction: column;

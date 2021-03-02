@@ -2,7 +2,7 @@ import React, { useContext, useState, useEffect, useRef } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import { ContactContainer, Icons, Div, Heading, ContactDetails, Tie, Socials, ArrowUp, Top, ReplacementDiv, ReplacementTitle, ReplacementContact, ReplacementSocial, ReplacementIcons, ReplacementArrow } from './Contact.styled.js';
 import { motion } from 'framer-motion';
-import { arrowVariants, upVariants, contactParentVariants, contactChildVariants, socialParentVariants, socialChildVariants } from './Contact.variants';
+import { arrowVariants, upVariants, contactParentVariants, contactChildVariants, socialParentVariants, socialChildVariants, socialIconVariants } from './Contact.variants';
 
 //Images
 import ArrowUpLight from './../../images/button-arrow-up-light.svg';
@@ -146,13 +146,13 @@ const Contact = () => {
                         <Socials theme={theme} variants={contactChildVariants}>Follow me on socials and GitHub</Socials>
                         <Icons variants={contactChildVariants}>
                             <a rel="noopener noreferrer" target="_blank" href="https://www.linkedin.com/in/lucy-quinn/">
-                                <img src={isLightTheme ? LinkedinLight : LinkedinDark} alt="icon of linkedin" />
+                                <motion.img variants={socialIconVariants} whileHover="hover" src={isLightTheme ? LinkedinLight : LinkedinDark} alt="icon of linkedin" />
                             </a>
                             <a rel="noopener noreferrer" target="_blank" href="https://github.com/Lucy-Quinn">
-                                <img src={isLightTheme ? GithubLight : GithubDark} alt="icon of github" />
+                                <motion.img variants={socialIconVariants} whileHover="hover" src={isLightTheme ? GithubLight : GithubDark} alt="icon of github" />
                             </a>
                             <a href="skype:live:.cid.1d6573efe4ce3449?chat">
-                                <img src={isLightTheme ? SkypeLight : SkypeDark} alt="icon of skype" />
+                                <motion.img variants={socialIconVariants} whileHover="hover" src={isLightTheme ? SkypeLight : SkypeDark} alt="icon of skype" />
                             </a>
                         </Icons>
                     </motion.div>

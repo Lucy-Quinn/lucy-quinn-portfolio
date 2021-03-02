@@ -31,10 +31,11 @@ const Div = styled(motion.p)`
   font-weight: 300;
   margin: 0;
   @media(min-width: 1024px){
-    height: 50px;
+    height: 43px;
     width: 100%;
-    margin: 20px 0 16px 0;
+    margin: 20px 0 0 0;
     text-align: left;
+    font-size: 1.1rem;
   }
 `;
 
@@ -58,7 +59,7 @@ const Description = styled(motion.p)`
     text-align: left;
     margin: auto auto 95px auto;
     width: 100%;
-    line-height: 44px;
+    line-height: 40px;
   }
 `;
 

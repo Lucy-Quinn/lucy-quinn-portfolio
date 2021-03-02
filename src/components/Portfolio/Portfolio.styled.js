@@ -10,7 +10,8 @@ const Div = styled(motion.p)`
   color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
   margin: 40px 0 0 0;
   @media(min-width: 1024px){
-    margin: 0 0 22px 0;
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
   }
 `
 
@@ -31,9 +32,9 @@ const Description = styled(motion.p)`
   padding-bottom: 30px;
   @media(min-width: 1024px){
     margin: 24px auto 60px auto;
-    width: 64%;
+    width: 82%;
     height: 88px;
-    line-height: 44px;
+    line-height: 40px;
   }
 `
 

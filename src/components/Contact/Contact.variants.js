@@ -1,15 +1,3 @@
-const arrowVariants = {
-    hover: {
-        y: '-10px'
-    }
-}
-
-const upVariants = {
-    hover: {
-        scale: 1.2
-    }
-}
-
 const contactParentVariants = {
     hidden: {
         opacity: 0,
@@ -54,11 +42,32 @@ const socialChildVariants = {
     }
 }
 
+
+const socialIconVariants = {
+    hover: {
+        scale: 1.1,
+        transition: { duration: 1 },
+    }
+}
+
+const arrowVariants = {
+    hover: {
+        y: '-10px'
+    }
+}
+
+const upVariants = {
+    hover: {
+        scale: 1.2
+    }
+}
+
 export {
-    arrowVariants,
-    upVariants,
     contactParentVariants,
     contactChildVariants,
     socialParentVariants,
-    socialChildVariants
+    socialChildVariants,
+    socialIconVariants,
+    arrowVariants,
+    upVariants,
 }

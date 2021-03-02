@@ -15,7 +15,8 @@ const Div = styled(motion.p)`
   @media (min-width: 1024px) {
     width: 61px;
     height: 29px;
-    margin: 130px auto 16px auto;
+    margin: 130px auto 2px auto;
+    font-size: 1.1rem;
   }
 `
 

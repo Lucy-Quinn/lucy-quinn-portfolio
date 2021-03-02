@@ -85,6 +85,12 @@ const Link = styled(motion.a)`
       font-size: 1.3rem;
       margin: 0 0 0;
     }
+    &:hover{
+    border-bottom: 1.8px solid ${({ theme }) => theme.primaryColor};
+    margin-bottom: 10px;
+    padding-bottom: ${(props) => props.resumeLink && "0"};
+    border-bottom: ${(props) => props.resumeLink && "none"};
+    }
   }
 `;
 

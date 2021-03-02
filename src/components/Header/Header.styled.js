@@ -17,7 +17,7 @@ const HeaderContainer = styled(motion.div)`
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 12px 8px 12px;
+    padding: 87px 12px 8px 12px
   }
 `
 
@@ -63,6 +63,8 @@ const Div = styled(motion.p)`
     margin: 0px 0 24px 0;
     width: 61px;
     height: 29px;
+    font-size: 1.1rem;
+    margin: 0 0 10px 0;
   }
 `
 
@@ -96,7 +98,7 @@ const LanguageList = styled(motion.p)`
     margin: 0 0 40px 0;
     width: 867px;
     height: 130px;
-    line-height: 44px;
+    line-height: 40px;
   }
 `
 

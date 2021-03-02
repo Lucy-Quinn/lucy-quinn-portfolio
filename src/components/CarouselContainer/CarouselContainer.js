@@ -2,9 +2,11 @@ import React, { useContext, useState } from 'react';
 import { ThemeContext } from '../../contexts/ThemeContext';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { ProjectLinks, Button, ProjectLinksContainer, Projects } from './CarouselContainer.styled'
-import ProjectCard from './../ProjectCard/ProjectCard'
-import PopOut from '../PopOut/PopOut'
+import { motion } from 'framer-motion';
+import { ProjectLinks, Button, ProjectLinksContainer, Projects } from './CarouselContainer.styled';
+import { cvVariants, deployVariants, githubVariants } from './CarouselContainer.variants';
+import ProjectCard from './../ProjectCard/ProjectCard';
+import PopOut from '../PopOut/PopOut';
 import { AnimatePresence } from "framer-motion";
 import GithubLight from './../../images/github-light.svg';
 import GithubDark from './../../images/github-dark.svg';
@@ -63,23 +65,16 @@ const CarouselContainer = ({ projects }) => {
                         <div key={index}>
                             <ProjectCard project={project} />
                             <ProjectLinksContainer>
-                                <Button isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project</Button>
+                                <Button variants={cvVariants} whileHover="hover" isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project</Button>
                                 <ProjectLinks theme={theme}>
                                     <a rel="noopener noreferrer" target="_blank" href={project.deploy}>
-                                        <i className="fas fa-external-link-alt"></i>
+                                        <motion.i variants={deployVariants} whileHover="hover" className="fas fa-external-link-alt"></motion.i>
                                     </a>
-                                    {isLightTheme ?
-                                        <a rel="noopener noreferrer" target="_blank" href={project.github}>
-                                            <img src={GithubLight} alt="icon of github" />
-                                        </a>
-                                        :
-                                        <a rel="noopener noreferrer" target="_blank" href={project.github}>
-                                            <img src={GithubDark} alt="icon of github" />
-                                        </a>
-                                    }
+                                    <a rel="noopener noreferrer" target="_blank" href={project.github}>
+                                        <motion.img variants={githubVariants} whileHover="hover" src={isLightTheme ? GithubLight : GithubDark} alt="icon of github" />
+                                    </a>
                                 </ProjectLinks>
                             </ProjectLinksContainer>
-
                         </div>
                     );
                 })}

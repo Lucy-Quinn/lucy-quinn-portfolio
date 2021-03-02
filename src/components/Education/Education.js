@@ -3,7 +3,7 @@ import { ThemeContext } from '../../contexts/ThemeContext';
 import Resume from './../../images/open-cv.svg';
 import { motion } from 'framer-motion';
 import { Container, Div, Heading, CvHeading, Cv, ReplacementDiv, ReplacementTitle, ReplacementQualOne, ReplacementQualTwo, ReplacementQualThree, ReplacementQualFour, ReplacementCv } from './Education.styled';
-import { variantContainer, variants, qualParentVariants, qualChildVariants } from './Education.variants'
+import { variantContainer, variants, qualParentVariants, qualChildVariants } from './Education.variants';
 import ExperienceCard from './ExperienceCard';
 
 const EDUCATION_DATA = [
@@ -114,18 +114,21 @@ const Education = () => {
       ) : (
           <ReplacementTitle ref={titleReplacementRef} />
         )}
+
       {isScrollQualOne ? (
         <motion.div
           variants={qualParentVariants}
           initial="hidden"
           animate="visible"
           ref={qualOneRef}
+          style={{ borderTop: '1px solid #e5e5e591' }}
         >
           <ExperienceCard
             data={EDUCATION_DATA[0]}
             qualChildVariants={qualChildVariants}
             isLightTheme={isLightTheme}
             theme={theme}
+            className="topEducation"
           />
         </motion.div>
       ) : (
@@ -189,13 +192,16 @@ const Education = () => {
           variants={variantContainer}
           initial="hidden"
           animate="visible"
+          whileHover="hover"
+
           ref={cvRef}
         >
-          <CvHeading theme={theme} variants={variants}>
-            Open my CV
+          <CvHeading theme={theme}>
+            Lucy's CV
           </CvHeading>
           <motion.a
             variants={variants}
+            whileHover="hover"
             rel="noopener noreferrer"
             target="_blank"
             href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
