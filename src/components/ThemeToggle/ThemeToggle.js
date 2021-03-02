@@ -16,19 +16,12 @@ const ThemeToggle = () => {
     return (
         <div onClick={handleToggleTheme}
         >
-            {isLightTheme ?
-                <ThemeToggleButton
-                    variants={toggleThemeVariants}
-                    whileHover="hover"
-                    animate={isToggled ? "visible" : "hidden"}
-                    src={LightBulbLight} alt="icon of light bulb" />
-                :
-                <ThemeToggleButton
-                    variants={toggleThemeVariants}
-                    whileHover="hover"
-                    animate={isToggled ? "visible" : "hidden"}
-                    src={LightBulbDark} alt="icon of dark bulb" />
-            }
+            <ThemeToggleButton
+                variants={toggleThemeVariants}
+                whileHover="hover"
+                animate={isToggled ? "visible" : "hidden"}
+                src={isLightTheme ? LightBulbLight : LightBulbDark} alt="icon of light bulb"
+            />
         </div>
     );
 }
