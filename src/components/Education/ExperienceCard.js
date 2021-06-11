@@ -58,5 +58,4 @@ const ExperienceCard = ({ data, qualChildVariants, isLightTheme, theme }) => {
     );
 };
 
-
 export default ExperienceCard;

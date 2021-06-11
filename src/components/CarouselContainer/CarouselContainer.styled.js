@@ -26,10 +26,10 @@ const Button = styled(motion.button)`
     border-radius: 17px;
     box-shadow: ${({ isLightTheme, theme }) => isLightTheme ? '0 1px 6px #d5d5d5' : null};
     border: none;
-    padding: 10px 11px;
+    padding: 12px 12px;
     background: ${({ isLightTheme, theme }) => isLightTheme ? 'white' : theme.primaryColor};
     color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.languages};
-    width: 153px;
+    width: fit-content;
     cursor: pointer;
     margin: 5px 0 8px 0;
     @media(min-width: 1024px){
@@ -38,7 +38,6 @@ const Button = styled(motion.button)`
 `
 
 const ProjectLinksContainer = styled(motion.div)`
-    width: 100px;
     display: flex;
     flex-direction: column;
     justify-content: center;

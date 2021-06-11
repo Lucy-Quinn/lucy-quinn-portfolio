@@ -30,7 +30,6 @@ const PopOut = ({ close, activeProject }) => {
                     </CardBody>
                 </PopoutCard>
             </PopoutContainer>
-
         </motion.div>
     );
 }

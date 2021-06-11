@@ -1,6 +1,5 @@
 import React, { useContext } from 'react';
 import { ThemeContext } from "../../contexts/ThemeContext";
-
 import VideoStoreLight from './../../images/the_video_store_light.png';
 import SimpleStepsLight from './../../images/simple_steps_light.png';
 import TravelGuruLight from './../../images/travel_guru_light.png';
