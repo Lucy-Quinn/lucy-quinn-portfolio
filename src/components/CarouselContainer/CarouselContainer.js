@@ -65,7 +65,7 @@ const CarouselContainer = ({ projects }) => {
                         <div key={index}>
                             <ProjectCard project={project} />
                             <ProjectLinksContainer>
-                                <Button variants={cvVariants} whileHover="hover" isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project</Button>
+                                <Button variants={cvVariants} whileHover="hover" isLightTheme={isLightTheme} theme={theme} onClick={() => handleProject(project)}>View Project Details</Button>
                                 <ProjectLinks theme={theme}>
                                     <a rel="noopener noreferrer" target="_blank" href={project.deploy}>
                                         <motion.i variants={deployVariants} whileHover="hover" className="fas fa-external-link-alt"></motion.i>

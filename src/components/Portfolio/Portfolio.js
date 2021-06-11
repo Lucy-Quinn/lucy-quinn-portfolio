@@ -72,6 +72,7 @@ const Portfolio = () => {
             ref={divReplacementRef}
           ></ReplacementDiv>
       }
+
       {
         isScrollTitle ?
           <Heading theme={theme} variants={variants}
@@ -82,6 +83,7 @@ const Portfolio = () => {
             ref={titleReplacementRef}
           ></ReplacementHeading>
       }
+
       {
         isScrollDesc ?
           <Description theme={theme} variants={variants}
@@ -93,6 +95,7 @@ const Portfolio = () => {
             ref={descriptionReplacementRef}
           ></ReplacementDescription>
       }
+
       {
         isScrollCarousel ?
           <motion.div variants={carouselVariants}

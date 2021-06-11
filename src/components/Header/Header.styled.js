@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { motion } from 'framer-motion';
 
-
 const HeaderContainer = styled(motion.div)`
   padding: 8px 12px;
   border-radius: 0 0 50% 50% / 70px;

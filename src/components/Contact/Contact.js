@@ -88,7 +88,6 @@ const Contact = () => {
                 initial="hidden"
                 animate="visible">
                 <div>
-
                     {isScrollDiv ?
                         <Div isLightTheme={isLightTheme} theme={theme} variants={contactChildVariants}
                             ref={divRef}
@@ -98,6 +97,7 @@ const Contact = () => {
                             ref={divReplacementRef}
                         />
                     }
+
                     {isScrollTitle ?
                         <Heading theme={theme} variants={contactChildVariants}
                             ref={titleRef}
@@ -107,6 +107,7 @@ const Contact = () => {
                             ref={titleReplacementRef}
                         />
                     }
+
                     {isScrollContact ?
                         <motion.div variants={contactParentVariants} initial="hidden"
                             animate="visible"
@@ -120,6 +121,7 @@ const Contact = () => {
                             ref={contactRefReplacementRef}
                         />
                     }
+
                     {isScrollSocial ?
                         <motion.div variants={socialParentVariants}
                             initial="hidden"
@@ -161,6 +163,7 @@ const Contact = () => {
                         ref={iconsRefReplacementRef}
                     />
                 }
+
                 {isScrollArrow ?
                     <motion.div variants={contactParentVariants}
                         initial="hidden"
@@ -185,7 +188,6 @@ const Contact = () => {
                         ref={arrowRefReplacementRef}
                     />
                 }
-
             </ContactContainer>
         </div>
     );

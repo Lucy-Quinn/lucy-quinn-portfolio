@@ -4,7 +4,6 @@ import Lucy from "./../../images/lucy.png";
 import { Container, Image, Div, Heading, Description, ReplacementImg, ReplacementDiv, ReplacementTitle, ReplacementDescription, AboutContainerDesktop } from './About.styled';
 import { variantContainer, variants } from './About.variants';
 
-
 const About = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
   const theme = isLightTheme ? themes.light : themes.dark;
@@ -72,8 +71,8 @@ const About = () => {
           ref={imageRef}
         />
       ) : (
-          <ReplacementImg ref={imageReplacementRef} />
-        )}
+        <ReplacementImg ref={imageReplacementRef} />
+      )}
 
       <AboutContainerDesktop>
         {isScrollDiv ? (
@@ -86,15 +85,17 @@ const About = () => {
             &lt;div&gt;
           </Div>
         ) : (
-            <ReplacementDiv ref={divReplacementRef} />
-          )}
+          <ReplacementDiv ref={divReplacementRef} />
+        )}
+
         {isScrollTitle ? (
           <Heading theme={theme} variants={variants} ref={titleRef}>
             About Lucy
           </Heading>
         ) : (
-            <ReplacementTitle ref={titleReplacementRef} />
-          )}
+          <ReplacementTitle ref={titleReplacementRef} />
+        )}
+
         {isScrollDesc ? (
           <Description theme={theme} variants={variants} ref={descriptionRef}>
             I am a full stack web developer from Bristol in England. I have spent much time travelling abroad both personally and through work and have lived in Italy and am now residing in Spain. I am an enthusiastic linguist, who is always learning and forever making lists. I love creating projects and seeing them to the end. My attention to detail is “spot on”!
@@ -104,8 +105,8 @@ const About = () => {
             In October 2020, I received a scholarship to take part in the Ironhack bootcamp course, from which I graduated in January 2021 and am currently in search of experience to grow further as a web developer.
           </Description>
         ) : (
-            <ReplacementDescription ref={descriptionReplacementRef} />
-          )}
+          <ReplacementDescription ref={descriptionReplacementRef} />
+        )}
       </AboutContainerDesktop>
     </Container>
   );

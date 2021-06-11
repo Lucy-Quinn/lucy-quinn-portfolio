@@ -7,11 +7,11 @@ import {
 } from "./Navbar.styled";
 import { variantContainer, backgroundVariants, cvVariants } from './Navbar.variants';
 import MobileNavLinks from './MobileNavLinks';
+import DesktopNavLinks from "./DesktopNavLinks";
 import ToggleButtonOpen from "./../../images/button-open.svg";
 import ThemeToggle from "./../../components/ThemeToggle/ThemeToggle";
 import Resume from "./../../images/open-cv.svg";
 import Logo from "./../Logo/Logo";
-import DesktopNavLinks from "./DesktopNavLinks";
 
 const Navbar = () => {
   const [isActive, setActive] = useState(false);
@@ -49,7 +49,6 @@ const Navbar = () => {
           />
         )}
       </AnimatePresence>
-
 
       <Nav theme={theme}>
         {width <= 768 && (
@@ -97,7 +96,6 @@ const Navbar = () => {
         {width > 768 && (
           <>
             <Logo width={width} />
-
             <DesktopNavLinks
               isActive={isActive}
               isLightTheme={isLightTheme}
@@ -110,7 +108,7 @@ const Navbar = () => {
                 theme={theme}
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
+                href="https://drive.google.com/file/d/1LNowaNLIU8husgyQGkFdPpIw6MFEbBit/view"
               >
                 <motion.img
                   variants={cvVariants}
