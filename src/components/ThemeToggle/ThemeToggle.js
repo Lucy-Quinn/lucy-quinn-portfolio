@@ -14,8 +14,7 @@ const ThemeToggle = () => {
         setIsToggle(!isToggled)
     }
     return (
-        <div onClick={handleToggleTheme}
-        >
+        <div onClick={handleToggleTheme}>
             <ThemeToggleButton
                 variants={toggleThemeVariants}
                 whileHover="hover"

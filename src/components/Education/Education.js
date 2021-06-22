@@ -104,16 +104,16 @@ const Education = () => {
           &lt;div&gt;
         </Div>
       ) : (
-          <ReplacementDiv ref={divReplacementRef} />
-        )}
+        <ReplacementDiv ref={divReplacementRef} />
+      )}
 
       {isScrollTitle ? (
         <Heading theme={theme} variants={variants} ref={titleRef}>
           Education
         </Heading>
       ) : (
-          <ReplacementTitle ref={titleReplacementRef} />
-        )}
+        <ReplacementTitle ref={titleReplacementRef} />
+      )}
 
       {isScrollQualOne ? (
         <motion.div
@@ -132,8 +132,8 @@ const Education = () => {
           />
         </motion.div>
       ) : (
-          <ReplacementQualOne ref={qualOneReplacementRef} />
-        )}
+        <ReplacementQualOne ref={qualOneReplacementRef} />
+      )}
 
       {isScrollQualTwo ? (
         <motion.div
@@ -150,8 +150,8 @@ const Education = () => {
           />
         </motion.div>
       ) : (
-          <ReplacementQualTwo ref={qualTwoReplacementRef} />
-        )}
+        <ReplacementQualTwo ref={qualTwoReplacementRef} />
+      )}
       {isScrollQualThree ? (
         <motion.div
           variants={qualParentVariants}
@@ -167,8 +167,8 @@ const Education = () => {
           />
         </motion.div>
       ) : (
-          <ReplacementQualThree ref={qualThreeReplacementRef} />
-        )}
+        <ReplacementQualThree ref={qualThreeReplacementRef} />
+      )}
 
       {isScrollQualFour ? (
         <motion.div
@@ -185,8 +185,8 @@ const Education = () => {
           />
         </motion.div>
       ) : (
-          <ReplacementQualFour ref={qualFourReplacementRef} />
-        )}
+        <ReplacementQualFour ref={qualFourReplacementRef} />
+      )}
       {isScrollCv ? (
         <motion.div
           variants={variantContainer}
@@ -204,14 +204,14 @@ const Education = () => {
             whileHover="hover"
             rel="noopener noreferrer"
             target="_blank"
-            href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
+            href="https://drive.google.com/file/d/1cpX7eMAHz4IMCncKHx-Ct4QdoTl-uGXz/view"
           >
             <Cv src={Resume} variants={variants} alt="icon to open resume" />
           </motion.a>
         </motion.div>
       ) : (
-          <ReplacementCv ref={cvReplacementRef} />
-        )}
+        <ReplacementCv ref={cvReplacementRef} />
+      )}
     </Container>
   );
 

@@ -110,7 +110,7 @@ const Navbar = () => {
                 theme={theme}
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://drive.google.com/file/d/1nFLSELiQ6yCG8C1aW9e4CHg8dTh6vawa/view?usp=sharing"
+                href="https://drive.google.com/file/d/1cpX7eMAHz4IMCncKHx-Ct4QdoTl-uGXz/view"
               >
                 <motion.img
                   variants={cvVariants}
