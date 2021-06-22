@@ -14,7 +14,6 @@ const ThemeContextProvider = (props) => {
     return (
         <ThemeContext.Provider value={{ themes, isLightTheme, toggleTheme }}>
             {props.children}
-
         </ThemeContext.Provider>
     );
 }
