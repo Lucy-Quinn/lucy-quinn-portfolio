@@ -153,7 +153,6 @@ const Education = () => {
       ) : (
         <ReplacementQualTwo ref={qualTwoReplacementRef} />
       )}
-
       {isScrollQualThree ? (
         <motion.div
           variants={qualParentVariants}
@@ -189,31 +188,32 @@ const Education = () => {
       ) : (
         <ReplacementQualFour ref={qualFourReplacementRef} />
       )}
-
-      {isScrollCv ? (
-        <motion.div
-          variants={variantContainer}
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-          ref={cvRef}
-        >
-          <CvHeading theme={theme}>
-            Lucy's CV
-          </CvHeading>
-          <motion.a
-            variants={variants}
+      {
+        isScrollCv ? (
+          <motion.div
+            variants={variantContainer}
+            initial="hidden"
+            animate="visible"
             whileHover="hover"
-            rel="noopener noreferrer"
-            target="_blank"
-            href="https://drive.google.com/file/d/1LNowaNLIU8husgyQGkFdPpIw6MFEbBit/view"
+            ref={cvRef}
           >
-            <Cv src={Resume} variants={variants} alt="icon to open resume" />
-          </motion.a>
-        </motion.div>
-      ) : (
-        <ReplacementCv ref={cvReplacementRef} />
-      )}
+            <CvHeading theme={theme}>
+              Lucy's CV
+            </CvHeading>
+            <motion.a
+              variants={variants}
+              whileHover="hover"
+              rel="noopener noreferrer"
+              target="_blank"
+              href="https://drive.google.com/file/d/1cpX7eMAHz4IMCncKHx-Ct4QdoTl-uGXz/view"
+            >
+              <Cv src={Resume} variants={variants} alt="icon to open resume" />
+            </motion.a>
+          </motion.div>
+        ) : (
+          <ReplacementCv ref={cvReplacementRef} />
+        )
+      }
     </Container>
   );
 
