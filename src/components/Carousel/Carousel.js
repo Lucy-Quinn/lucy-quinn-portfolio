@@ -6,11 +6,13 @@ import TravelGuruLight from './../../images/travel_guru_light.png';
 import VideoStoreDark from './../../images/the_video_store_dark.png';
 import SimpleStepsDark from './../../images/simple_steps_dark.png';
 import TravelGuruDark from './../../images/travel_guru_dark.png';
+import IveGotToDoThisDark from './../../images/ive_got_to_do_this_dark.png';
+import IveGotToDoThisLight from './../../images/ive_got_to_do_this_light.png';
 import CarouselContainer from './../CarouselContainer/CarouselContainer'
 
 const Carousel = () => {
 
-    const { isLightTheme, themes } = useContext(ThemeContext);
+    const { isLightTheme } = useContext(ThemeContext);
 
     const projects = [
         {
@@ -40,6 +42,15 @@ const Carousel = () => {
             deploy: 'https://travel-guru.herokuapp.com/',
             github: 'https://github.com/Lucy-Quinn/Client-Travel-Guru',
             languages: 'ReactJS | MongoDB | Mongoose | Express | CSS3 | HTML5 | Postman | Heroku'
+        },
+        {
+            image: { image: isLightTheme ? IveGotToDoThisDark : IveGotToDoThisLight },
+            imageAlt: 'sample of i\'ve got to do this',
+            title: `I've got to do this!`,
+            text: 'A todo list web app using both Redux and an external emoji API',
+            deploy: 'https://todo-list-redux-a3scb03e9-lucy-quinn.vercel.app/',
+            github: 'https://github.com/Lucy-Quinn/Todo-List-Redux',
+            languages: 'ReactJS | Redux | Redux-Saga | Styled-components | Lodash | Prop-types | Axios | React-datepicker | Eslint | Prettier | Vercel'
         },
     ]
     return (

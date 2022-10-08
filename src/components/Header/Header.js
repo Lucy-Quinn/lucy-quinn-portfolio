@@ -7,7 +7,7 @@ import ArrowDownLight from './../../images/button-arrow-down-light.svg';
 import ArrowDownDark from './../../images/button-arrow-down-dark.svg';
 
 const languagesArray = [
-  'JavaScript', 'React', 'MongoDB', 'Mongoose', 'Express.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap'
+  'JavaScript', 'React', 'Kotlin', 'SpringBoot', 'TypeScript','MongoDB', 'MySQL', 'Postgres', 'Express.js', 'Node.js', 'HTML5', 'CSS3', 'Bootstrap', 'Redux', 'JUnit', 'Jest', 'Docker', 'Git/GitHub'
 ]
 
 const Header = () => {
@@ -46,10 +46,10 @@ const Header = () => {
             >A full stack web developer based in sunny Barcelona</Title>
             <LanguageList theme={theme}
               variants={headerChildVariants}
-            >I speak JavaScript, React.js, MongoDB, Mongoose, Express.js, Node.js, HTML5, CSS3, English, Italian and Spanish. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
+            >I speak JavaScript, React.js (Jest testing), TypeScript, Kotlin (JUnit testing), SpringBoot, Docker, MySQL, Postgres, MongoDB, Express.js, Node.js, Git/GitHub, HTML5, CSS3, English, Spanish, and Italian. When I'm not coding, I'm probaby dreaming about it. :&#41;</LanguageList>
           </motion.div>
           {isLoad ?
-            <LanguageTabs
+          <LanguageTabs
               variants={languageParentVariants}
               initial="hidden"
               animate="visible"
@@ -65,6 +65,7 @@ const Header = () => {
             :
             null
           }
+          
         </HeaderContainerDesktop>
         <motion.a href="#about">
           <ArrowDown src={isLightTheme ? ArrowDownLight : ArrowDownDark} alt="icon of arrow pointing down"
