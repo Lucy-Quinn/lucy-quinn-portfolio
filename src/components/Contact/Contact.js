@@ -113,8 +113,7 @@ const Contact = () => {
                             animate="visible"
                             ref={contactRef}
                         >
-                            <ContactDetails theme={theme} variants={contactChildVariants}>+44(0)7894 274 470</ContactDetails>
-                            <ContactDetails theme={theme} variants={contactChildVariants}>+34 634 328 672</ContactDetails>
+                            <ContactDetails theme={theme} variants={contactChildVariants}>+34 697 476 263</ContactDetails>
                         </motion.div>
                         :
                         <ReplacementContact
