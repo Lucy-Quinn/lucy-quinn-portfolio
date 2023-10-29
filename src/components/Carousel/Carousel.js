@@ -1,63 +1,128 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
-import VideoStoreLight from './../../images/the_video_store_light.png';
-import SimpleStepsLight from './../../images/simple_steps_light.png';
-import TravelGuruLight from './../../images/travel_guru_light.png';
-import VideoStoreDark from './../../images/the_video_store_dark.png';
-import SimpleStepsDark from './../../images/simple_steps_dark.png';
-import TravelGuruDark from './../../images/travel_guru_dark.png';
-import IveGotToDoThisDark from './../../images/ive_got_to_do_this_dark.png';
-import IveGotToDoThisLight from './../../images/ive_got_to_do_this_light.png';
-import CarouselContainer from './../CarouselContainer/CarouselContainer'
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import { motion } from "framer-motion";
+import {
+  ProjectLinks,
+  Button,
+  ProjectLinksContainer,
+  Projects,
+} from "./Carousel.styled";
+import {
+  cvVariants,
+  deployVariants,
+  githubVariants,
+} from "./Carousel.variants";
+import ProjectCard from "../ProjectCard/ProjectCard";
+import PopOut from "../PopOut/PopOut";
+import { AnimatePresence } from "framer-motion";
+import GithubLight from "./../../images/github-light.svg";
+import GithubDark from "./../../images/github-dark.svg";
 
-const Carousel = () => {
+const Carousel = ({ projects }) => {
+  const [activeProject, setActiveProject] = useState([]);
+  const [isOpen, setIsOpen] = useState(false);
 
-    const { isLightTheme } = useContext(ThemeContext);
+  const { isLightTheme, themes } = useContext(ThemeContext);
+  const theme = isLightTheme ? themes.light : themes.dark;
 
-    const projects = [
-        {
-            image: { image: isLightTheme ? VideoStoreLight : VideoStoreDark },
-            imageAlt: 'sample of the video store project',
-            title: 'The Video Store',
-            text: 'The Video Store will provide you with a selection of those most popular movies. You can favourite the movies, rent them or simply just browse for ideas...',
-            deploy: 'https://lucy-quinn.github.io/The-Video-Store-m1-Project/',
-            github: 'https://github.com/Lucy-Quinn/The-Video-Store-m1-Project',
-            languages: 'HTML5 | CSS3 | JavaScript | Bootstrap | External API'
+  //React Slick settings
+  const settings = {
+    dots: true,
+    infinite: true,
+    accessibility: true,
+    slidesToShow: 3,
+    arrows: true,
+    slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 1,
         },
-        {
-            image: { image: isLightTheme ? SimpleStepsLight : SimpleStepsDark },
-            imageAlt: 'sample of the simple steps project',
-            title: 'Simple Steps',
-            text: 'A web app that connects volunteers and charities in Barcelona, which offers two types of users; one to volunteer and one to find volunteers.',
-            deploy: 'https://simple-steps.herokuapp.com/',
-            github: 'https://github.com/Lucy-Quinn/Simple-Steps',
-            languages: 'Server Side Rendering | HTML5 | CSS3 | NodeJS | Express | MongoDB | Mongoose | JSX | Heroku'
+      },
+      {
+        breakpoint: 700,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
 
-        },
-        {
-            image: { image: isLightTheme ? TravelGuruLight : TravelGuruDark },
-            imageAlt: 'sample of the travel guru project',
-            title: 'Travel Guru',
-            text: 'A full stack web app with the intention for users to be able to log and keep a record of all of their travel memories and find travel inspiration.',
-            deploy: 'https://travel-guru.herokuapp.com/',
-            github: 'https://github.com/Lucy-Quinn/Client-Travel-Guru',
-            languages: 'ReactJS | MongoDB | Mongoose | Express | CSS3 | HTML5 | Postman | Heroku'
-        },
-        {
-            image: { image: isLightTheme ? IveGotToDoThisDark : IveGotToDoThisLight },
-            imageAlt: 'sample of i\'ve got to do this',
-            title: `I've got to do this!`,
-            text: 'A todo list web app using both Redux and an external emoji API',
-            deploy: 'https://todo-list-redux-a3scb03e9-lucy-quinn.vercel.app/',
-            github: 'https://github.com/Lucy-Quinn/Todo-List-Redux',
-            languages: 'ReactJS | Redux | Redux-Saga | Styled-components | Lodash | Prop-types | Axios | React-datepicker | Eslint | Prettier | Vercel'
-        },
-    ]
-    return (
-        <div className="carousel">
-            <CarouselContainer projects={projects} />
-        </div>
-    );
-}
+  const handleProject = (currentProject) => {
+    setIsOpen(true);
+    setActiveProject({
+      title: currentProject.title,
+      deploy: currentProject.deploy,
+      github: currentProject.github,
+      languages: currentProject.languages,
+      text: currentProject.text,
+    });
+  };
+
+  return (
+    <div>
+      <Projects {...settings} isLightTheme={isLightTheme} theme={theme}>
+        {projects.map((project, index) => {
+          return (
+            <div key={index}>
+              <ProjectCard project={project} />
+              <ProjectLinksContainer>
+                <Button
+                  variants={cvVariants}
+                  whileHover="hover"
+                  isLightTheme={isLightTheme}
+                  theme={theme}
+                  onClick={() => handleProject(project)}
+                >
+                  View Project Details
+                </Button>
+                <ProjectLinks theme={theme}>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={project.deploy}
+                  >
+                    <motion.i
+                      variants={deployVariants}
+                      whileHover="hover"
+                      className="fas fa-external-link-alt"
+                    ></motion.i>
+                  </a>
+                  <a
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    href={project.github}
+                  >
+                    <motion.img
+                      variants={githubVariants}
+                      whileHover="hover"
+                      src={isLightTheme ? GithubLight : GithubDark}
+                      alt="icon of github"
+                    />
+                  </a>
+                </ProjectLinks>
+              </ProjectLinksContainer>
+            </div>
+          );
+        })}
+      </Projects>
+
+      {/* Animate the popout component out of the DOM */}
+      <AnimatePresence>
+        {isOpen && (
+          <PopOut
+            close={() => setIsOpen(false)}
+            activeProject={activeProject}
+          />
+        )}
+      </AnimatePresence>
+    </div>
+  );
+};
 
 export default Carousel;
