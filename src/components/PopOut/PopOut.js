@@ -7,7 +7,6 @@ import { background, popout } from './PopOut.variants';
 const PopOut = ({ close, activeProject }) => {
     const { title, languages, text } = activeProject;
 
-    //Theme context
     const { isLightTheme, themes } = useContext(ThemeContext);
     const theme = isLightTheme ? themes.light : themes.dark;
 
@@ -17,8 +16,7 @@ const PopOut = ({ close, activeProject }) => {
                 variants={background}
                 onClick={close}
                 transition={{ duration: 0.2 }}
-            >
-            </Background>
+            />
             <PopoutContainer>
                 <PopoutCard variants={popout} >
                     <CardHeader>

@@ -3,15 +3,26 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ThemeContext } from "../../contexts/ThemeContext";
 import useWindowSize from "../../hooks/useWindowSize";
 import {
-  Nav, Link, ToggleButton, ThemeToggleAndLogo, Background, NavNotActive, ThemeToggleAndCv,
+  Nav,
+  Link,
+  ToggleButton,
+  ThemeToggleAndLogo,
+  Background,
+  NavNotActive,
+  ThemeToggleAndCv,
 } from "./Navbar.styled";
-import { variantContainer, backgroundVariants, cvVariants } from './Navbar.variants';
-import MobileNavLinks from './MobileNavLinks';
+import {
+  variantContainer,
+  backgroundVariants,
+  cvVariants,
+} from "./Navbar.variants";
+import MobileNavLinks from "./MobileNavLinks";
 import DesktopNavLinks from "./DesktopNavLinks";
 import ToggleButtonOpen from "./../../images/button-open.svg";
 import ThemeToggle from "./../../components/ThemeToggle/ThemeToggle";
 import Resume from "./../../images/open-cv.svg";
 import Logo from "./../Logo/Logo";
+import { LINKS } from "../../const";
 
 const Navbar = () => {
   const [isActive, setActive] = useState(false);
@@ -21,9 +32,9 @@ const Navbar = () => {
 
   //Scroll functionality to close navbar
   useEffect(() => {
-    let prevScrollpos = window.pageYOffset;
+    let prevScrollpos = window.scrollY;
     window.onscroll = function () {
-      let currentScrollPos = window.pageYOffset;
+      let currentScrollPos = window.scrollY;
       prevScrollpos < currentScrollPos &&
         setTimeout(() => {
           setActive(false);
@@ -35,7 +46,6 @@ const Navbar = () => {
   const handleToggle = () => {
     setActive(!isActive);
   };
-
 
   return (
     <div id="navbar">
@@ -108,7 +118,7 @@ const Navbar = () => {
                 theme={theme}
                 rel="noopener noreferrer"
                 target="_blank"
-                href="https://drive.google.com/file/d/14VGh_5NNR5d7X73LIIhCOoHAxtAaI27t/view?usp=sharing"
+                href={LINKS["cv"]}
               >
                 <motion.img
                   variants={cvVariants}

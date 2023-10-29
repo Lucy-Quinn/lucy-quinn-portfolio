@@ -7,8 +7,7 @@ const ProjectCard = ({ project }) => {
     return (
         <CardContainer>
             <Card>
-                <CardImage src={image} alt={imageAlt}>
-                </CardImage>
+                <CardImage src={image} alt={imageAlt} />
             </Card>
         </CardContainer>
     )
