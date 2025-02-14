@@ -1,23 +1,25 @@
-import styled from 'styled-components';
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
+import styled from "styled-components";
 
 const Container = styled(motion.div)`
   padding: 5px 12px 95px 12px;
-  background: ${({ isLightTheme, theme }) => isLightTheme ? null : theme.background};
-`
+  background: ${({ isLightTheme, theme }) =>
+    isLightTheme ? null : theme.background};
+`;
 
 const Div = styled(motion.p)`
-  color: ${({ isLightTheme, theme }) => isLightTheme ? theme.primaryColor : theme.div};
+  color: ${({ isLightTheme, theme }) =>
+    isLightTheme ? theme.primaryColor : theme.div};
   margin: 40px 0 0 0;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     margin: 0 0 5px 0;
     font-size: 1.1rem;
   }
-`
+`;
 
 const Heading = styled(motion.h2)`
   color: ${({ theme }) => theme.primaryColor};
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     margin: 0 0 22px 0;
     width: 100%;
     height: 84px;
@@ -25,18 +27,18 @@ const Heading = styled(motion.h2)`
     align-items: center;
     justify-content: center;
   }
-`
+`;
 
 const Description = styled(motion.p)`
   color: ${({ theme }) => theme.bodyCopy};
   padding-bottom: 30px;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     margin: 24px auto 60px auto;
-    width: 82%;
+    width: 83%;
     height: 88px;
     line-height: 40px;
   }
-`
+`;
 
 const Dots = styled.span`
   &::after {
@@ -57,48 +59,48 @@ const Dots = styled.span`
       content: "...";
     }
   }
-`
+`;
 
 const ReplacementDiv = styled.div`
   height: 24px;
   width: auto;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     height: 24px;
   }
-`
+`;
 
 const ReplacementHeading = styled.div`
   height: 32px;
   width: auto;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     height: 84px;
   }
-`
+`;
 
 const ReplacementDescription = styled.div`
   height: 126px;
   width: auto;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     height: 202px;
   }
-`
+`;
 
 const ReplacementCarousel = styled.div`
   height: 460px;
   width: auto;
-  @media(min-width: 1024px){
+  @media (min-width: 1024px) {
     height: 620px;
   }
-`
+`;
 
 export {
   Container,
-  Div,
-  Heading,
   Description,
+  Div,
   Dots,
+  Heading,
+  ReplacementCarousel,
+  ReplacementDescription,
   ReplacementDiv,
   ReplacementHeading,
-  ReplacementDescription,
-  ReplacementCarousel
-}
+};
