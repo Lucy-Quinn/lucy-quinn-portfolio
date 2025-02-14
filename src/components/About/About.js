@@ -1,20 +1,20 @@
 import React, { useContext, useRef } from "react";
 import { ThemeContext } from "../../contexts/ThemeContext";
+import { useScroll } from "../../hooks/useScroll";
 import Lucy from "./../../images/lucy.png";
 import {
+  AboutContainerDesktop,
   Container,
-  Image,
+  Description,
   Div,
   Heading,
-  Description,
-  ReplacementImg,
-  ReplacementDiv,
-  ReplacementTitle,
+  Image,
   ReplacementDescription,
-  AboutContainerDesktop,
+  ReplacementDiv,
+  ReplacementImg,
+  ReplacementTitle,
 } from "./About.styled";
 import { variantContainer, variants } from "./About.variants";
-import { useScroll } from "../../hooks/useScroll";
 
 const About = () => {
   const { isLightTheme, themes } = useContext(ThemeContext);
@@ -74,25 +74,33 @@ const About = () => {
 
         {useScroll(descriptionRef, descriptionReplacementRef) ? (
           <Description theme={theme} variants={variants} ref={descriptionRef}>
-            I am a full stack web developer from Bristol in England. I have
-            spent much time travelling abroad both personally and professionaly
-            and have lived in Italy and am now residing in Spain. My spare time
-            consists of running 10kms, yoga, making fajitas, watching foreign
-            films and planning my next scuba diving trip.
+            Hi! I'm Lucy, a full-stack web developer originally from Bristol,
+            UK, now living in sunny Spain (but always dreaming of my next dive
+            trip). 🌞
             <br />
-            I am an enthusiastic linguist, who is always learning and forever
-            making lists. I love creating projects and seeing them to the end.
-            My attention to detail is “spot on”!
+            I’ve had the privilege of living in Italy, traveling across the
+            world, and now I'm calling Spain home. When I'm not coding, you'll
+            find me running 10kms, practicing yoga, making some epic fajitas, or
+            binge-watching foreign films. 🎥 Oh, and scuba diving... did I
+            mention that? 🐠
             <br />
-            In October 2020 I completed a 9 week bootcamp course at Ironhack,
-            following this I furthered my career as a frontend developer and I
-            am currently working as a full stack developer.
-            <br />I am enthusiastic about what I do and throw myself into every
-            project. A technical language that I may lack in experience is
-            nothing but a new and exciting challenge for me to learn it. For
-            said reason, coding is the perfect profession for me, as I am
-            constantly learning. I am currently looking for my next challenge as
-            a full stack developer.
+            I’m a linguist at heart—whether it’s picking up a new language or
+            learning the latest tech, I’m always adding something new to my
+            list. Speaking of lists, they’re my thing! I love diving into
+            projects, problem-solving, and bringing them to life with clean,
+            effective solutions.
+            <br />
+            I’m a proud graduate of Ironhack's bootcamp, where I dove head-first
+            into the world of development, and I haven’t looked back since. With
+            a background in the travel industry and hands-on experience
+            modernizing legacy platforms, I’m passionate about building
+            scalable, high-performance web apps that not only look great but
+            also work seamlessly—just like a well-planned trip!
+            <br />
+            Currently, I’m on the lookout for my next big challenge. If you're
+            looking for someone who’s excited to learn, solve problems, and
+            bring designs to life, I’m your gal! Let's chat about what I can do
+            for you.
           </Description>
         ) : (
           <ReplacementDescription ref={descriptionReplacementRef} />
