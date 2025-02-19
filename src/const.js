@@ -17,7 +17,7 @@ export const LANGUAGES_ARRAY = [
 ];
 
 export const LINKS = {
-  cv: "https://drive.google.com/file/d/17hvtGGiCSfHYutwyKHl7nWXVM17OMp4-/view?usp=sharing",
+  cv: "https://drive.google.com/file/d/12vtTBlGqwcWi_ssih_UGq4wicRG9jplm/view?usp=sharing",
   linkedIn: "https://www.linkedin.com/in/lucy-quinn/",
   gitHub: "https://github.com/Lucy-Quinn",
   skype: "skype:live:.cid.1d6573efe4ce3449?chat",
